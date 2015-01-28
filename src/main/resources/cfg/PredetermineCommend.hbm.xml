@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="PredetermineCommend" table="predetermine_commend" catalog="hms">
+        <id name="commendId" type="string">
+            <column name="commend_id" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="predetermineId" type="string">
+            <column name="predetermine_id" length="20" not-null="true" />
+        </property>
+        <property name="commendContend" type="string">
+            <column name="commend_contend" length="100" not-null="true" />
+        </property>
+        <property name="score1" type="float">
+            <column name="score1" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="score2" type="float">
+            <column name="score2" precision="12" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

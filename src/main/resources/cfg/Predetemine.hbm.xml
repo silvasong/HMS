@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Predetemine" table="predetemine" catalog="hms">
+        <id name="predetermineId" type="string">
+            <column name="predetermine_id" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="idCard" type="string">
+            <column name="id_card" length="18" not-null="true" />
+        </property>
+        <property name="presetTime" type="string">
+            <column name="preset_time" length="16777215" not-null="true" />
+        </property>
+        <property name="roomType" type="int">
+            <column name="room_type" not-null="true" />
+        </property>
+        <property name="number" type="int">
+            <column name="number" not-null="true" />
+        </property>
+        <property name="customerIdCard" type="string">
+            <column name="customer_id_card" length="18" not-null="true" />
+        </property>
+        <property name="customerName" type="string">
+            <column name="customer_name" length="20" not-null="true" />
+        </property>
+        <property name="checkInTime" type="string">
+            <column name="check_in_time" length="16777215" not-null="true" />
+        </property>
+        <property name="checkOutTime" type="string">
+            <column name="check_out_time" length="16777215" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="RoomCount" table="room_count" catalog="hms">
+        <id name="time" type="string">
+            <column name="time" />
+            <generator class="assigned" />
+        </id>
+        <property name="roomType" type="int">
+            <column name="room_type" not-null="true" />
+        </property>
+        <property name="sum" type="int">
+            <column name="sum" not-null="true" />
+        </property>
+        <property name="predetermine" type="int">
+            <column name="predetermine" not-null="true" />
+        </property>
+        <property name="surplus" type="int">
+            <column name="surplus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

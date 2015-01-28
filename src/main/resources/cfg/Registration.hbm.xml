@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Registration" table="registration" catalog="hms">
+        <id name="id" type="string">
+            <column name="id" length="11" />
+            <generator class="assigned" />
+        </id>
+        <property name="roomId" type="int">
+            <column name="room_id" not-null="true" />
+        </property>
+        <property name="checkInTime" type="string">
+            <column name="check_in_time" length="16777215" not-null="true" />
+        </property>
+        <property name="checkOutTime" type="string">
+            <column name="check_out_time" length="16777215" not-null="true" />
+        </property>
+        <property name="customerIdCard" type="string">
+            <column name="customer_id_card" length="40" not-null="true" />
+        </property>
+        <property name="customerName" type="string">
+            <column name="customer_name" length="40" not-null="true" />
+        </property>
+        <property name="predetermineId" type="string">
+            <column name="predetermine_id" length="11" not-null="true" />
+        </property>
+        <property name="day" type="int">
+            <column name="day" not-null="true" />
+        </property>
+        <property name="cost" type="int">
+            <column name="cost" not-null="true" />
+        </property>
+        <property name="margin" type="int">
+            <column name="margin" not-null="true" />
+        </property>
+        <property name="checkInAdmin" type="int">
+            <column name="check_in_admin" not-null="true" />
+        </property>
+        <property name="checkOutAdmin" type="int">
+            <column name="check_out_admin" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

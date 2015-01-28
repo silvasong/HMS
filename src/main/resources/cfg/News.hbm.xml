@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="News" table="news" catalog="hms">
+        <id name="newId" type="int">
+            <column name="new_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="newTitle" type="string">
+            <column name="new_title" length="50" not-null="true" />
+        </property>
+        <property name="newContent" type="string">
+            <column name="new_content" length="1000" not-null="true" />
+        </property>
+        <property name="newAuthor" type="string">
+            <column name="new_author" length="20" not-null="true" />
+        </property>
+        <property name="newTime" type="string">
+            <column name="new_time" length="16777215" not-null="true" />
+        </property>
+        <property name="newType" type="int">
+            <column name="new_type" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

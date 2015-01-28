@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="RoomType" table="room_type" catalog="hms">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="type" type="string">
+            <column name="type" length="20" not-null="true" />
+        </property>
+        <property name="price" type="int">
+            <column name="price" not-null="true" />
+        </property>
+        <property name="discountPrice" type="int">
+            <column name="discount_price" not-null="true" />
+        </property>
+        <property name="bedNumber" type="int">
+            <column name="bed_number" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
