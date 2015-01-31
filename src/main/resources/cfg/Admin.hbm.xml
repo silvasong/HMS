@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="Admin" table="admin" catalog="hms">
+    <class name="com.hms.dto.Admin" table="admin" catalog="hms">
         <id name="adminId" type="java.lang.Integer">
             <column name="admin_id" />
             <generator class="identity" />
@@ -12,7 +12,7 @@
             <column name="admin_name" length="30" not-null="true" />
         </property>
         <property name="password" type="string">
-            <column name="password" length="30" not-null="true" />
+            <column name="password" length="100" not-null="true" />
         </property>
         <property name="roleId" type="int">
             <column name="role_id" not-null="true" />

@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="CommentReply" table="comment_reply" catalog="hms">
+    <class name="com.hms.dto.CommentReply" table="comment_reply" catalog="hms">
         <id name="commentReplyId" type="string">
             <column name="comment_reply_id" length="20" />
             <generator class="assigned" />

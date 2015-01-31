@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="Customer" table="customer" catalog="hms">
+    <class name="com.hms.dto.Customer" table="customer" catalog="hms">
         <id name="idCard" type="string">
             <column name="id_card" length="18" />
             <generator class="assigned" />

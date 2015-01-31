@@ -14,7 +14,11 @@
  	<context:component-scan base-package="com.hms.action,com.hms.service,com.hms.dao"/>
  	
  	<!--开启请求URL映射的自动注解 -->
- 	<mvc:annotation-driven/>
+ 	<!-- <mvc:annotation-driven/> -->
+ 	
+ 	<!-- 手动引入请求URL映射注解支持类 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
  	
  	<mvc:view-controller path="/" view-name="forward:/login"/>
  	
@@ -31,6 +35,16 @@
 		<!--模板文件后缀 -->
 		<property name="suffix" value=".jsp" />
 	</bean>	
+    
+    <!--拦截器-->
+	<mvc:interceptors>
+		<!-- 拦截指定请求 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/*/**"/>
+			<mvc:exclude-mapping path="/admin/login"/>
+			<bean class="com.hms.core.PermissionInterceptor"></bean>		
+		</mvc:interceptor>	    
+	</mvc:interceptors>
     
     <!-- Spring MVC 文件上传配置 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" p:defaultEncoding="utf-8">  

@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="RoomCount" table="room_count" catalog="hms">
+    <class name="com.hms.dto.RoomCount" table="room_count" catalog="hms">
         <id name="time" type="string">
             <column name="time" />
             <generator class="assigned" />

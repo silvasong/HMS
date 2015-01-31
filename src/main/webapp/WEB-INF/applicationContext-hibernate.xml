@@ -31,7 +31,18 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingResources">
             <list>
-                
+                <value>cfg/Admin.hbm.xml</value>
+                <value>cfg/CommentReply.hbm.xml</value>
+                <value>cfg/Customer.hbm.xml</value>
+                <value>cfg/News.hbm.xml</value>
+                <value>cfg/NewType.hbm.xml</value>
+                <value>cfg/Predetemine.hbm.xml</value>
+                <value>cfg/PredetermineCommend.hbm.xml</value>
+                <value>cfg/Registration.hbm.xml</value>
+                <value>cfg/Role.hbm.xml</value>
+                <value>cfg/Room.hbm.xml</value>
+                <value>cfg/RoomCount.hbm.xml</value>
+                <value>cfg/RoomType.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">

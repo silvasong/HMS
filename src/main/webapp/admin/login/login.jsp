@@ -53,7 +53,7 @@
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="index.html" method="post">
+	<form:form class="login-form" action="" method="post" commandName="admin">
 		<h3 class="form-title">登 录</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
@@ -63,11 +63,11 @@
 		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 			<label class="control-label visible-ie8 visible-ie9">用 户 名</label>
-			<input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
+			<form:input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" path="adminName"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">密 码</label>
-			<input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+			<form:input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" path="password"/>
 		</div>
 		<div class="form-actions">
 			<button type="submit" class="btn btn-success uppercase">登 录</button>
@@ -80,7 +80,7 @@
 			
 		</div>
 		
-	</form>
+	</form:form>
 	<!-- END LOGIN FORM -->
 	<!-- BEGIN FORGOT PASSWORD FORM -->
 	<form class="forget-form" action="index.html" method="post">
