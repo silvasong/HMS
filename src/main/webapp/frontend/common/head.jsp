@@ -10,16 +10,16 @@
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
-                        <li><i class="fa fa-envelope-o"></i><span>info@keenthemes.com</span></li>
+                        <li><i class="fa fa-phone"></i><span>+86 182 2775 5590</span></li>
+                        <li><i class="fa fa-envelope-o"></i><span>silva.song@aliyun.com</span></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR LEFT PART -->
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="page-login.html">Log In</a></li>
-                        <li><a href="page-reg-page.html">Registration</a></li>
+                        <li><a href="page-login.html">登录</a></li>
+                        <li><a href="page-reg-page.html">注册</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
@@ -30,7 +30,7 @@
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-        <a class="site-logo" href="index.html"><img src="assets/frontend/layout/img/logos/logo-corp-red.png" alt="Metronic FrontEnd"></a>
+        <a class="site-logo" href="<c:url value="/"/>"><img src="assets/frontend/layout/img/logos/logo-corp-red.png" alt="Metronic FrontEnd"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
