@@ -70,7 +70,7 @@
 						data-masterspeed="700" data-delay="9400"
 						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
 						<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img
-						src="assets/frontend/pages/img/revolutionslider/bg9.jpg" alt="">
+						src="assets/frontend/pages/img/revolutionslider/index-bg.jpg" alt="">
 					</li>
 
 					<!-- THE FIRST SLIDE -->
@@ -78,14 +78,14 @@
 						data-masterspeed="700" data-delay="9400"
 						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
 						<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img
-						src="assets/frontend/pages/img/revolutionslider/bg9.jpg" alt="">
+						src="assets/frontend/pages/img/revolutionslider/index-bg.jpg" alt="">
 					</li>
 
 					<!-- THE SECOND SLIDE -->
 					<li data-transition="fade" data-slotamount="7"
 						data-masterspeed="300" data-delay="9400"
 						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-						<img src="assets/frontend/pages/img/revolutionslider/bg9.jpg"
+						<img src="assets/frontend/pages/img/revolutionslider/index-bg.jpg"
 						alt="">
 					</li>
 
@@ -93,7 +93,7 @@
 					<li data-transition="fade" data-slotamount="8"
 						data-masterspeed="700" data-delay="9400"
 						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-						<img src="assets/frontend/pages/img/revolutionslider/bg9.jpg"
+						<img src="assets/frontend/pages/img/revolutionslider/index-bg.jpg"
 						alt="">
 					</li>
 
@@ -102,7 +102,7 @@
 						data-masterspeed="700" data-delay="9400"
 						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
 						<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img
-						src="assets/frontend/pages/img/revolutionslider/bg9.jpg" alt="">
+						src="assets/frontend/pages/img/revolutionslider/index-bg.jpg" alt="">
 
 					</li>
 				</ul>

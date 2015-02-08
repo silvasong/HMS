@@ -7,15 +7,15 @@ package com.hms.dto;
 public class Setting implements java.io.Serializable {
 
 	private int id;
-	private String key;
+	private String name;
 	private String value;
 
 	public Setting() {
 	}
 
-	public Setting(int id, String key, String value) {
+	public Setting(int id, String name, String value) {
 		this.id = id;
-		this.key = key;
+		this.name = name;
 		this.value = value;
 	}
 
@@ -27,12 +27,12 @@ public class Setting implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getKey() {
-		return this.key;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setName(String key) {
-		this.key = key;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getValue() {

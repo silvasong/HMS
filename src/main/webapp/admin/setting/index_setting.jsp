@@ -95,7 +95,7 @@
 						<div class="portlet light">
 							<div class="portlet-title">
 								<div class="caption caption-md">
-									<span class="caption-subject theme-font bold uppercase">首页图片设置</span>
+									<span class="caption-subject theme-font bold uppercase">首页图片设置(注：最佳1920*445)</span>
 								</div>
 							</div>
                             <div class="portlet-body">
@@ -111,7 +111,7 @@
 								<div id="tab_images_uploader_filelist"
 									class="col-md-6 col-sm-12"></div>
 							</div>
-							<table class="table table-bordered table-hover">
+							<table class="table table-bordered table-hover" id="remove_bg">
 								<thead>
 									<tr role="row" class="heading">
 										<th width="80%">图片</th>
@@ -120,21 +120,19 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+								    <c:forEach var="b" items="${bg}">
+								    	<tr>
 										<td>
-											<div class="fileinput thumbnail" style="height: 100px;">
-												<img
-													src="http://www.placehold.it/2000x150/EFEFEF/AAAAAA&amp;text=no+image"
-													alt="" />
+											<div class="fileinput thumbnail" >
+												<img src="${b.value}"  alt="" style="height: 150px;" width="100%"/>
 											</div>
 										</td>
-										<td><a href="javascript:;" class="btn default btn-sm">
-												<i class="fa fa-times"></i> Remove
-										</a></td>
-									</tr>
-
-
-								</tbody>
+										<td><a class="btn default btn-sm remove"><i class="fa fa-times"></i> Remove</a>
+										    <input class="hide" value="${b.key}"/>
+										</td>
+									   </tr>
+								    </c:forEach>
+							   </tbody>
 							</table>
                             </div>
 							
@@ -199,11 +197,15 @@
 		type="text/javascript"></script>
 	<script src="../../assets/admin/layout/scripts/demo.js"
 		type="text/javascript"></script>
+		
+	<script src="../../static/admin/js/index_setting.js"
+		type="text/javascript"></script>
 	<script>
 		jQuery(document).ready(function() {
 			Metronic.init(); // init metronic core components
 			Layout.init(); // init current layout
 			Demo.init(); // init demo features
+			IndexSetting.init("<c:url value="/"/>");
 		});
 	</script>
 	<!-- END JAVASCRIPTS -->

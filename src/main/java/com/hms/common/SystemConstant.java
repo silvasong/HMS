@@ -1,4 +1,7 @@
 package com.hms.common;
+
+import java.io.File;
+
 /**
  * <p>Title: SystemConstant.java</p>
  * <p>Description: </p>
@@ -9,5 +12,10 @@ package com.hms.common;
 public class SystemConstant {
 	
 	public static String ADMIN_LOGIN="ADMIN_LOING";
-
+    
+	public static String INDEX_BG = "INDEX_BG";
+	
+	public static String INDEX_BG_PATH = File.separator+"upload"+File.separator+"admin"+File.separator+"setting"
+            +File.separator+"index_bg"+File.separator;
+	
 }

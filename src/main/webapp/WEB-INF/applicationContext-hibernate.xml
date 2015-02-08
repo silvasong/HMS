@@ -43,6 +43,7 @@
                 <value>cfg/Room.hbm.xml</value>
                 <value>cfg/RoomCount.hbm.xml</value>
                 <value>cfg/RoomType.hbm.xml</value>
+                <value>cfg/Setting.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -78,6 +79,7 @@
         <tx:attributes>
             <tx:method name="get*" read-only="true"/>
 			<tx:method name="update*" rollback-for="Exception" propagation="REQUIRED"/>
+			<tx:method name="save*" rollback-for="Exception" propagation="REQUIRED"/>
 			<tx:method name="create*" rollback-for="Exception" propagation="REQUIRED"/>
 			<tx:method name="delete*" rollback-for="Exception" propagation="REQUIRED"/>
 			<tx:method name="load*" rollback-for="Exception" propagation="REQUIRED"/>

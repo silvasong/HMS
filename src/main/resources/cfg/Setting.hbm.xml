@@ -8,8 +8,8 @@
             <column name="id" />
             <generator class="assigned" />
         </id>
-        <property name="key" type="string">
-            <column name="key" length="100" not-null="true" />
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
         </property>
         <property name="value" type="string">
             <column name="value" length="500" not-null="true" />
