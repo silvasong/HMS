@@ -58,6 +58,14 @@ public class AdminSettingController {
 			
 		}
 		mav.addObject("bg",bg);
+		t = settingService.getSettingByKey(SystemConstant.INDEX_PHONE);
+		if(t != null){
+			mav.addObject("phone", t.getValue());
+		}
+		t = settingService.getSettingByKey(SystemConstant.INDEX_EMAIL);
+		if(t != null){
+			mav.addObject("email", t.getValue());
+		}
 		mav.setViewName("admin/setting/index_setting");
 		return mav;
 	}
@@ -119,6 +127,23 @@ public class AdminSettingController {
     	}catch(Exception e){
     		resp.put("status", false);
     		e.printStackTrace();
+    	}
+    	return JSON.toJSONString(resp);
+    }
+    
+    @RequestMapping(value="edit_index_info",method=RequestMethod.POST)
+    @ResponseBody
+    public String editIndexInfo(HttpServletRequest request,String name,String value){
+    	JSONObject resp = new JSONObject();
+    	Setting t = settingService.getSettingByKey(name);
+    	if(t==null){
+    		t = new Setting();
+    		t.setName(name);
+    		t.setValue(value);
+    		settingService.saveSetting(t);
+    	}else{
+    		t.setValue(value);
+    		settingService.updateSetting(t);
     	}
     	return JSON.toJSONString(resp);
     }

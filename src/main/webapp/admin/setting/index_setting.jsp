@@ -37,7 +37,7 @@
 	href="../../assets/global/plugins/select2/select2.css" />
 <link rel="stylesheet" type="text/css"
 	href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
-
+<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css"/>
 <!-- BEGIN THEME STYLES -->
 <link href="../../assets/global/css/components-rounded.css"
 	id="style_components" rel="stylesheet" type="text/css">
@@ -141,6 +141,65 @@
 						</div>
 					</div>
 				</div>
+				<div class="row margin-top-10">
+					<div class="col-md-12">
+					<div class="portlet light">
+				
+				    <div class="portlet-title">
+								<div class="caption caption-md">
+									<span class="caption-subject theme-font bold uppercase">首页信息设置</span>
+								</div>
+					</div>
+					<div class="portlet-body">
+					<div class="row">
+						<div class="col-md-12">
+						    <button id="enable" class="btn blue">Enable / Disable</button>
+							<hr>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<table id="setting" class="table table-bordered table-striped">
+							<tbody>
+							<tr>
+								<td style="width:15%">
+									 电话
+								</td>
+								<td style="width:50%">
+									<a href="javascript:;" id="index_phone" data-type="text" data-pk="1" data-original-title="Enter Phone" class="editable editable-click editable-disabled">
+									${phone}</a>
+								</td>
+								<td style="width:35%">
+									<span class="text-muted">
+									电话设置</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:15%">
+									 邮箱
+								</td>
+								<td style="width:50%">
+									<a href="javascript:;" id="index_email" data-type="text" data-pk="1" data-original-title="Enter Email" class="editable editable-click editable-disabled">
+									${email}</a>
+								</td>
+								<td style="width:35%">
+									<span class="text-muted">
+									邮箱设置</span>
+								</td>
+							</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+					</div>
+				
+			</div>
+					
+					
+				    </div>
+			   </div>
+				
+				
 				<!-- END PAGE CONTENT INNER -->
 			</div>
 		</div>
@@ -190,6 +249,7 @@
 	<script
 		src="../../assets/global/plugins/plupload/js/plupload.full.min.js"
 		type="text/javascript"></script>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js"></script>
 	<!-- END  PLUGINS -->
 	<script src="../../assets/global/scripts/metronic.js"
 		type="text/javascript"></script>

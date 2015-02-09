@@ -122,7 +122,52 @@ var IndexSetting = function () {
 	        });
 	 }
 	
-	//提示信息处理方法（是在页面中指定位置显示提示信息的方式）
+	
+	    var initEditables = function () {
+
+	        //set editable mode based on URL parameter
+	        if (Metronic.getURLParameter('mode') == 'inline') {
+	            $.fn.editable.defaults.mode = 'inline';
+	            $('#inline').attr("checked", true);
+	            jQuery.uniform.update('#inline');
+	        } else {
+	            $('#inline').attr("checked", false);
+	            jQuery.uniform.update('#inline');
+	        }
+
+	        //global settings 
+	        $.fn.editable.defaults.inputclass = 'form-control';
+	        $.fn.editable.defaults.url = rootURI+'admin/setting/edit_index_info?random='+Math.random();
+
+	        //editables element samples 
+	        $('#index_phone').editable({
+	            url: rootURI+'admin/setting/edit_index_info?random='+Math.random(),
+	            type: 'text',
+	            pk: 1,
+	            disabled:true,
+	            name: 'INDEX_PHONE',
+	            title: 'Enter Phone',
+	            
+	            success:function(){
+	            	handleAlerts("修改成功","success","",10);
+	            },
+	            error:function(){
+	            	handleAlerts("修改失败","success","",10);
+	            }
+	           
+	        });
+	        $('#index_email').editable({
+	            url: rootURI+'admin/setting/edit_index_info?random='+Math.random(),
+	            type: 'text',
+	            pk: 1,
+	            disabled:true,
+	            name: 'INDEX_EMAIL',
+	            title: 'Enter Email'
+	        });
+	
+	    } 
+	    
+	  //提示信息处理方法（是在页面中指定位置显示提示信息的方式）
 		var handleAlerts = function(msg,msgType,position,closeInSeconds) {         
 	        Metronic.alert({
 	            container: position, // alerts parent container(by default placed after the page breadcrumbs)
@@ -136,14 +181,21 @@ var IndexSetting = function () {
 	            icon: "warning" // put icon before the message, use the font Awesone icon (fa-[*])
 	        });        
 
-	    };
-	 
+	    }
+	    
+	    
     return {
         //main function to initiate the module
         	init: function (rootPath) {
         	rootURI=rootPath;
         	handleImages();
         	removeImage();
+        	initEditables();
+        	
+        	 // init editable toggler
+            $('#enable').click(function () {
+                $('#setting .editable').editable('toggleDisabled');
+            });
         }
 
     };
