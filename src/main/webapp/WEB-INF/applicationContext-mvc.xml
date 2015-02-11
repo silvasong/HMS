@@ -20,7 +20,7 @@
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
  	
- 	<mvc:view-controller path="/" view-name="forward:/login"/>
+ 	<mvc:view-controller path="/" view-name="forward:/"/>
  	
  	<!-- 静态资源访问 -->
     <mvc:resources location="/static/" mapping="/static/**"/>

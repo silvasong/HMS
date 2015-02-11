@@ -60,57 +60,7 @@
 	<c:import url="/frontend/common/head" />
 	<!-- Header END -->
 
-	<!-- BEGIN SLIDER -->
-	<div class="page-slider margin-bottom-40">
-		<div class="fullwidthbanner-container revolution-slider">
-			<div class="fullwidthabnner">
-				<ul id="revolutionul">
-					<!-- THE NEW SLIDE -->
-					<li data-transition="fade" data-slotamount="8"
-						data-masterspeed="700" data-delay="9400"
-						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-						<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img
-						src="assets/frontend/pages/img/revolutionslider/index-bg.jpg" alt="">
-					</li>
-
-					<!-- THE FIRST SLIDE -->
-					<li data-transition="fade" data-slotamount="8"
-						data-masterspeed="700" data-delay="9400"
-						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-						<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img
-						src="assets/frontend/pages/img/revolutionslider/index-bg.jpg" alt="">
-					</li>
-
-					<!-- THE SECOND SLIDE -->
-					<li data-transition="fade" data-slotamount="7"
-						data-masterspeed="300" data-delay="9400"
-						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-						<img src="assets/frontend/pages/img/revolutionslider/index-bg.jpg"
-						alt="">
-					</li>
-
-					<!-- THE THIRD SLIDE -->
-					<li data-transition="fade" data-slotamount="8"
-						data-masterspeed="700" data-delay="9400"
-						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-						<img src="assets/frontend/pages/img/revolutionslider/index-bg.jpg"
-						alt="">
-					</li>
-
-					<!-- THE FORTH SLIDE -->
-					<li data-transition="fade" data-slotamount="8"
-						data-masterspeed="700" data-delay="9400"
-						data-thumb="assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-						<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img
-						src="assets/frontend/pages/img/revolutionslider/index-bg.jpg" alt="">
-
-					</li>
-				</ul>
-				<div class="tp-bannertimer tp-bottom"></div>
-			</div>
-		</div>
-	</div>
-	<!-- END SLIDER -->
+	<c:import url="/frontend/common/page_slider"/>
 
 	<div class="main">
 		<div class="container">
@@ -118,30 +68,23 @@
 			<div class="row service-box margin-bottom-40">
 				<div class="col-md-4 col-sm-4">
 					<div class="service-box-heading">
-						<em><i class="fa fa-location-arrow blue"></i></em> <span>Multipurpose
-							Template</span>
+						<em><i class="fa fa-location-arrow blue"></i></em> <span>Location
+							</span>
 					</div>
-					<p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor
-						incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde
-						omnis iste natus error sit voluptatem.</p>
+					<p>   繁华都市中的宁静栖息地，是为热爱生活和讲求生活品质的客人准备的旅途居所，不追求奢华的装饰与接待的繁文缛节，提供的是亲近自然的环境、细致周到的服务，致力于为客人提供一个放松身心轻松自在的家外之家。</p>
 				</div>
 				<div class="col-md-4 col-sm-4">
 					<div class="service-box-heading">
-						<em><i class="fa fa-check red"></i></em> <span>Well
-							Documented</span>
+						<em><i class="fa fa-check red"></i></em> <span>Service</span>
 					</div>
-					<p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor
-						incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde
-						omnis iste natus error sit voluptatem.</p>
+					<p>酒店以真诚为本、亲切于心的传统为尊，为客人提供精致优雅的住宿环境和无微不至的优良服务。</p>
 				</div>
 				<div class="col-md-4 col-sm-4">
 					<div class="service-box-heading">
-						<em><i class="fa fa-compress green"></i></em> <span>Responsive
-							Design</span>
+						<em><i class="fa fa-compress green"></i></em> <span>
+							Facilities</span>
 					</div>
-					<p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor
-						incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde
-						omnis iste natus error sit voluptatem.</p>
+					<p>宽敞的厅堂、温馨的大堂吧、绿色人文景观、现代化的会议设施、充分满足客人的个性化的需求；装饰简洁、色调淡雅的客房，温馨舒适，丰盛的商务早餐和时尚的健身中心为繁忙的商务人士提供细致周到的服务。</p>
 				</div>
 			</div>
 			<!-- END SERVICE BOX -->

@@ -37,7 +37,7 @@ import com.mysql.fabric.xmlrpc.base.Array;
  */
 @Controller
 @RequestMapping(value="/admin/setting")
-public class AdminSettingController {
+public class AdminSettingController extends BaseController{
 	
 	@Autowired
 	private SettingService settingService;

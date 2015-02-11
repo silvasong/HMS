@@ -1,5 +1,7 @@
 package com.hms.service;
 
+import java.util.List;
+
 import com.hms.dto.Setting;
 
 /**
@@ -16,5 +18,7 @@ public interface SettingService {
 	public void saveSetting(Setting setting);
 	
 	public void updateSetting(Setting setting);
+	
+	public List<Setting> loadAllSettings();
 
 }

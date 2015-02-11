@@ -1,5 +1,7 @@
 package com.hms.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,11 @@ public class SettingServiceImpl implements SettingService {
 	public void updateSetting(Setting setting) {
 		// TODO Auto-generated method stub
 		settingDao.update(setting);
+	}
+
+	public List<Setting> loadAllSettings() {
+		// TODO Auto-generated method stub
+		return settingDao.loadAll();
 	}
 
 }

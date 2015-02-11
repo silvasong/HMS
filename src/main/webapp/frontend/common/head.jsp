@@ -10,8 +10,8 @@
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-phone"></i><span>+86 182 2775 5590</span></li>
-                        <li><i class="fa fa-envelope-o"></i><span>silva.song@aliyun.com</span></li>
+                        <li><i class="fa fa-phone"></i><span>${phone}</span></li>
+                        <li><i class="fa fa-envelope-o"></i><span>${email}</span></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR LEFT PART -->
@@ -37,10 +37,15 @@
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation pull-Left font-transform-inherit">
           <ul>
+              <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="<c:url value="/"/>">
+                          首页 
+              </a>
+             </li>
              <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                Blog 
-                
+                 
+                Blog
               </a>
                 
               <ul class="dropdown-menu">
