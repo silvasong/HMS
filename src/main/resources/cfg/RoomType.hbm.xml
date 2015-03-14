@@ -6,7 +6,7 @@
     <class name="com.hms.dto.RoomType" table="room_type" catalog="hms">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="type" type="string">
             <column name="type" length="20" not-null="true" />
@@ -20,5 +20,9 @@
         <property name="bedNumber" type="int">
             <column name="bed_number" not-null="true" />
         </property>
+        <set name="roomTypeImages">
+        	<key column="room_tpye_id"></key>
+        	<one-to-many class="com.hms.dto.RoomTypeImage"/>
+        </set>
     </class>
 </hibernate-mapping>

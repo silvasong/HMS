@@ -43,6 +43,7 @@
                 <value>cfg/Room.hbm.xml</value>
                 <value>cfg/RoomCount.hbm.xml</value>
                 <value>cfg/RoomType.hbm.xml</value>
+                <value>cfg/RoomTypeImage.hbm.xml</value>
                 <value>cfg/Setting.hbm.xml</value>
             </list>
         </property>
@@ -53,7 +54,7 @@
 				<prop key="hibernate.dialect">${db.sql.dialect}</prop>
 				<prop key="hibernate.cache.use_query_cache">false</prop>
 				<prop key="hibernate.show_sql">true</prop>
-			<!--<prop key="hibernate.hbm2ddl.auto">update</prop>  -->
+			    <!--  <prop key="hibernate.hbm2ddl.auto">update</prop>-->  
    				<prop key="hibernate.cache.use_second_level_cache">false</prop>
 				<prop key="hibernate.max_fetch_depth">2</prop>
 				<prop key="hibernate.jdbc.fetch_size">50</prop>

@@ -62,13 +62,18 @@
 								<a href="<c:url value="/"/>admin/setting/index_setting">
 								首页设置 </a>
 							</li>
-							
-							
-							
-							
-							
-							
-						</ul>
+					   </ul>
+					</li>
+					<li class="menu-dropdown classic-menu-dropdown ">
+						<a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
+						客房设置 <i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu pull-left">
+							<li class="">
+								<a href="<c:url value="/"/>admin/room/room_type">
+								房型管理 </a>
+							</li>
+					   </ul>
 					</li>
 	
 				</ul>

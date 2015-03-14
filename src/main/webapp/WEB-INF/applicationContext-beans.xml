@@ -10,7 +10,8 @@
 	<bean id="adminService" class="com.hms.service.impl.AdminServiceImpl" autowire="byName"/>
     
     <bean id="settingService" class="com.hms.service.impl.SettingServiceImpl" autowire="byName"/>
-
+    
+    <bean id="adminRoomTypeService" class="com.hms.service.impl.AdminRoomTypeServiceImpl" autowire="byName"/>
 
 	  
 </beans>

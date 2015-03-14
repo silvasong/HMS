@@ -1,4 +1,6 @@
 package com.hms.dto;
+
+import java.util.Set;
 // Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0
 
 /**
@@ -11,7 +13,7 @@ public class RoomType implements java.io.Serializable {
 	private int price;
 	private int discountPrice;
 	private int bedNumber;
-
+    private Set<RoomTypeImage> roomTypeImages;
 	public RoomType() {
 	}
 
@@ -63,5 +65,14 @@ public class RoomType implements java.io.Serializable {
 	public void setBedNumber(int bedNumber) {
 		this.bedNumber = bedNumber;
 	}
+
+	public Set<RoomTypeImage> getRoomTypeImages() {
+		return roomTypeImages;
+	}
+
+	public void setRoomTypeImages(Set<RoomTypeImage> roomTypeImages) {
+		this.roomTypeImages = roomTypeImages;
+	}
+	
 
 }
