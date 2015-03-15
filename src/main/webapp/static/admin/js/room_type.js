@@ -67,14 +67,7 @@ var RoomType = function () {
 
 		});		
 
-		
-		
-		
-		
-		
-									
-		
-		//全选
+	    //全选
         $(".group-checkable").on('change',function () {
             var set = jQuery(this).attr("data-set");
             var checked = jQuery(this).is(":checked");
@@ -115,8 +108,64 @@ var RoomType = function () {
                 $(this).removeAttr("checked");
             }
         });
-                
-        /* handle show/hide columns*/
+         
+       //打开删除对话框前判断是否已选择要删除的行
+		$("#delete_btn").on("click",function(event){
+			if(selected.length==0){
+				handleAlerts("至少选择一行.","warning","");				
+				return false;
+			}else{
+			   $('#delete_modal').modal('show');
+			}
+		});
+		//删除操作
+		$('#delete_com').on('click', function (e) {
+			$.ajax( {
+             "dataType": 'json', 
+             "type": "DELETE", 
+             "url": rootURI+"admin/room/room_type/room_type_delete/"+selected.join(), 
+             "success": function(data,status){
+            	 if(status == "success"){					
+					 if(data.status){
+						 selected=[];						 
+		            	 oTable.api().draw();
+		            	 oTable.$('th span').removeClass();
+		            	 handleAlerts("删除成功. " ,"success","");
+					 }
+					 else{
+						 handleAlerts("删除失败. " ,"danger","");
+					 }
+				}             	 
+             },
+             "error":function(XMLHttpRequest, textStatus, errorThrown){
+            	 alert(errorThrown);
+             }
+           });
+			$('#delete_modal').modal('hide');
+        });
+		
+		$("#edit_btn").on("click",function(event){
+			if(selected.length != 1){
+				handleAlerts("请选择一行.","warning","");				
+				return false;
+			}else{
+				var data = oTable.api().row($("tr input:checked").parents('tr')).data();
+				var id = data.id;
+				var type = data.type;
+	            var price = data.price;
+	            var discountPrice  = data.discountPrice;
+	            var bedNumber  = data.bedNumber;
+	            $("#edit_from option").removeAttr("selected");
+	            $("#edit_from input[name='id']").val(id);
+	            $("#edit_from input[name='type']").val(type);
+	            $("#edit_from input[name='price']").val(price);
+	            $("#edit_from input[name='discountPrice']").val(discountPrice);
+	            $("#edit_from select[name='bedNumber']").children("option[value='"+bedNumber+"']").attr("selected","true")
+			   $('#edit_modal').show();
+			}
+		});
+		
+		/* handle show/hide columns*/
         var tableColumnToggler = $('#column_toggler');		
 		$('input[type="checkbox"]', tableColumnToggler).change(function () {
 		    /* Get the DataTables object again - this is not a recreation, just a get of the object */
@@ -128,11 +177,233 @@ var RoomType = function () {
         
 	};
 	
+	var handleImages = function() {
+
+        // see http://www.plupload.com/
+        var uploader = new plupload.Uploader({
+            runtimes : 'html5,flash,silverlight,html4',
+             
+            browse_button : document.getElementById('tab_images_uploader_pickfiles'), // you can pass in id...
+            container: document.getElementById('tab_images_uploader_container'), // ... or DOM Element itself
+             
+            url : rootURI+"admin/room/room_type/room_type_uploadImages?random="+Math.random(),
+             
+            filters : {
+                max_file_size : '10mb',
+                mime_types: [
+                    {title : "Image files", extensions : "jpg,gif,png"}
+                    
+                ]
+            },
+         
+            // Flash settings
+            flash_swf_url : '../../../assets/global/plugins/plupload/js/Moxie.swf',
+     
+            // Silverlight settings
+            silverlight_xap_url : '../../../assets/global/plugins/plupload/js/Moxie.xap',             
+         
+            init: {
+                PostInit: function() {
+                    $('#tab_images_uploader_filelist').html("");
+         
+                    $('#tab_images_uploader_uploadfiles').click(function() {
+                        uploader.start();
+                        return false;
+                    });
+
+                    $('#tab_images_uploader_filelist').on('click', '.added-files .remove', function(){
+                        uploader.removeFile($(this).parent('.added-files').attr("id"));    
+                        $(this).parent('.added-files').remove();                     
+                    });
+                },
+         
+                FilesAdded: function(up, files) {
+                    plupload.each(files, function(file) {
+                        $('#tab_images_uploader_filelist').append('<div class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ') <span class="status label label-info"></span>&nbsp;<a href="javascript:;" style="margin-top:-5px" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div>');
+                    });
+                },
+         
+                UploadProgress: function(up, file) {
+                    $('#uploaded_file_' + file.id + ' > .status').html(file.percent + '%');
+                },
+
+                FileUploaded: function(up, file, response) {
+                    var response = $.parseJSON(response.response);
+
+                    if (response.result && response.result == 'OK') {
+                        var id = response.id; // uploaded file's unique name. Here you can collect uploaded file names and submit an jax request to your server side script to process the uploaded files and update the images tabke
+                        $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-success").html('<i class="fa fa-check"></i> Done'); // set successfull upload
+                    } else {
+                        $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-danger").html('<i class="fa fa-warning"></i> Failed'); // set failed upload
+                        Metronic.alert({type: 'danger', message: 'One of uploads failed. Please retry.', closeInSeconds: 10, icon: 'warning','container':'#info'});
+                    }
+                   
+                },
+                 
+                Error: function(up, err) {
+                    Metronic.alert({type: 'danger', message: err.message, closeInSeconds: 10, icon: 'warning','container':'#info'});
+                }
+            }
+        });
+
+        uploader.init();
+
+    }
 	
-	
-    
+	//添加操作
+	var addRoomType=function(){		
+		$.ajax( {
+         "dataType": 'json', 
+         "type":'POST', 
+         "url": rootURI+"admin/room/room_type/room_type_add?random="+Math.random(), 
+         "data": $('#add_from').serialize(),
+         "success": function(resp,status){
+        	 if(status == "success"){  
+        		 if(resp.status){						 
+	            	 oTable.api().draw();
+	            	 handleAlerts("Added the data successfully.","success","");		            	 
+				 }
+				 else{
+					 handleAlerts("Failed to add the data.","danger","");						 
+				 }
+			}             	 
+         },
+         "error":function(XMLHttpRequest, textStatus, errorThrown){
+        	 alert(errorThrown);
+         }
+       });	
+		$('#add_modal').hide();
+    };
    
-	
+  //处理表单验证方法
+    var addFormValidation = function() {
+            var form = $('#add_from');
+            var errorDiv = $('.alert-danger', form);            
+            form.validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block help-block-error', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",  // validate all fields including form hidden input                
+                rules: {
+                    type:{
+                        
+                        required: true
+                    },
+                    price: {
+                        required: true,
+                        digits:true
+                    },
+                    discountPrice: {
+                        required: true,
+                        digits:true
+                    }                  
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit                	
+                    errorDiv.show();                    
+                },
+
+                highlight: function (element) { // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+                onfocusout: function (element) { // hightlight error inputs
+                    $(element).valid();
+                },
+                success: function (label) {
+                    label
+                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
+                },
+
+                submitHandler: function (form) {                	
+                    errorDiv.hide();
+                    addRoomType();                  
+                }
+            });
+    };
+  //添加操作
+	var editRoomType=function(){		
+		$.ajax( {
+         "dataType": 'json', 
+         "type":'POST', 
+         "url": rootURI+"admin/room/room_type/room_type_edit?random="+Math.random(), 
+         "data": $('#edit_from').serialize(),
+         "success": function(resp,status){
+        	 if(status == "success"){  
+        		 if(resp.status){						 
+	            	 oTable.api().draw();
+	            	 handleAlerts("编辑成功.","success","");		            	 
+				 }
+				 else{
+					 handleAlerts("编辑失败.","danger","");						 
+				 }
+			}             	 
+         },
+         "error":function(XMLHttpRequest, textStatus, errorThrown){
+        	 alert(errorThrown);
+         }
+       });	
+		$('#edit_modal').hide();
+    };
+   
+  //处理表单验证方法
+    var editFormValidation = function() {
+            var form = $('#edit_from');
+            var errorDiv = $('.alert-danger', form);            
+            form.validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block help-block-error', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",  // validate all fields including form hidden input                
+                rules: {
+                    type:{
+                        
+                        required: true
+                    },
+                    price: {
+                        required: true,
+                        digits:true
+                    },
+                    discountPrice: {
+                        required: true,
+                        digits:true
+                    }                  
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit                	
+                    errorDiv.show();                    
+                },
+
+                highlight: function (element) { // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+                onfocusout: function (element) { // hightlight error inputs
+                    $(element).valid();
+                },
+                success: function (label) {
+                    label
+                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
+                },
+
+                submitHandler: function (form) {                	
+                    errorDiv.hide();
+                    editRoomType();                  
+                }
+            });
+    };
+    
+    
 	//提示信息处理方法（是在页面中指定位置显示提示信息的方式）
 	var handleAlerts = function(msg,msgType,position) {         
         Metronic.alert({
@@ -148,16 +419,14 @@ var RoomType = function () {
         });        
 
     };
-    
-    
-    
-  
-
-    return {
+   return {
         //main function to initiate the module
         init: function (rootPath) {
         	rootURI=rootPath;
-        	handleTable();  
+        	handleTable();
+        	handleImages();
+        	addFormValidation();
+        	editFormValidation();
         }
 
     };

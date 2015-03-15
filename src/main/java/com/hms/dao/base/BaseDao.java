@@ -109,7 +109,14 @@ public class BaseDao<T> extends HibernateDaoSupport {
 			delete(id);
 		}
 	}
+    
+	public void deletAll(Integer[] ids) {
 
+		for (Integer id : ids) {
+			delete(id);
+		}
+	}
+	
 	public Criteria createCriteria() {
 
 		return this.currentSession().createCriteria(clazz);

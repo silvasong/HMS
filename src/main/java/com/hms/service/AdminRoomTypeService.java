@@ -1,5 +1,6 @@
 package com.hms.service;
 
+import com.hms.dto.RoomType;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
 
@@ -13,5 +14,11 @@ import com.hms.model.PagingData;
 public interface AdminRoomTypeService {
 	
 	PagingData loadRoomTypeList(DataTableParamer dtp);
+	
+	void createRoomType(RoomType roomType);
+	
+	void updateRoomType(RoomType roomType);
+	
+	void deleteRoomType(Integer ids[]);
 
 }

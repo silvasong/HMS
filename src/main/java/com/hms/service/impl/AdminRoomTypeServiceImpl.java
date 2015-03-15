@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.hms.dao.AdminRoomTypeDao;
+import com.hms.dto.RoomType;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
 import com.hms.service.AdminRoomTypeService;
@@ -25,5 +26,22 @@ public class AdminRoomTypeServiceImpl implements AdminRoomTypeService{
 		// TODO Auto-generated method stub
 		return adminRoomTypeDao.findPage(dtp.getiDisplayStart(), dtp.getiDisplayLength());
 	}
+
+	public void createRoomType(RoomType roomType) {
+		// TODO Auto-generated method stub
+		adminRoomTypeDao.sava(roomType);
+	}
+
+	public void updateRoomType(RoomType roomType) {
+		// TODO Auto-generated method stub
+		adminRoomTypeDao.update(roomType);
+	}
+
+	public void deleteRoomType(Integer ids[]) {
+		// TODO Auto-generated method stub
+		adminRoomTypeDao.deletAll(ids);
+	}
+	
+	
 
 }

@@ -110,7 +110,6 @@ public class AdminSettingController extends BaseController{
     @ResponseBody
     public String removeImage(HttpServletRequest request,@RequestParam("value")String value){
     	JSONObject resp = new JSONObject();
-    	
     	try{
     		Setting setting = settingService.getSettingByKey(SystemConstant.INDEX_BG);
         	String realPath = request.getSession().getServletContext().getRealPath("/");
