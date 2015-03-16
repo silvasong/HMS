@@ -18,6 +18,9 @@ public class SystemConstant {
 	public static String INDEX_BG_PATH = File.separator+"upload"+File.separator+"admin"+File.separator+"setting"
             +File.separator+"index_bg"+File.separator;
 	
+	public static String ROOM_TYPE_IMAGE = File.separator+"upload"+File.separator+"admin"+File.separator+"setting"
+            +File.separator+"room_type_image"+File.separator;
+	
 	public static String INDEX_PHONE = "INDEX_PHONE";
 	
 	public static String INDEX_EMAIL = "INDEX_EMAIL";

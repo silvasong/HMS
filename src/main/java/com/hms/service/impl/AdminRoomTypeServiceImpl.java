@@ -17,7 +17,7 @@ import com.hms.service.AdminRoomTypeService;
  * @version 1.0
  */
 @Controller
-public class AdminRoomTypeServiceImpl implements AdminRoomTypeService{
+class AdminRoomTypeServiceImpl implements AdminRoomTypeService{
 	
 	@Autowired
 	private AdminRoomTypeDao adminRoomTypeDao;
@@ -40,6 +40,16 @@ public class AdminRoomTypeServiceImpl implements AdminRoomTypeService{
 	public void deleteRoomType(Integer ids[]) {
 		// TODO Auto-generated method stub
 		adminRoomTypeDao.deletAll(ids);
+	}
+
+	public RoomType getRoomTypeById(Integer id) {
+		// TODO Auto-generated method stub
+		return adminRoomTypeDao.get(id);
+	}
+
+	public void deleteRoomType(RoomType roomType) {
+		// TODO Auto-generated method stub
+		adminRoomTypeDao.delete(roomType);
 	}
 	
 	

@@ -20,5 +20,8 @@ public interface AdminRoomTypeService {
 	void updateRoomType(RoomType roomType);
 	
 	void deleteRoomType(Integer ids[]);
-
+	
+	RoomType getRoomTypeById(Integer id);
+	
+	void deleteRoomType(RoomType roomType);
 }

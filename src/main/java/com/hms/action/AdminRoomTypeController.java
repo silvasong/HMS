@@ -2,6 +2,7 @@ package com.hms.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,9 +24,11 @@ import com.hms.common.SystemCache;
 import com.hms.common.SystemConstant;
 import com.hms.common.UUIDTools;
 import com.hms.dto.RoomType;
+import com.hms.dto.RoomTypeImage;
 import com.hms.dto.Setting;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
+import com.hms.service.AdminRoomTypeImageService;
 import com.hms.service.AdminRoomTypeService;
 
 /**
@@ -41,6 +44,9 @@ public class AdminRoomTypeController {
 	
 	@Autowired
 	private AdminRoomTypeService adminRoomTypeService;
+	
+	@Autowired
+	private AdminRoomTypeImageService adminRoomTypeImageService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView roomType(HttpServletRequest request){
@@ -112,12 +118,36 @@ public class AdminRoomTypeController {
 	
 	@RequestMapping(value="room_type_uploadImages",method=RequestMethod.POST)
     @ResponseBody
-    public String uploadImages(HttpServletRequest request,@RequestParam("file")MultipartFile file)
+    public String uploadImages(HttpServletRequest request,@RequestParam("file")MultipartFile file ,@RequestParam(value="id")String id)
     {
 		JSONObject resp = new JSONObject();
+		String realPath = request.getSession().getServletContext().getRealPath("/");
 		String imgName = UUIDTools.getUUIDString().substring(0, 10)+".jpg";
-		SystemCache.room_type_image.put(imgName, file);
-		resp.put("result", "OK");
+		File image = null;
+		RoomTypeImage roomTypeImage = null;
+		image = new File(realPath, SystemConstant.ROOM_TYPE_IMAGE+imgName);
+		if(image.exists()){
+			image.delete();
+		}
+		try {
+			FileUtils.copyInputStreamToFile(file.getInputStream(), image);
+			RoomType roomType = adminRoomTypeService.getRoomTypeById(Integer.parseInt(id));
+			if(roomType != null){
+				Set<RoomTypeImage> roomTypeImages = roomType.getRoomTypeImages();
+				roomTypeImage = new RoomTypeImage();
+				roomTypeImage.setImage_url(imgName);
+				adminRoomTypeImageService.createRoomTypeImage(roomTypeImage);
+				roomTypeImages.add(roomTypeImage);
+				roomType.setRoomTypeImages(roomTypeImages);
+			    adminRoomTypeService.updateRoomType(roomType);
+			}
+			resp.put("result", "OK");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			resp.put("result", "NO");
+			e.printStackTrace();
+		}
+		
     	return JSON.toJSONString(resp);
     	
     }

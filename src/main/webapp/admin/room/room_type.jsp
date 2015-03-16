@@ -101,10 +101,11 @@
 								</div>
 								<div class="actions btn-set">
 									<a class="btn green-haze btn-circle" data-toggle="modal"
-										href="#add_modal">添加 </a>
-									<a class="btn green-haze btn-circle" data-toggle="modal"
-										href="#edit_modal" id="edit_btn">编辑 </a>
-									<a class="btn green-haze btn-circle" data-toggle="modal" id="delete_btn">删除 </a>
+										href="#add_modal">添加 </a> <a class="btn green-haze btn-circle"
+										data-toggle="modal" href="#edit_modal" id="edit_btn">编辑 </a> <a
+										class="btn green-haze btn-circle" data-toggle="modal"
+										id="delete_btn">删除 </a> <a class="btn green-haze btn-circle"
+										data-toggle="modal" id="bind_image">绑定图片</a>
 									<div class="btn-group">
 
 										<a class="btn green-haze btn-circle" href="javascript:;"
@@ -151,7 +152,7 @@
 										<div class="modal-body">
 											<div class="portlet light">
 												<div class="portlet-body form">
-												    <div id="info"></div>
+													<div id="info"></div>
 													<form class="form-horizontal" role="form" id="add_from">
 														<div class="form-body">
 															<div class="form-group">
@@ -164,15 +165,15 @@
 															<div class="form-group">
 																<label class="col-md-3 control-label">原价</label>
 																<div class="col-md-5">
-																	<input type="text" class="form-control" placeholder="0" 
-																	name="price">
+																	<input type="text" class="form-control" placeholder="0"
+																		name="price">
 																</div>
 															</div>
 															<div class="form-group">
 																<label class="col-md-3 control-label">现价</label>
 																<div class="col-md-5">
 																	<input type="text" class="form-control" placeholder="0"
-																	name="discountPrice">
+																		name="discountPrice">
 																</div>
 															</div>
 															<div class="form-group">
@@ -206,7 +207,8 @@
 
 														</div>
 														<div class="form-actions right1">
-															<button type="button" class="btn default" data-dismiss="modal">取消</button>
+															<button type="button" class="btn default"
+																data-dismiss="modal">取消</button>
 															<button type="submit" class="btn green">提交</button>
 														</div>
 													</form>
@@ -219,19 +221,20 @@
 								</div>
 								<!-- /.modal-dialog -->
 							</div>
-							
-							<div class="modal fade" id="delete_modal" tabindex="-1" role="basic" aria-hidden="true">
+
+							<div class="modal fade" id="delete_modal" tabindex="-1"
+								role="basic" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-hidden="true"></button>
 											<h4 class="modal-title">删除房型</h4>
 										</div>
-										<div class="modal-body">
-											 确认删除选中？
-										</div>
+										<div class="modal-body">确认删除选中？</div>
 										<div class="modal-footer">
-											<button type="button" class="btn default" data-dismiss="modal">取消</button>
+											<button type="button" class="btn default"
+												data-dismiss="modal">取消</button>
 											<button type="button" class="btn blue" id="delete_com">确认</button>
 										</div>
 									</div>
@@ -239,9 +242,9 @@
 								</div>
 								<!-- /.modal-dialog -->
 							</div>
-							
-							<div class="modal fade" id="edit_modal" tabindex="-1" role="basic"
-								aria-hidden="true">
+
+							<div class="modal fade" id="edit_modal" tabindex="-1"
+								role="basic" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -252,11 +255,12 @@
 										<div class="modal-body">
 											<div class="portlet light">
 												<div class="portlet-body form">
-												    <div id="info"></div>
+													<div id="info"></div>
 													<form class="form-horizontal" role="form" id="edit_from">
 														<div class="form-body">
-														    <div class="form-group">
-																<input type="text" class="form-control hidden" placeholder="" name="id">
+															<div class="form-group">
+																<input type="text" class="form-control hidden"
+																	placeholder="" name="id">
 															</div>
 															<div class="form-group">
 																<label class="col-md-3 control-label">类型</label>
@@ -268,15 +272,15 @@
 															<div class="form-group">
 																<label class="col-md-3 control-label">原价</label>
 																<div class="col-md-5">
-																	<input type="text" class="form-control" placeholder="0" 
-																	name="price">
+																	<input type="text" class="form-control" placeholder="0"
+																		name="price">
 																</div>
 															</div>
 															<div class="form-group">
 																<label class="col-md-3 control-label">现价</label>
 																<div class="col-md-5">
 																	<input type="text" class="form-control" placeholder="0"
-																	name="discountPrice">
+																		name="discountPrice">
 																</div>
 															</div>
 															<div class="form-group">
@@ -289,14 +293,10 @@
 																	</select>
 																</div>
 															</div>
-
-
-														
-
-
 														</div>
 														<div class="form-actions right1">
-															<button type="button" class="btn default" data-dismiss="modal">取消</button>
+															<button type="button" class="btn default"
+																data-dismiss="modal">取消</button>
 															<button type="submit" class="btn green">提交</button>
 														</div>
 													</form>
@@ -309,7 +309,69 @@
 								</div>
 								<!-- /.modal-dialog -->
 							</div>
-							
+
+							<div class="modal fade" id="bind_modal" tabindex="-1"
+								role="basic" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-hidden="true"></button>
+											<h4 class="modal-title">绑定图片</h4>
+										</div>
+										<div class="modal-body">
+											<div id="tab_images_uploader_container"
+												class="text-align-reverse margin-bottom-10">
+												<a id="tab_images_uploader_pickfiles" href="javascript:;"
+													class="btn yellow"> <i class="fa fa-plus"></i> 选择图片
+												</a> <a id="tab_images_uploader_uploadfiles" href="javascript:;"
+													class="btn green"> <i class="fa fa-share"></i> 上传图片
+												</a>
+											</div>
+											<div class="row">
+												<div id="tab_images_uploader_filelist"
+													class="col-md-12 col-sm-12"></div>
+											</div>
+											<table class="table table-bordered table-hover">
+											<thead>
+											<tr role="row" class="heading">
+												<th width="8%">
+													 Image
+												</th>
+												
+												<th width="10%">
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>
+													<a href="../../assets/admin/pages/media/works/img1.jpg" class="fancybox-button" data-rel="fancybox-button">
+													<img class="img-responsive" src="../../assets/admin/pages/media/works/img1.jpg" alt="">
+													</a>
+												</td>
+												
+												
+												
+												
+												<td>
+													<a href="javascript:;" class="btn default btn-sm">
+													<i class="fa fa-times"></i> Remove </a>
+												</td>
+											</tr>
+											
+											
+											</tbody>
+											</table>
+
+										</div>
+
+									</div>
+									<!-- /.modal-content -->
+								</div>
+								<!-- /.modal-dialog -->
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -351,8 +413,11 @@
 		type="text/javascript"></script>
 	<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js"
 		type="text/javascript"></script>
-    <script src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript">
-    </script>
+	<script
+		src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"
+		type="text/javascript">
+		
+	</script>
 	<script src="../../assets/global/plugins/select2/select2.min.js"
 		type="text/javascript"></script>
 	<script

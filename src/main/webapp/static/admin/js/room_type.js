@@ -22,9 +22,10 @@
 var rootURI="/";
 var RoomType = function () {
 	var oTable;
+	var selected = [];
+	var uploader;
 	var handleTable = function () {
-		var selected = [];
-		var table=$('#table');
+	    var table=$('#table');
 		oTable = table.dataTable({
 			"lengthChange":false,
         	"filter":true,
@@ -160,8 +161,26 @@ var RoomType = function () {
 	            $("#edit_from input[name='type']").val(type);
 	            $("#edit_from input[name='price']").val(price);
 	            $("#edit_from input[name='discountPrice']").val(discountPrice);
-	            $("#edit_from select[name='bedNumber']").children("option[value='"+bedNumber+"']").attr("selected","true")
+	            $("#edit_from select[name='bedNumber']").children("option[value='"+bedNumber+"']").attr("selected","true");
+	            
 			   $('#edit_modal').show();
+			}
+		});
+		
+		$("#bind_image").on("click",function(event){
+			if(selected.length != 1){
+				handleAlerts("请选择一行.","warning","");				
+				return false;
+			}else{
+				var data = oTable.api().row($("tr input:checked").parents('tr')).data();
+				var id = data.id;
+				var type = data.type;
+	            var price = data.price;
+	            var discountPrice  = data.discountPrice;
+	            var bedNumber  = data.bedNumber;
+	            uploader.settings.multipart_params.id = selected.join();
+	            $('#bind_modal').modal('show');
+			   
 			}
 		});
 		
@@ -180,7 +199,7 @@ var RoomType = function () {
 	var handleImages = function() {
 
         // see http://www.plupload.com/
-        var uploader = new plupload.Uploader({
+         uploader = new plupload.Uploader({
             runtimes : 'html5,flash,silverlight,html4',
              
             browse_button : document.getElementById('tab_images_uploader_pickfiles'), // you can pass in id...
@@ -195,7 +214,7 @@ var RoomType = function () {
                     
                 ]
             },
-         
+            multipart_params: {'id':selected.join()},
             // Flash settings
             flash_swf_url : '../../../assets/global/plugins/plupload/js/Moxie.swf',
      
@@ -232,6 +251,7 @@ var RoomType = function () {
 
                     if (response.result && response.result == 'OK') {
                         var id = response.id; // uploaded file's unique name. Here you can collect uploaded file names and submit an jax request to your server side script to process the uploaded files and update the images tabke
+                        
                         $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-success").html('<i class="fa fa-check"></i> Done'); // set successfull upload
                     } else {
                         $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-danger").html('<i class="fa fa-warning"></i> Failed'); // set failed upload
@@ -239,7 +259,6 @@ var RoomType = function () {
                     }
                    
                 },
-                 
                 Error: function(up, err) {
                     Metronic.alert({type: 'danger', message: err.message, closeInSeconds: 10, icon: 'warning','container':'#info'});
                 }
@@ -424,9 +443,9 @@ var RoomType = function () {
         init: function (rootPath) {
         	rootURI=rootPath;
         	handleTable();
-        	handleImages();
         	addFormValidation();
         	editFormValidation();
+        	handleImages();
         }
 
     };
