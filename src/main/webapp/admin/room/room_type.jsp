@@ -332,36 +332,8 @@
 												<div id="tab_images_uploader_filelist"
 													class="col-md-12 col-sm-12"></div>
 											</div>
-											<table class="table table-bordered table-hover">
-											<thead>
-											<tr role="row" class="heading">
-												<th width="8%">
-													 Image
-												</th>
-												
-												<th width="10%">
-												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="../../assets/admin/pages/media/works/img1.jpg" class="fancybox-button" data-rel="fancybox-button">
-													<img class="img-responsive" src="../../assets/admin/pages/media/works/img1.jpg" alt="">
-													</a>
-												</td>
-												
-												
-												
-												
-												<td>
-													<a href="javascript:;" class="btn default btn-sm">
-													<i class="fa fa-times"></i> Remove </a>
-												</td>
-											</tr>
+											<table class="table table-bordered table-hover" id="image_table">
 											
-											
-											</tbody>
 											</table>
 
 										</div>

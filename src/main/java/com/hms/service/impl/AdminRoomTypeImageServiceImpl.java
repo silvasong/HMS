@@ -30,5 +30,10 @@ public class AdminRoomTypeImageServiceImpl implements AdminRoomTypeImageService{
 		adminRoomTypeImageDao.sava(roomTypeImage);
 	}
 
+	public void deleteRoomTypeImage(Integer id) {
+		// TODO Auto-generated method stub
+		adminRoomTypeImageDao.delete(id);
+	}
+
 	
 }

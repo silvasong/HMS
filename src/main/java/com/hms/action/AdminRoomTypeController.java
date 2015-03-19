@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.util.JsonExpectationsHelper;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -151,5 +152,19 @@ public class AdminRoomTypeController {
     	return JSON.toJSONString(resp);
     	
     }
+	
+	@RequestMapping(value="delete_bind_image",method=RequestMethod.POST)
+	@ResponseBody
+	public String deleteBindImage(HttpServletRequest request,int id){
+		JSONObject resp = new JSONObject();
+		try {
+			adminRoomTypeImageService.deleteRoomTypeImage(id);
+		} catch (Exception e) {
+			// TODO: handle exception
+			resp.put("status", false);
+		}
+		resp.put("status", true);
+		return JSON.toJSONString(resp);
+	}
 
 }

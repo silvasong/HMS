@@ -13,4 +13,6 @@ public interface AdminRoomTypeImageService {
 	
 	void createRoomTypeImage(RoomTypeImage roomTypeImage);
 	
+	void deleteRoomTypeImage(Integer id);
+	
 }

@@ -168,21 +168,62 @@ var RoomType = function () {
 		});
 		
 		$("#bind_image").on("click",function(event){
+			uploader.settings.multipart_params.id = selected.join();
 			if(selected.length != 1){
 				handleAlerts("请选择一行.","warning","");				
 				return false;
 			}else{
+				
+				$('#tab_images_uploader_filelist').empty();
 				var data = oTable.api().row($("tr input:checked").parents('tr')).data();
 				var id = data.id;
-				var type = data.type;
-	            var price = data.price;
-	            var discountPrice  = data.discountPrice;
-	            var bedNumber  = data.bedNumber;
-	            uploader.settings.multipart_params.id = selected.join();
-	            $('#bind_modal').modal('show');
-			   
+				
+				var roomTypeImages = data.roomTypeImages;
+				var html = '<thead><tr role="row" class="heading"><th width="60%">Image</th><th width="40%">操作</th></tr></thead><tbody>';
+											
+				$.each(roomTypeImages,function(n,value){
+					html += '<tr><td>'+
+						    '<img class="img-responsive" src="../../upload/admin/room_type_image/'+value.image_url+'" alt="" style="height: 100px;width: 100px;" >'+
+					        '</td><td><a href="javascript:;" class="btn default btn-sm remove"><i class="fa fa-times"></i> Remove </a> <input class="hide" value="'+value.id+'"/></td>'+
+				            '</tr>';
+				
+				});
+				   html +='</tbody>';
+				   $('#image_table').empty();
+				   $('#image_table').append(html);
+	              
+	               $('#bind_modal').modal('show');
+	               removeImage();
 			}
 		});
+		
+		var removeImage = function(){
+			 //单选
+		        $('#image_table').on('click', 'tbody tr .remove', function () {
+		          
+		           var tr = $(this).parents('tr');
+		           $.ajax({
+		        		dataType:'json',
+		        		type:'POST',
+		        		url:rootURI+"admin/room/room_type/delete_bind_image?random="+Math.random(),
+		        		data:{id:$(this).next().val()},
+		        		success: function(data,status){
+		               	   if(status == "success"){					
+		   					   if(data.status){
+		   						oTable.api().draw();
+		   						selected = [];
+		   						tr.remove();
+		   					   }else{
+		   						  
+		   					   }
+		   				   }             	 
+		                },
+		                error:function(XMLHttpRequest, textStatus, errorThrown){
+		               	 alert(errorThrown);
+		                }
+		        	});
+		        });
+		 }
 		
 		/* handle show/hide columns*/
         var tableColumnToggler = $('#column_toggler');		
@@ -253,6 +294,8 @@ var RoomType = function () {
                         var id = response.id; // uploaded file's unique name. Here you can collect uploaded file names and submit an jax request to your server side script to process the uploaded files and update the images tabke
                         
                         $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-success").html('<i class="fa fa-check"></i> Done'); // set successfull upload
+                        oTable.api().draw();
+                        selected=[];
                     } else {
                         $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-danger").html('<i class="fa fa-warning"></i> Failed'); // set failed upload
                         Metronic.alert({type: 'danger', message: 'One of uploads failed. Please retry.', closeInSeconds: 10, icon: 'warning','container':'#info'});
@@ -446,6 +489,7 @@ var RoomType = function () {
         	addFormValidation();
         	editFormValidation();
         	handleImages();
+        	
         }
 
     };
