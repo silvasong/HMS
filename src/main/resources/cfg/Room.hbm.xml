@@ -8,9 +8,8 @@
             <column name="room_id" />
             <generator class="assigned" />
         </id>
-        <property name="roomType" type="int">
-            <column name="room_type" not-null="true" />
-        </property>
+        <many-to-one name="roomType" column="room_type"></many-to-one>
+       
         <property name="status" type="int">
             <column name="status" not-null="true" />
         </property>

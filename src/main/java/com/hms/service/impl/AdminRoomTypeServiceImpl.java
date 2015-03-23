@@ -1,5 +1,7 @@
 package com.hms.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -50,6 +52,11 @@ class AdminRoomTypeServiceImpl implements AdminRoomTypeService{
 	public void deleteRoomType(RoomType roomType) {
 		// TODO Auto-generated method stub
 		adminRoomTypeDao.delete(roomType);
+	}
+
+	public List<RoomType> loadAll() {
+		// TODO Auto-generated method stub
+		return adminRoomTypeDao.loadAll();
 	}
 	
 	

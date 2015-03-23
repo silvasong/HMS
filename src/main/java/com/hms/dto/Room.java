@@ -7,13 +7,13 @@ package com.hms.dto;
 public class Room implements java.io.Serializable {
 
 	private int roomId;
-	private int roomType;
+	private RoomType roomType;
 	private int status;
 
 	public Room() {
 	}
 
-	public Room(int roomId, int roomType, int status) {
+	public Room(int roomId, RoomType roomType, int status) {
 		this.roomId = roomId;
 		this.roomType = roomType;
 		this.status = status;
@@ -27,11 +27,11 @@ public class Room implements java.io.Serializable {
 		this.roomId = roomId;
 	}
 
-	public int getRoomType() {
-		return this.roomType;
+	public RoomType getRoomType() {
+		return roomType;
 	}
 
-	public void setRoomType(int roomType) {
+	public void setRoomType(RoomType roomType) {
 		this.roomType = roomType;
 	}
 

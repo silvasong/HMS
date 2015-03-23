@@ -1,5 +1,7 @@
 package com.hms.service;
 
+import java.util.List;
+
 import com.hms.dto.RoomType;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
@@ -24,4 +26,6 @@ public interface AdminRoomTypeService {
 	RoomType getRoomTypeById(Integer id);
 	
 	void deleteRoomType(RoomType roomType);
+	
+	List<RoomType> loadAll();
 }

@@ -73,6 +73,10 @@
 								<a href="<c:url value="/"/>admin/room/room_type">
 								房型管理 </a>
 							</li>
+							<li class="">
+								<a href="<c:url value="/"/>admin/room/room">
+								房间管理 </a>
+							</li>
 					   </ul>
 					</li>
 	
