@@ -115,15 +115,12 @@
 											<li><label><input type="checkbox" checked
 													data-column="0">CheckBox</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="1">ID</label></li>
+													data-column="1">房间号</label></li>
 											<li><label><input type="checkbox" checked
 													data-column="2">类型</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="3">原价</label></li>
-											<li><label><input type="checkbox" checked
-													data-column="4">优惠价</label></li>
-											<li><label><input type="checkbox" checked
-													data-column="4">床位数</label></li>
+													data-column="3">状态</label></li>
+											
 										</ul>
 									</div>
 
@@ -178,13 +175,13 @@
 																		<label class="radio-inline">
 																		
 																				<span class="checked"><input type="radio"
-																					name="optionsRadios"  value="0"
+																					name="status"  value="0"
 																					checked></span>
 																			空闲
 																		</label> <label class="radio-inline">
 																			
 																				<span class=""><input type="radio"
-																					name="optionsRadios"  value="1"
+																					name="status"  value="1"
 																					></span>
 																			 入住
 																		</label>
@@ -237,7 +234,7 @@
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
 												aria-hidden="true"></button>
-											<h4 class="modal-title">编辑房型</h4>
+											<h4 class="modal-title">编辑房间</h4>
 										</div>
 										<div class="modal-body">
 											<div class="portlet light">
@@ -246,38 +243,41 @@
 													<form class="form-horizontal" role="form" id="edit_from">
 														<div class="form-body">
 															<div class="form-group">
-																<input type="text" class="form-control hidden"
-																	placeholder="" name="id">
-															</div>
-															<div class="form-group">
-																<label class="col-md-3 control-label">类型</label>
-																<div class="col-md-5">
-																	<input type="text" class="form-control"
-																		placeholder="类型" name="type">
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="col-md-3 control-label">原价</label>
+																<label class="col-md-3 control-label">房间号</label>
 																<div class="col-md-5">
 																	<input type="text" class="form-control" placeholder="0"
-																		name="price">
+																		name="roomId" readonly>
 																</div>
 															</div>
 															<div class="form-group">
-																<label class="col-md-3 control-label">现价</label>
+																<label class="col-md-3 control-label">房型</label>
 																<div class="col-md-5">
-																	<input type="text" class="form-control" placeholder="0"
-																		name="discountPrice">
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="col-md-3 control-label">床位数</label>
-																<div class="col-md-5">
-																	<select class="form-control" name="bedNumber">
-																		<option value="1">1</option>
-																		<option value="2">2</option>
-																		<option value="3">3</option>
+																	<select class="form-control" name="roomType">
+																		<c:forEach var="map" items="${roomTypeMap}">
+																			<option value="${map.key}">${map.value }</option>
+																		</c:forEach>
 																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-md-3 control-label">状态</label>
+																<div class="col-md-5">
+																	<div class="radio-list">
+																		<label class="radio-inline">
+																		
+																				<span class="checked"><input type="radio"
+																					name="status"  value="0"
+																					></span>
+																			空闲
+																		</label> <label class="radio-inline">
+																			
+																				<span class=""><input type="radio"
+																					name="status"  value="1"
+																					></span>
+																			 入住
+																		</label>
+
+																	</div>
 																</div>
 															</div>
 														</div>
