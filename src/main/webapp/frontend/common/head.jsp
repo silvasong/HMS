@@ -30,7 +30,7 @@
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-        <a class="site-logo" href="<c:url value="/"/>"><img src="assets/frontend/layout/img/logos/0logo-blue.png" alt="Metronic FrontEnd"></a>
+        <a class="site-logo" href="<c:url value="/"/>"><img src="<c:url value="/"/>assets/frontend/layout/img/logos/0logo-blue.png" alt="Metronic FrontEnd"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -43,15 +43,12 @@
               </a>
              </li>
              <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="<c:url value="/"/>frontend/online_order">
                  
-                Blog
+                          在线预定
               </a>
                 
-              <ul class="dropdown-menu">
-                <li><a href="blog.html">Blog Page</a></li>
-                <li><a href="blog-item.html">Blog Item</a></li>
-              </ul>
+              
             </li>
             </ul>
         </div>
