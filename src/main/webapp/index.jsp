@@ -162,7 +162,7 @@
 			Layout.init();
 			Layout.initOWL();
 			RevosliderInit.initRevoSlider();
-			Layout.initTwitter();
+			
 
 		});
 	</script>

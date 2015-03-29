@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hms.common.SystemConstant;
+import com.hms.dto.Customer;
 import com.hms.dto.Setting;
 import com.hms.service.SettingService;
 
@@ -39,6 +40,10 @@ public class FrontendCommonController extends BaseController{
 		setting = settingService.getSettingByKey(SystemConstant.INDEX_EMAIL);
 		if(setting != null){
 			mav.addObject("email", setting.getValue());
+		}
+		Customer customer = (Customer) request.getSession().getAttribute(SystemConstant.CUSTOMER_LOGIN);
+		if(customer != null){
+			mav.addObject("name", customer.getName());
 		}
 		mav.setViewName("frontend/common/head");
 		return mav;

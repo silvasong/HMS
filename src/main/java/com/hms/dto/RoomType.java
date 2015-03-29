@@ -13,18 +13,16 @@ public class RoomType implements java.io.Serializable {
 	private int price;
 	private int discountPrice;
 	private int bedNumber;
+	private String breakfast;
+	private String cancellation;
+	private String bedtype;
+	private String floor;
+	private String network;
     private Set<RoomTypeImage> roomTypeImages;
 	public RoomType() {
 	}
 
-	public RoomType(int id, String type, int price, int discountPrice,
-			int bedNumber) {
-		this.id = id;
-		this.type = type;
-		this.price = price;
-		this.discountPrice = discountPrice;
-		this.bedNumber = bedNumber;
-	}
+	
 
 	public int getId() {
 		return this.id;
@@ -72,6 +70,66 @@ public class RoomType implements java.io.Serializable {
 
 	public void setRoomTypeImages(Set<RoomTypeImage> roomTypeImages) {
 		this.roomTypeImages = roomTypeImages;
+	}
+
+
+
+	public String getBreakfast() {
+		return breakfast;
+	}
+
+
+
+	public void setBreakfast(String breakfast) {
+		this.breakfast = breakfast;
+	}
+
+
+
+	public String getCancellation() {
+		return cancellation;
+	}
+
+
+
+	public void setCancellation(String cancellation) {
+		this.cancellation = cancellation;
+	}
+
+
+
+	public String getBedtype() {
+		return bedtype;
+	}
+
+
+
+	public void setBedtype(String bedtype) {
+		this.bedtype = bedtype;
+	}
+
+
+
+	public String getFloor() {
+		return floor;
+	}
+
+
+
+	public void setFloor(String floor) {
+		this.floor = floor;
+	}
+
+
+
+	public String getNetwork() {
+		return network;
+	}
+
+
+
+	public void setNetwork(String network) {
+		this.network = network;
 	}
 	
 

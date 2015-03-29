@@ -18,8 +18,15 @@
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="page-login.html">登录</a></li>
-                        <li><a href="page-reg-page.html">注册</a></li>
+                        <c:if test="${empty name }">
+                        	<li><a href="<c:url value="/"/>frontend/login">登录</a></li>
+                            <li><a href="<c:url value="/"/>frontend/signup">注册</a></li>
+                        </c:if>
+                         <c:if test="${not empty name }">
+                        	<li>${name}</li>
+                            <li><a href="<c:url value="/"/>frontend/loginout">退出</a></li>
+                        </c:if>
+                        
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
@@ -47,8 +54,12 @@
                  
                           在线预定
               </a>
-                
-              
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="<c:url value="/"/>frontend/online_order">
+                 
+                          个人中心
+              </a>
             </li>
             </ul>
         </div>

@@ -41,7 +41,7 @@ import com.hms.service.AdminRoomTypeService;
  */
 @Controller
 @RequestMapping(value="admin/room/room_type")
-public class AdminRoomTypeController {
+public class AdminRoomTypeController extends BaseController{
 	
 	@Autowired
 	private AdminRoomTypeService adminRoomTypeService;

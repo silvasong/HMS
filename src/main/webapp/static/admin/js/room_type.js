@@ -60,7 +60,12 @@ var RoomType = function () {
 	           { title: "类型",   data: "type" },
 	           { title: "原价",  data: "price"},
 	           { title: "现价", data: "discountPrice" },
-	           { title: "床位数", data: "bedNumber" },
+	           { title: "最多入住人数", data: "bedNumber" },
+	           { title: "早餐", data: "breakfast" },
+	           { title: "取消政策", data: "cancellation" },
+	           { title: "床型", data: "bedtype" },
+	           { title: "楼层", data: "floor" },
+	           { title: "上网方式", data: "network" },
 	         ],
 	        "serverSide": true,
 	        "serverMethod": "GET",
@@ -156,11 +161,21 @@ var RoomType = function () {
 	            var price = data.price;
 	            var discountPrice  = data.discountPrice;
 	            var bedNumber  = data.bedNumber;
+	            var breakfast  = data.breakfast;
+	            var cancellation  = data.cancellation;
+	            var bedtype  = data.bedtype;
+	            var floor  = data.floor;
+	            var network  = data.network;
 	            $("#edit_from option").removeAttr("selected");
 	            $("#edit_from input[name='id']").val(id);
 	            $("#edit_from input[name='type']").val(type);
 	            $("#edit_from input[name='price']").val(price);
 	            $("#edit_from input[name='discountPrice']").val(discountPrice);
+	            $("#edit_from input[name='breakfast']").val(breakfast);
+	            $("#edit_from input[name='cancellation']").val(cancellation);
+	            $("#edit_from input[name='bedtype']").val(bedtype);
+	            $("#edit_from input[name='floor']").val(floor);
+	            $("#edit_from input[name='network']").val(network);
 	            $("#edit_from select[name='bedNumber']").children("option[value='"+bedNumber+"']").attr("selected","true");
 	            
 			   $('#edit_modal').show();
@@ -358,7 +373,28 @@ var RoomType = function () {
                     discountPrice: {
                         required: true,
                         digits:true
-                    }                  
+                    },
+                    breakfast:{
+                        
+                        required: true
+                    },
+                    cancellation:{
+                        
+                        required: true
+                    },
+                    bedtype:{
+                        
+                        required: true
+                    },
+                    floor:{
+                        
+                        required: true
+                    },
+                    network:{
+                        
+                        required: true
+                    }
+                    
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit                	
@@ -388,7 +424,7 @@ var RoomType = function () {
                 }
             });
     };
-  //添加操作
+  //编辑操作
 	var editRoomType=function(){		
 		$.ajax( {
          "dataType": 'json', 
@@ -399,6 +435,7 @@ var RoomType = function () {
         	 if(status == "success"){  
         		 if(resp.status){						 
 	            	 oTable.api().draw();
+	            	 selected = [];
 	            	 handleAlerts("编辑成功.","success","");		            	 
 				 }
 				 else{
@@ -434,7 +471,27 @@ var RoomType = function () {
                     discountPrice: {
                         required: true,
                         digits:true
-                    }                  
+                    } ,
+                    breakfast:{
+                        
+                        required: true
+                    },
+                    cancellation:{
+                        
+                        required: true
+                    },
+                    bedtype:{
+                        
+                        required: true
+                    },
+                    floor:{
+                        
+                        required: true
+                    },
+                    network:{
+                        
+                        required: true
+                    }                 
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit                	

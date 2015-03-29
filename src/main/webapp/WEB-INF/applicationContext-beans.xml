@@ -16,5 +16,7 @@
     <bean id="adminRoomTypeImageService" class="com.hms.service.impl.AdminRoomTypeImageServiceImpl" autowire="byName"/>
     
     <bean id="adminRoomService" class="com.hms.service.impl.AdminRoomServiceImpl" autowire="byName"/>
+    
+    <bean id="frontendCustomerService" class="com.hms.service.impl.FrontendCustomerServiceImpl" autowire="byName"/>
 
 </beans>

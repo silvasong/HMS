@@ -284,7 +284,7 @@ var Room = function () {
 		$('#edit_modal').hide();
     };
    
-  //处理表单验证方法
+    //处理表单验证方法
     var editFormValidation = function() {
             var form = $('#edit_from');
             var errorDiv = $('.alert-danger', form);            

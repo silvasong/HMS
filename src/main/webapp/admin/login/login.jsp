@@ -63,11 +63,11 @@
 		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 			<label class="control-label visible-ie8 visible-ie9">用 户 名</label>
-			<form:input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" path="adminName"/>
+			<form:input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" path="adminName"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">密 码</label>
-			<form:input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" path="password"/>
+			<form:input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" path="password"/>
 		</div>
 		<div class="form-actions">
 			<button type="submit" class="btn btn-success uppercase">登 录</button>

@@ -20,6 +20,21 @@
         <property name="bedNumber" type="int">
             <column name="bed_number" not-null="true" />
         </property>
+        <property name="breakfast" type="string">
+            <column name="break_fast" length="20" not-null="true" />
+        </property>
+        <property name="cancellation" type="string">
+            <column name="cancellation" length="20" not-null="true" />
+        </property>
+        <property name="bedtype" type="string">
+            <column name="bed_type" length="20" not-null="true" />
+        </property>
+        <property name="floor" type="string">
+            <column name="floor" length="20" not-null="true" />
+        </property>
+        <property name="network" type="string">
+            <column name="network" length="20" not-null="true" />
+        </property>
         <set name="roomTypeImages">
         	<key column="room_tpye_id"></key>
         	<one-to-many class="com.hms.dto.RoomTypeImage"/>

@@ -124,7 +124,17 @@
 											<li><label><input type="checkbox" checked
 													data-column="4">优惠价</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="4">床位数</label></li>
+													data-column="5">入住人数</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="6">早餐</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="7">取消政策</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="8">床型</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="9">楼层</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="10">上网方式</label></li>
 										</ul>
 									</div>
 
@@ -162,6 +172,41 @@
 																		placeholder="类型" name="type">
 																</div>
 															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">取消政策</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="限时取消" name="cancellation">
+																</div>
+															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">早餐</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="双早" name="breakfast">
+																</div>
+															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">床型</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="" name="bedtype">
+																</div>
+															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">楼层</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="类型" name="floor">
+																</div>
+															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">上网方式</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="类型" name="network">
+																</div>
+															</div>
 															<div class="form-group">
 																<label class="col-md-3 control-label">原价</label>
 																<div class="col-md-5">
@@ -177,34 +222,15 @@
 																</div>
 															</div>
 															<div class="form-group">
-																<label class="col-md-3 control-label">床位数</label>
+																<label class="col-md-3 control-label">入住人数</label>
 																<div class="col-md-5">
 																	<select class="form-control" name="bedNumber">
 																		<option>1</option>
 																		<option>2</option>
-																		<option>3</option>
+																		
 																	</select>
 																</div>
 															</div>
-
-
-															<!--<div id="tab_images_uploader_container"
-																class="text-align-reverse margin-bottom-10">
-																<a id="tab_images_uploader_pickfiles"
-																	href="javascript:;" class="btn yellow"> <i
-																	class="fa fa-plus"></i> 选择图片
-																</a> <a id="tab_images_uploader_uploadfiles"
-																	href="javascript:;" class="btn green"> <i
-																	class="fa fa-share"></i> 上传图片
-																</a>
-															</div>
-															<div class="row">
-																<div id="tab_images_uploader_filelist"
-																	class="col-md-12 col-sm-12"></div>
-															</div>
-                                                           -->
-
-
 														</div>
 														<div class="form-actions right1">
 															<button type="button" class="btn default"
@@ -270,6 +296,41 @@
 																</div>
 															</div>
 															<div class="form-group">
+																<label class="col-md-3 control-label">取消政策</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="限时取消" name="cancellation">
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-md-3 control-label">早餐</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="双早" name="breakfast">
+																</div>
+															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">床型</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="" name="bedtype">
+																</div>
+															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">楼层</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="类型" name="floor">
+																</div>
+															</div>
+																<div class="form-group">
+																<label class="col-md-3 control-label">上网方式</label>
+																<div class="col-md-5">
+																	<input type="text" class="form-control"
+																		placeholder="类型" name="network">
+																</div>
+															</div>
+															<div class="form-group">
 																<label class="col-md-3 control-label">原价</label>
 																<div class="col-md-5">
 																	<input type="text" class="form-control" placeholder="0"
@@ -284,12 +345,12 @@
 																</div>
 															</div>
 															<div class="form-group">
-																<label class="col-md-3 control-label">床位数</label>
+																<label class="col-md-3 control-label">入住人数</label>
 																<div class="col-md-5">
 																	<select class="form-control" name="bedNumber">
 																		<option value="1">1</option>
 																		<option value="2">2</option>
-																		<option value="3">3</option>
+																		
 																	</select>
 																</div>
 															</div>

@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping(value="frontend/online_order")
-public class FrontendOnlineOrderController {
+public class FrontendOnlineOrderController extends BaseController{
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView onlineOrder(HttpServletRequest request){

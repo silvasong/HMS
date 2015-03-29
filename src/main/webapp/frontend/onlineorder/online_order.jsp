@@ -288,7 +288,7 @@
 			Layout.init();
 			Layout.initOWL();
 			RevosliderInit.initRevoSlider();
-			//Layout.initTwitter();
+			
 			OnlineOrder.init();
 		});
 	</script>

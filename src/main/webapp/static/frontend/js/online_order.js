@@ -29,7 +29,9 @@ var OnlineOrder = function () {
                 rtl: Metronic.isRTL(),
                 orientation: "left",
                 autoclose: true,
-                language:"zh-CN"
+                language:"zh-CN",
+                
+                
             });
             //$('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
         }

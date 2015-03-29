@@ -2246,7 +2246,7 @@ Form Layouts
   display: inline-block;
 }
 .radio-list > label.radio-inline:first-child {
-  padding-left: 0;
+  padding-left: 10;
 }
 
 /* Radio buttons in horizontal forms */

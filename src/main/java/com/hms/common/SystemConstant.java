@@ -12,6 +12,8 @@ import java.io.File;
 public class SystemConstant {
 	
 	public static String ADMIN_LOGIN="ADMIN_LOING";
+	
+	public static String CUSTOMER_LOGIN="CUSTOMER_LOGIN";
     
 	public static String INDEX_BG = "INDEX_BG";
 	

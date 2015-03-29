@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import com.hms.common.SystemConstant;
 import com.hms.dto.Admin;
+import com.hms.dto.Customer;
 
 /**
  * <p>Title: BaseController.java</p>
@@ -19,8 +20,16 @@ public class BaseController {
 		request.getSession().setAttribute(SystemConstant.ADMIN_LOGIN, admin);
 	}
 	
+	public void setCustomerSession(HttpServletRequest request,Customer customer){
+		request.getSession().setAttribute(SystemConstant.CUSTOMER_LOGIN, customer);
+	}
+	
 	public void removeAdminSession(HttpSession session){
 		session.removeAttribute(SystemConstant.ADMIN_LOGIN);
+	}
+	
+	public void removeCustomerSession(HttpSession session){
+		session.removeAttribute(SystemConstant.CUSTOMER_LOGIN);
 	}
 	
 
