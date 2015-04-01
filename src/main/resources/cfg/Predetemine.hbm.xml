@@ -11,8 +11,8 @@
         <property name="idCard" type="string">
             <column name="id_card" length="18" not-null="true" />
         </property>
-        <property name="presetTime" type="string">
-            <column name="preset_time" length="16777215" not-null="true" />
+        <property name="presetTime" type="java.lang.Long">
+            <column name="preset_time" not-null="true" />
         </property>
         <property name="roomType" type="int">
             <column name="room_type" not-null="true" />
@@ -23,14 +23,17 @@
         <property name="customerIdCard" type="string">
             <column name="customer_id_card" length="18" not-null="true" />
         </property>
+        <property name="phone" type="string">
+            <column name="phone" length="20" not-null="true" />
+        </property>
         <property name="customerName" type="string">
             <column name="customer_name" length="20" not-null="true" />
         </property>
-        <property name="checkInTime" type="string">
-            <column name="check_in_time" length="16777215" not-null="true" />
+        <property name="checkInTime" type="java.lang.Long">
+            <column name="check_in_time"  not-null="true" />
         </property>
-        <property name="checkOutTime" type="string">
-            <column name="check_out_time" length="16777215" not-null="true" />
+        <property name="checkOutTime" type="java.lang.Long">
+            <column name="check_out_time"  not-null="true" />
         </property>
         <property name="status" type="int">
             <column name="status" not-null="true" />

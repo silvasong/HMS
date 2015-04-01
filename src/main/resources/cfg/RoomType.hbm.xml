@@ -35,7 +35,7 @@
         <property name="network" type="string">
             <column name="network" length="20" not-null="true" />
         </property>
-        <set name="roomTypeImages">
+       <set name="roomTypeImages">
         	<key column="room_tpye_id"></key>
         	<one-to-many class="com.hms.dto.RoomTypeImage"/>
         </set>

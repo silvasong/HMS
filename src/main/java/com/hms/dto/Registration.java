@@ -8,8 +8,9 @@ public class Registration implements java.io.Serializable {
 
 	private String id;
 	private int roomId;
-	private String checkInTime;
-	private String checkOutTime;
+	private int roomType;
+	private long checkInTime;
+	private long checkOutTime;
 	private String customerIdCard;
 	private String customerName;
 	private String predetermineId;
@@ -23,24 +24,7 @@ public class Registration implements java.io.Serializable {
 	public Registration() {
 	}
 
-	public Registration(String id, int roomId, String checkInTime,
-			String checkOutTime, String customerIdCard, String customerName,
-			String predetermineId, int day, int cost, int margin,
-			int checkInAdmin, int checkOutAdmin, int status) {
-		this.id = id;
-		this.roomId = roomId;
-		this.checkInTime = checkInTime;
-		this.checkOutTime = checkOutTime;
-		this.customerIdCard = customerIdCard;
-		this.customerName = customerName;
-		this.predetermineId = predetermineId;
-		this.day = day;
-		this.cost = cost;
-		this.margin = margin;
-		this.checkInAdmin = checkInAdmin;
-		this.checkOutAdmin = checkOutAdmin;
-		this.status = status;
-	}
+	
 
 	public String getId() {
 		return this.id;
@@ -58,21 +42,43 @@ public class Registration implements java.io.Serializable {
 		this.roomId = roomId;
 	}
 
-	public String getCheckInTime() {
-		return this.checkInTime;
+	
+
+	public int getRoomType() {
+		return roomType;
 	}
 
-	public void setCheckInTime(String checkInTime) {
+
+
+	public void setRoomType(int roomType) {
+		this.roomType = roomType;
+	}
+
+
+
+	public long getCheckInTime() {
+		return checkInTime;
+	}
+
+
+
+	public void setCheckInTime(long checkInTime) {
 		this.checkInTime = checkInTime;
 	}
 
-	public String getCheckOutTime() {
-		return this.checkOutTime;
+
+
+	public long getCheckOutTime() {
+		return checkOutTime;
 	}
 
-	public void setCheckOutTime(String checkOutTime) {
+
+
+	public void setCheckOutTime(long checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
+
+
 
 	public String getCustomerIdCard() {
 		return this.customerIdCard;

@@ -75,6 +75,9 @@
 
 	<div class="main">
 		<div class="container">
+		    <div class="row">
+		    	<div id="alert"></div>	
+		    </div>
 			<div class="note note-success">
 				<h4 class="block">在线预定</h4>
 				<div class="row">
@@ -84,9 +87,10 @@
 							<div class="col-md-4">
 								<div class="input-group input-large date-picker input-daterange"
 									data-date-format="yyyy-mm-dd" data-date-start-date="+0d">
-									<input type="text" class="form-control" name="from"> <span
-										class="input-group-addon"> to </span> <input type="text"
-										class="form-control" name="to">
+									<input type="text" class="form-control" name="start"
+										value="${start}"> <span class="input-group-addon">
+										to </span> <input type="text" class="form-control" name="end"
+										value="${end}">
 								</div>
 								<!-- /input-group -->
 
@@ -94,7 +98,7 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<button type="button" class="btn btn-primary">预定</button>
+						<button type="button" class="btn btn-primary">搜索</button>
 					</div>
 
 				</div>
@@ -102,119 +106,160 @@
 			</div>
 
 			<div class="portlet light bordered form-fit">
-				
+
 				<div class="portlet-body form">
-					<table class="table table-hover table-light">
-								<thead>
-								<tr class="uppercase font-green-haze">
-									<th colspan="2" class="font-green-haze"  width="30%">
-										 房型
-									</th>
-									<th class="font-green-haze" width="20%">
-										早餐
-									</th>
-									<th class="font-green-haze" width="20%">
-										取消政策
-									</th>
-									<th class="font-green-haze" width="20%">
-										日均价
-									</th>
-									<th class="font-green-haze" width="10%">
-										
-									</th>
-								</tr>
-								</thead>
-								<tbody>
+					<table class="table table-hover table-light" id="predetemine">
+						<thead>
+							<tr class="uppercase font-green-haze">
+								<th colspan="2" class="font-green-haze" width="30%">房型</th>
+								<th class="font-green-haze" width="20%">早餐</th>
+								<th class="font-green-haze" width="20%">取消政策</th>
+								<th class="font-green-haze" width="20%">日均价</th>
+								<th class="font-green-haze" width="10%"></th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<c:forEach var="roomType" items="${roomTypeMap }">
 								<tr>
-									<td class="fit" rowspan="2">
-										<img  src="../static/frontend/image/room.jpg">
-										
-									</td>
-									<td>
-										豪华单间
-									</td>
-									<td>
-										双早
-									</td>
-									<td>
-										限时取消
-									</td>
-									<td>
-										 530.00
-									</td>
-									
-									<td>
-										<button type="button" class="btn btn-primary">预定</button>
+									<td class="fit" rowspan="2"><img
+										src="../static/frontend/image/room.jpg"></td>
+									<td>${roomType.value[0]}</td>
+									<td>${roomType.value[1]}</td>
+									<td>${roomType.value[2]}</td>
+									<td>${roomType.value[3]}</td>
+
+									<td><c:if test="${empty login}">
+											<button type="button" class="btn btn-primary">预定</button>
+										</c:if> <c:if test="${not empty login}">
+											<a href="<c:url value="/"/>frontend/login">请先登录</a>
+										</c:if> <input type="text" value="${roomType.key}" class="hidden" />
 									</td>
 								</tr>
 								<tr>
-									<td colspan="5">床型：双床1.3米     最多入住人数：2人     楼层：3层-6层     上网方式：宽带[免费]</td>
+									<td colspan="5">床型： ${roomType.value[4]} 最多入住人数：
+										${roomType.value[5]} 楼层： ${roomType.value[6]} 上网方式：
+										${roomType.value[7]}${roomType.value[8]}</td>
 								</tr>
-								
-								
-									<tr>
-									<td class="fit" rowspan="2">
-										<img src="../static/frontend/image/room.jpg">
-										
-									</td>
-									<td>
-										豪华单间
-									</td>
-									<td>
-										双早
-									</td>
-									<td>
-										限时取消
-									</td>
-									<td>
-										 530.00
-									</td>
-									
-									<td>
-										<button type="button" class="btn btn-primary">预定</button>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5">床型：双床1.3米     最多入住人数：2人     楼层：3层-6层     上网方式：宽带[免费]</td>
-								</tr>
-								
-								<tr>
-									<td class="fit" rowspan="2">
-										<img  src="../static/frontend/image/room.jpg">
-										
-									</td>
-									<td>
-										豪华单间
-									</td>
-									<td>
-										双早
-									</td>
-									<td>
-										限时取消
-									</td>
-									<td>
-										 530.00
-									</td>
-									
-									<td>
-										<button type="button" class="btn btn-primary">预定</button>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="5">床型：双床1.3米     最多入住人数：2人     楼层：3层-6层     上网方式：宽带[免费]</td>
-								</tr>
-								
-								
-								
-								
-								
-								</tbody>
-								</table>
-					
+							</c:forEach>
+
+
+
+
+
+						</tbody>
+					</table>
+
 				</div>
 			</div>
 
+			<div class="modal fade" id="predetemine_modal" tabindex="-1"
+				role="basic" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true"></button>
+							<h4 class="modal-title">填写订单信息</h4>
+						</div>
+						<div class="modal-body">
+							<div class="portlet light">
+								<div class="portlet-body form">
+									<div id="info"></div>
 
+									<div class="row">
+										<div class="col-md-12 col-sm-12">
+											<form class="form-horizontal" role="form" id="register_form"
+												method="post" >
+												<fieldset>
+												    <input type="text" value="" class="hidden" name="roomTypeId"/>
+													<legend></legend>
+													<div class="form-group">
+														<label class="col-lg-4 control-label">房间数量 </label>
+														<div class="col-lg-8">
+															<select class="form-control input-xsmall" name="number" id="count">
+																<option value="1">1间</option>
+																<option value="2">2间</option>
+																<option value="3">3间</option>
+																<option value="4">4间</option>
+																<option value="5">5间</option>
+																<option value="6">6间</option>
+																<option value="7">7间</option>
+																<option value="8">8间</option>
+																<option value="9">9间</option>
+																<option value="10">10间</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-lg-4 control-label">入住时间 </label>
+														<div class="col-lg-8">
+															<label class="control-label" id="time"></label>
+															<input type="text" class="hidden" name="time" value=""/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-lg-4 control-label">房间费用 </label>
+														<div class="col-lg-8">
+															<label class="control-label font-red-flamingo font-lg" id="price">  <span class="font-sm font-grey-mint">(预订免费，入住后酒店前台付款，注：如需发票，请从酒店前台索取)</span></label>
+															<input type="text" class="hidden" name="price" value=""/>
+														</div>
+													</div>
+
+
+
+
+												</fieldset>
+												<fieldset>
+													<legend>入住信息</legend>
+													<div class="form-group">
+														<label class="col-lg-4 control-label">入住人姓名 <span
+															class="require">*</span>
+														</label>
+														<div class="col-lg-4">
+															<input type="text" class="form-control" name="name" id="pass">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-lg-4 control-label">身份证号码 <span
+															class="require">*</span>
+														</label>
+														<div class="col-lg-6">
+															<input type="text" class="form-control" name="idCard" id="pass">
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-lg-4 control-label">联系电话<span
+															class="require">*</span>
+														</label>
+														<div class="col-lg-6">
+															<input type="text" class="form-control" name="phone" id="pass">
+														</div>
+													</div>
+
+												</fieldset>
+
+												<div class="row">
+													<div
+														class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+														<input type="submit" class="btn btn-primary" value="完成预定">
+
+													</div>
+												</div>
+											</form>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
 
 
 
@@ -282,14 +327,15 @@
 		type="text/javascript"></script>
 	<script src="../static/frontend/js/online_order.js"
 		type="text/javascript"></script>
+	<script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 			Metronic.init();
 			Layout.init();
 			Layout.initOWL();
 			RevosliderInit.initRevoSlider();
-			
-			OnlineOrder.init();
+
+			OnlineOrder.init("<c:url value="/"/>");
 		});
 	</script>
 	<!-- END PAGE LEVEL JAVASCRIPTS -->

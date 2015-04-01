@@ -11,11 +11,14 @@
         <property name="roomId" type="int">
             <column name="room_id" not-null="true" />
         </property>
-        <property name="checkInTime" type="string">
-            <column name="check_in_time" length="16777215" not-null="true" />
+        <property name="roomType" type="int">
+            <column name="room_type" not-null="true" />
         </property>
-        <property name="checkOutTime" type="string">
-            <column name="check_out_time" length="16777215" not-null="true" />
+        <property name="checkInTime" type="java.lang.Long">
+            <column name="check_in_time"  not-null="true" />
+        </property>
+        <property name="checkOutTime" type="java.lang.Long">
+            <column name="check_out_time"  not-null="true" />
         </property>
         <property name="customerIdCard" type="string">
             <column name="customer_id_card" length="40" not-null="true" />

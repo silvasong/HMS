@@ -18,5 +18,12 @@
     <bean id="adminRoomService" class="com.hms.service.impl.AdminRoomServiceImpl" autowire="byName"/>
     
     <bean id="frontendCustomerService" class="com.hms.service.impl.FrontendCustomerServiceImpl" autowire="byName"/>
+    
+    <bean id="frontendRoomPredetermineService" class="com.hms.service.impl.FrontendRoomPredetemineServiceImpl" autowire="byName"/>
+    
+    <bean id="frontendRoomPredetemineOrderService" class="com.hms.service.impl.FrontendRoomPredetemineOrderServiceImpl" autowire="byName"/>
+    
+    <bean id="adminRegistrationService" class="com.hms.service.impl.AdminRegistrationServiceImpl" autowire="byName"/>
+    
 
 </beans>

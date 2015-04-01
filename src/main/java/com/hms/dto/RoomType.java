@@ -18,6 +18,7 @@ public class RoomType implements java.io.Serializable {
 	private String bedtype;
 	private String floor;
 	private String network;
+	private int count;
     private Set<RoomTypeImage> roomTypeImages;
 	public RoomType() {
 	}
@@ -131,6 +132,19 @@ public class RoomType implements java.io.Serializable {
 	public void setNetwork(String network) {
 		this.network = network;
 	}
+
+
+
+	public int getCount() {
+		return count;
+	}
+
+
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
 	
 
 }

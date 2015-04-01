@@ -1,5 +1,6 @@
 import java.util.UUID;
 
+import com.hms.common.PredetemineTools;
 import com.hms.common.UUIDTools;
 
 /**
@@ -13,7 +14,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println();
+		new PredetemineTools().getRoomTypeStatic(0, 0);
 	}
 
 }

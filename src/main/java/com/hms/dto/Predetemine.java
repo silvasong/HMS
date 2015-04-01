@@ -8,33 +8,20 @@ public class Predetemine implements java.io.Serializable {
 
 	private String predetermineId;
 	private String idCard;
-	private String presetTime;
+	private long presetTime;
 	private int roomType;
 	private int number;
 	private String customerIdCard;
 	private String customerName;
-	private String checkInTime;
-	private String checkOutTime;
+	private String phone;
+	private long checkInTime;
+	private long checkOutTime;
 	private int status;
 
 	public Predetemine() {
 	}
 
-	public Predetemine(String predetermineId, String idCard, String presetTime,
-			int roomType, int number, String customerIdCard,
-			String customerName, String checkInTime, String checkOutTime,
-			int status) {
-		this.predetermineId = predetermineId;
-		this.idCard = idCard;
-		this.presetTime = presetTime;
-		this.roomType = roomType;
-		this.number = number;
-		this.customerIdCard = customerIdCard;
-		this.customerName = customerName;
-		this.checkInTime = checkInTime;
-		this.checkOutTime = checkOutTime;
-		this.status = status;
-	}
+	
 
 	public String getPredetermineId() {
 		return this.predetermineId;
@@ -52,14 +39,6 @@ public class Predetemine implements java.io.Serializable {
 		this.idCard = idCard;
 	}
 
-	public String getPresetTime() {
-		return this.presetTime;
-	}
-
-	public void setPresetTime(String presetTime) {
-		this.presetTime = presetTime;
-	}
-
 	public int getRoomType() {
 		return this.roomType;
 	}
@@ -71,6 +50,19 @@ public class Predetemine implements java.io.Serializable {
 	public int getNumber() {
 		return this.number;
 	}
+    
+	
+	public String getPhone() {
+		return phone;
+	}
+
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+
 
 	public void setNumber(int number) {
 		this.number = number;
@@ -92,21 +84,44 @@ public class Predetemine implements java.io.Serializable {
 		this.customerName = customerName;
 	}
 
-	public String getCheckInTime() {
-		return this.checkInTime;
+    
+	
+	
+	public long getPresetTime() {
+		return presetTime;
 	}
 
-	public void setCheckInTime(String checkInTime) {
+
+
+	public void setPresetTime(long presetTime) {
+		this.presetTime = presetTime;
+	}
+
+
+
+	public long getCheckInTime() {
+		return checkInTime;
+	}
+
+
+
+	public void setCheckInTime(long checkInTime) {
 		this.checkInTime = checkInTime;
 	}
 
-	public String getCheckOutTime() {
-		return this.checkOutTime;
+
+
+	public long getCheckOutTime() {
+		return checkOutTime;
 	}
 
-	public void setCheckOutTime(String checkOutTime) {
+
+
+	public void setCheckOutTime(long checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
+
+
 
 	public int getStatus() {
 		return this.status;
