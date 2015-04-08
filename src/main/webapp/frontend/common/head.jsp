@@ -56,7 +56,7 @@
               </a>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="" data-target="#" href="<c:url value="/"/>frontend/online_order">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="<c:url value="/"/>frontend/personal_center">
                  
                           个人中心
               </a>

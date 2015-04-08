@@ -26,7 +26,8 @@ public class DataTableParamer {
 		
 		public int iSortingCols;
 
-
+        public int istatic;
+        
 		public String getsEcho() {
 			return sEcho;
 		}
@@ -84,6 +85,16 @@ public class DataTableParamer {
 
 		public void setiSortingCols(int iSortingCols) {
 			this.iSortingCols = iSortingCols;
+		}
+
+
+		public int getIstatic() {
+			return istatic;
+		}
+
+
+		public void setIstatic(int istatic) {
+			this.istatic = istatic;
 		}
 		
 		

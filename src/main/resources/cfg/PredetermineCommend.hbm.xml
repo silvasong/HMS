@@ -4,9 +4,9 @@
 <!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.hms.dto.PredetermineCommend" table="predetermine_commend" catalog="hms">
-        <id name="commendId" type="string">
+        <id name="commendId" type="int">
             <column name="commend_id" length="20" />
-            <generator class="assigned" />
+            <generator class="identity"/>
         </id>
         <property name="predetermineId" type="string">
             <column name="predetermine_id" length="20" not-null="true" />
@@ -19,6 +19,9 @@
         </property>
         <property name="score2" type="float">
             <column name="score2" precision="12" scale="0" not-null="true" />
+        </property>
+         <property name="score3" type="float">
+            <column name="score3" precision="12" scale="0" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

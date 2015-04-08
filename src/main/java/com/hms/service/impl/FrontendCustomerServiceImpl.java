@@ -30,4 +30,16 @@ public class FrontendCustomerServiceImpl implements FrontendCustomerService{
 		return frontendCustomerDao.findUnique("idCard", id_card);
 	}
 
+	public void updateCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		frontendCustomerDao.update(customer);
+	}
+
+	public void deleteCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		frontendCustomerDao.delete(customer);
+	}
+	
+	
+
 }

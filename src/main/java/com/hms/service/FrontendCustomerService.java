@@ -14,5 +14,9 @@ public interface FrontendCustomerService {
 	public void createCustomer(Customer customer);
 	
 	public Customer getCustomerByIdcard(String id_card);
+	
+	public void updateCustomer(Customer customer);
+	
+	public void deleteCustomer(Customer customer);
 
 }

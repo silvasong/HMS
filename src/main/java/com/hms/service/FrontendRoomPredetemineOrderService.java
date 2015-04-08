@@ -1,6 +1,8 @@
 package com.hms.service;
 
 import com.hms.dto.Predetemine;
+import com.hms.model.DataTableParamer;
+import com.hms.model.PagingData;
 
 /**
  * <p>Title: FrontendRoomPredetemineOrderService.java</p>
@@ -12,5 +14,11 @@ import com.hms.dto.Predetemine;
 public interface FrontendRoomPredetemineOrderService {
 	
 	public void createPredetemineOrder(Predetemine p);
+	
+	public PagingData predetemineOrderList(DataTableParamer dtp);
+	
+	public Predetemine getPredetemineById(String id);
+	
+	public void updatePredete(Predetemine p);
 
 }

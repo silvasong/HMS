@@ -1,10 +1,14 @@
 package com.hms.service.impl;
 
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hms.dao.FrontendRoomPredetemineOrderDao;
 import com.hms.dto.Predetemine;
+import com.hms.model.DataTableParamer;
+import com.hms.model.PagingData;
 import com.hms.service.FrontendRoomPredetemineOrderService;
 
 /**
@@ -23,6 +27,21 @@ public class FrontendRoomPredetemineOrderServiceImpl implements FrontendRoomPred
 	public void createPredetemineOrder(Predetemine p) {
 		// TODO Auto-generated method stub
 		frontendRoomPredetemineOrderDao.sava(p);
+	}
+
+	public PagingData predetemineOrderList(DataTableParamer dtp) {
+		// TODO Auto-generated method stub
+		return frontendRoomPredetemineOrderDao.findPage(Restrictions.eq("status", dtp.getIstatic()), dtp.getiDisplayStart(), dtp.getiDisplayLength());
+	}
+
+	public Predetemine getPredetemineById(String id) {
+		// TODO Auto-generated method stub
+		return frontendRoomPredetemineOrderDao.get(id);
+	}
+
+	public void updatePredete(Predetemine p) {
+		// TODO Auto-generated method stub
+		frontendRoomPredetemineOrderDao.update(p);
 	}
 
 }

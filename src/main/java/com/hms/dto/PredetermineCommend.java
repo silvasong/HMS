@@ -6,16 +6,17 @@ package com.hms.dto;
  */
 public class PredetermineCommend implements java.io.Serializable {
 
-	private String commendId;
+	private int commendId;
 	private String predetermineId;
 	private String commendContend;
 	private float score1;
 	private float score2;
+	private float score3;
 
 	public PredetermineCommend() {
 	}
 
-	public PredetermineCommend(String commendId, String predetermineId,
+	public PredetermineCommend(int commendId, String predetermineId,
 			String commendContend, float score1, float score2) {
 		this.commendId = commendId;
 		this.predetermineId = predetermineId;
@@ -24,11 +25,11 @@ public class PredetermineCommend implements java.io.Serializable {
 		this.score2 = score2;
 	}
 
-	public String getCommendId() {
+	public int getCommendId() {
 		return this.commendId;
 	}
 
-	public void setCommendId(String commendId) {
+	public void setCommendId(int commendId) {
 		this.commendId = commendId;
 	}
 
@@ -63,5 +64,14 @@ public class PredetermineCommend implements java.io.Serializable {
 	public void setScore2(float score2) {
 		this.score2 = score2;
 	}
+
+	public float getScore3() {
+		return score3;
+	}
+
+	public void setScore3(float score3) {
+		this.score3 = score3;
+	}
+	
 
 }
