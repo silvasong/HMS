@@ -10,6 +10,8 @@ public class PredetemineOrderModel {
 	
 	private String predetermineId;
 	
+	private String idCard;
+	
 	private String presetTime;
 	
 	private String roomType;
@@ -28,6 +30,15 @@ public class PredetemineOrderModel {
 
 	public void setPredetermineId(String predetermineId) {
 		this.predetermineId = predetermineId;
+	}
+   
+	
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
 	}
 
 	public String getPresetTime() {

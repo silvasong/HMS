@@ -12,5 +12,7 @@ import com.hms.dto.Admin;
 public interface AdminService {
 	
 	public Admin getByName(String name);
+	
+	public Admin getById(int id);
 
 }

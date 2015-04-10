@@ -25,4 +25,9 @@ public class AdminServiceImpl implements AdminService {
 		return adminDao.findUnique("adminName", name);
 	}
 
+	public Admin getById(int id) {
+		// TODO Auto-generated method stub
+		return adminDao.get(id);
+	}
+
 }

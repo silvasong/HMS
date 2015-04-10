@@ -60,8 +60,31 @@ public class AdminRoomController extends BaseController{
 	public String roomList(HttpServletRequest request,DataTableParamer dtp){
 		PagingData pagingData = adminRoomService.loadRoomList(dtp);
 		Object objs[] = null;
+		RoomType roomType = null;
 		if(pagingData.getAaData()==null){
 			objs = new Object[]{};
+			pagingData.setAaData(objs);
+		}else{
+			objs = pagingData.getAaData();
+			int i = 0;
+			for(Object o :objs ){
+				Room room = (Room) o;
+				roomType = new RoomType();
+				roomType.setBedNumber(room.getRoomType().getId());
+				roomType.setBedtype(room.getRoomType().getBedtype());
+				roomType.setBreakfast(room.getRoomType().getBreakfast());
+				roomType.setCancellation(room.getRoomType().getCancellation());
+				roomType.setCount(room.getRoomType().getCount());
+				roomType.setDiscountPrice(room.getRoomType().getDiscountPrice());
+				roomType.setFloor(room.getRoomType().getFloor());
+				roomType.setId(room.getRoomType().getId());
+				roomType.setNetwork(room.getRoomType().getNetwork());
+				roomType.setPrice(room.getRoomType().getPrice());
+				roomType.setRoomTypeImages(room.getRoomType().getRoomTypeImages());
+				roomType.setType(room.getRoomType().getType());
+				room.setRoomType(roomType);
+				objs[i++]=room;
+			}
 			pagingData.setAaData(objs);
 		}
 	    return JSON.toJSONString(pagingData);
