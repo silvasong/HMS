@@ -27,5 +27,7 @@
     
     <bean id="frontendRoomPredetemineOrderCommendService" class="com.hms.service.impl.FrontendRoomPredetemineOrderCommendServiceImpl" autowire="byName"/>
     
+    <bean id="frontendRoomPredetemineOrderCommendReplyService" class="com.hms.service.impl.FrontendRoomPredetemineOrderCommendReplyServiceImpl" autowire="byName"/>
+    
 
 </beans>

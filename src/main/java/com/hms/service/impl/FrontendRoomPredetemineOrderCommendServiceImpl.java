@@ -26,4 +26,10 @@ public class FrontendRoomPredetemineOrderCommendServiceImpl implements FrontendR
 		frontendRoomPredetemineOrderCommendDao.sava(pc);
 	}
 
+
+	public PredetermineCommend getCommendByPredetemineId(String id) {
+		// TODO Auto-generated method stub
+		return frontendRoomPredetemineOrderCommendDao.findUnique("predetermineId", id);
+	}
+
 }

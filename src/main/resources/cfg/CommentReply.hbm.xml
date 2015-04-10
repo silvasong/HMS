@@ -4,12 +4,12 @@
 <!-- Generated 2015-1-11 18:26:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.hms.dto.CommentReply" table="comment_reply" catalog="hms">
-        <id name="commentReplyId" type="string">
-            <column name="comment_reply_id" length="20" />
-            <generator class="assigned" />
+        <id name="commentReplyId" type="int">
+            <column name="comment_reply_id"  />
+            <generator class="identity" />
         </id>
-        <property name="commendId" type="string">
-            <column name="commend_id" length="20" not-null="true" />
+        <property name="commendId" type="int">
+            <column name="commend_id"  not-null="true" />
         </property>
         <property name="replyContent" type="string">
             <column name="reply_content" length="100" not-null="true" />

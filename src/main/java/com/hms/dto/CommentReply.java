@@ -6,15 +6,15 @@ package com.hms.dto;
  */
 public class CommentReply implements java.io.Serializable {
 
-	private String commentReplyId;
-	private String commendId;
+	private int commentReplyId;
+	private int commendId;
 	private String replyContent;
 	private int adminId;
 
 	public CommentReply() {
 	}
 
-	public CommentReply(String commentReplyId, String commendId,
+	public CommentReply(int commentReplyId, int commendId,
 			String replyContent, int adminId) {
 		this.commentReplyId = commentReplyId;
 		this.commendId = commendId;
@@ -22,19 +22,21 @@ public class CommentReply implements java.io.Serializable {
 		this.adminId = adminId;
 	}
 
-	public String getCommentReplyId() {
-		return this.commentReplyId;
+	
+
+	public int getCommentReplyId() {
+		return commentReplyId;
 	}
 
-	public void setCommentReplyId(String commentReplyId) {
+	public void setCommentReplyId(int commentReplyId) {
 		this.commentReplyId = commentReplyId;
 	}
 
-	public String getCommendId() {
-		return this.commendId;
+	public int getCommendId() {
+		return commendId;
 	}
 
-	public void setCommendId(String commendId) {
+	public void setCommendId(int commendId) {
 		this.commendId = commendId;
 	}
 

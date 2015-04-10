@@ -12,5 +12,7 @@ import com.hms.dto.PredetermineCommend;
 public interface FrontendRoomPredetemineOrderCommendService {
 	
 	void createPredetemineOrderCommend(PredetermineCommend pc);
+	
+	PredetermineCommend getCommendByPredetemineId(String id);
 
 }

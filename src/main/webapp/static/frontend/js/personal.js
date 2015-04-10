@@ -21,6 +21,8 @@
 
 var rootURI="/";
 var Personal = function () {
+	   var oTable4;
+	   var oTable5;
 	   var oTable6;
 	var handleTable1 = function () {
 		var oTable;
@@ -393,10 +395,10 @@ var Personal = function () {
 	};
 	
 	var handleTable4 = function () {
-		var oTable;
+		
 		var selected = [];
 	    var table=$('#table4');
-		oTable = table.dataTable({
+		oTable4 = table.dataTable({
 			"lengthChange":false,
         	"filter":true,
         	"sort":false,
@@ -469,10 +471,10 @@ var Personal = function () {
 	};
 	
 	var handleTable5 = function () {
-		var oTable;
+		
 		var selected = [];
 	    var table=$('#table5');
-		oTable = table.dataTable({
+		oTable5 = table.dataTable({
 			"lengthChange":false,
         	"filter":true,
         	"sort":false,
@@ -537,7 +539,27 @@ var Personal = function () {
 		         }
         });		
         
-		
+		$('#table5').on('click','tbody tr',function(){
+			//alert($(this).find('td:eq(0)').text());
+			$.ajax( {
+	             "dataType": 'json', 
+	             "type": "GET", 
+	             "url": rootURI+"frontend/predetemine_order/order_commend_reply?predetermineId="+$(this).find('td:eq(0)').text(), 
+	             "success": function(data,status){
+	            	 if(status == "success"){					
+						 var html = '<ul><li>环境:'+data.score1+'分</li><li>舒适:'+data.score2+'分</li>'+
+						            '<li>服务：'+data.score3+'分</li>'+data.CommendContend;
+						 $('#ckpj_pj').empty();
+						 $('#ckpj_pj').append(html);
+						 $('#ckpj_rpy').empty();
+						 $('#ckpj_rpy').text(data.CommendReply);
+					}             	 
+	             },
+	             "error":function(XMLHttpRequest, textStatus, errorThrown){
+	            	 alert(errorThrown);
+	             }
+	           });
+		});
 	    
         
 	};
@@ -609,7 +631,8 @@ var Personal = function () {
 	           aoData.push( { "name": "istatic", "value": 1 } );
 		         }
         });		
-
+        
+		
 
         
 	};
@@ -788,7 +811,8 @@ var Personal = function () {
               "success": function(resp,status){
              	 if(status == "success"){  
              		 if(resp.status){						 
-     	            	
+             			oTable4.api().draw();
+             			oTable5.api().draw();
      	            	handleAlerts("评论成功.","success","#alert");		            	 
      				 }
      				 else{

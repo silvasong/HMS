@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,6 +25,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.hms.common.SystemConstant;
 import com.hms.common.UUIDTools;
 import com.hms.dao.FrontendRoomPredetemineOrderDao;
+import com.hms.dto.CommentReply;
 import com.hms.dto.Customer;
 import com.hms.dto.Predetemine;
 import com.hms.dto.PredetermineCommend;
@@ -33,6 +35,7 @@ import com.hms.model.PagingData;
 import com.hms.model.PredetemineModel;
 import com.hms.model.PredetemineOrderModel;
 import com.hms.service.AdminRoomTypeService;
+import com.hms.service.FrontendRoomPredetemineOrderCommendReplyService;
 import com.hms.service.FrontendRoomPredetemineOrderCommendService;
 import com.hms.service.FrontendRoomPredetemineOrderService;
 import com.hms.service.impl.FrontendRoomPredetemineOrderCommendServiceImpl;
@@ -56,6 +59,9 @@ public class FrontendPredetemineOrderController extends BaseController{
 	
 	@Autowired
 	private FrontendRoomPredetemineOrderCommendService frontendRoomPredetemineOrderCommendService;
+	
+	@Autowired
+	private FrontendRoomPredetemineOrderCommendReplyService frontendRoomPredetemineOrderCommendReplyService;
 	
 	@RequestMapping(value="add_predetemine",method=RequestMethod.POST)
 	@ResponseBody
@@ -159,6 +165,34 @@ public class FrontendPredetemineOrderController extends BaseController{
 		JSONObject resp = new JSONObject();
 		try {
 			frontendRoomPredetemineOrderCommendService.createPredetemineOrderCommend(pc);
+			Predetemine predetemine = frontendRoomPredetemineOrderService.getPredetemineById(pc.getPredetermineId());
+			predetemine.setStatus(5);
+			frontendRoomPredetemineOrderService.updatePredete(predetemine);
+			resp.put("status", true);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			resp.put("status", false);
+		}
+		
+		return JSON.toJSONString(resp);
+		
+	}
+	
+	@RequestMapping(value="order_commend_reply",method=RequestMethod.GET)
+	@ResponseBody
+	public String commendOrderReply(HttpServletRequest request,@RequestParam(value="predetermineId") String predetermineId ){
+		JSONObject resp = new JSONObject();
+		try {
+			PredetermineCommend predetermineCommend = frontendRoomPredetemineOrderCommendService.getCommendByPredetemineId(predetermineId);
+			CommentReply commentReply = frontendRoomPredetemineOrderCommendReplyService.getcCommentReplyByCommendId(predetermineCommend.getCommendId());
+			resp.put("CommendContend", predetermineCommend.getCommendContend());
+			resp.put("score1", predetermineCommend.getScore1());
+			resp.put("score2", predetermineCommend.getScore2());
+			resp.put("score3", predetermineCommend.getScore3());
+			if(commentReply != null){
+				resp.put("CommendReply", commentReply.getReplyContent());
+			}
 			resp.put("status", true);
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -381,11 +381,13 @@
 							<div class="portlet light">
 								<div class="portlet-body form">
 
-									<form class="form-horizontal" role="form" id="px_from" method="post">
+									<form class="form-horizontal" role="form" id="px_from"
+										method="post">
 										<div class="form-body">
-										    <input type="text" id="predetermineId" class="hidden" name="predetermineId"/>
+											<input type="text" id="predetermineId" class="hidden"
+												name="predetermineId" />
 											<div class="form-group">
-												<label class="col-md-3 control-label">卫生程度</label>
+												<label class="col-md-3 control-label">环境</label>
 												<div class="col-md-5">
 													<div id="spinner1">
 														<div class="input-group input-small">
@@ -405,8 +407,8 @@
 													</div>
 												</div>
 											</div>
-                                            <div class="form-group">
-												<label class="col-md-3 control-label">舒适度</label>
+											<div class="form-group">
+												<label class="col-md-3 control-label">舒适</label>
 												<div class="col-md-5">
 													<div id="spinner2">
 														<div class="input-group input-small">
@@ -450,15 +452,63 @@
 											<div class="form-group">
 												<label class="col-md-3 control-label">评语</label>
 												<div class="col-md-9">
-													<textarea class="form-control" rows="3" name="commendContend"></textarea>
+													<textarea class="form-control" rows="3"
+														name="commendContend"></textarea>
 												</div>
 											</div>
-                                        </div>
+										</div>
 										<div class="form-actions right1">
 											<button type="button" class="btn default"
 												data-dismiss="modal">取消</button>
-											<button type="button" class="btn green" id="pj">提交</button> 
-											
+											<button type="button" class="btn green" id="pj">提交</button>
+
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+
+			<div class="modal fade" id="ckpj_modal" tabindex="-1" role="basic"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true"></button>
+							<h4 class="modal-title">订单评价</h4>
+						</div>
+						<div class="modal-body">
+							<div class="portlet light">
+								<div class="portlet-body form">
+
+									<form class="form-horizontal" role="form" id="px_from"
+										method="post">
+										<div class="form-body">
+											<div class="well">
+												<h4>评价：</h4>
+												<div id="ckpj_pj">
+												</div>
+											</div>
+											<div class="well">
+												<h4>管理员回复：</h4>
+												<div id="ckpj_rpy">
+												</div>
+											</div>
+
+
+
+										</div>
+										<div class="form-actions right1">
+											<button type="button" class="btn default"
+												data-dismiss="modal">关闭</button>
+
+
 										</div>
 									</form>
 								</div>
