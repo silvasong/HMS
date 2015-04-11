@@ -61,6 +61,7 @@ var Personal = function () {
                { title: "订单编号",   data: "predetermineId" },
 	           { title: "下单时间",  data: "presetTime"},
 	           { title: "房型及数量",  data: "roomType"},
+	           { title: "订单总价",  data: "price"},
 	           { title: "入住信息",  data: "customerIdCard"},
 	           { title: "入住时间",  data: "checkInTime"},
 	           { title: "离店时间",  data: "checkOutTime"},
@@ -210,6 +211,7 @@ var Personal = function () {
                { title: "订单编号",   data: "predetermineId" },
 	           { title: "下单时间",  data: "presetTime"},
 	           { title: "房型及数量",  data: "roomType"},
+	           { title: "订单总价",  data: "price"},
 	           { title: "入住信息",  data: "customerIdCard"},
 	           { title: "入住时间",  data: "checkInTime"},
 	           { title: "离店时间",  data: "checkOutTime"},
@@ -360,6 +362,7 @@ var Personal = function () {
                { title: "订单编号",   data: "predetermineId" },
 	           { title: "下单时间",  data: "presetTime"},
 	           { title: "房型及数量",  data: "roomType"},
+	           { title: "订单总价",  data: "price"},
 	           { title: "入住信息",  data: "customerIdCard"},
 	           { title: "入住时间",  data: "checkInTime"},
 	           { title: "离店时间",  data: "checkOutTime"},
@@ -432,6 +435,7 @@ var Personal = function () {
                { title: "订单编号",   data: "predetermineId" },
 	           { title: "下单时间",  data: "presetTime"},
 	           { title: "房型及数量",  data: "roomType"},
+	           { title: "订单总价",  data: "price"},
 	           { title: "入住信息",  data: "customerIdCard"},
 	           { title: "入住时间",  data: "checkInTime"},
 	           { title: "离店时间",  data: "checkOutTime"},{ title: "评价"},
@@ -495,7 +499,7 @@ var Personal = function () {
 //                }
 //            },
             "columnDefs": [{                	
-            	'targets':6,
+            	'targets':7,
             	'data':null,//定义列名
             	'render':function(data,type,row){
                 	return '<div class="actions"><a class="btn btn-default btn-sm" data-toggle="modal"  href="#ckpj_modal" id="ckpj">查看评价</a></div>';
@@ -508,6 +512,7 @@ var Personal = function () {
                { title: "订单编号",   data: "predetermineId" },
 	           { title: "下单时间",  data: "presetTime"},
 	           { title: "房型及数量",  data: "roomType"},
+	           { title: "订单总价",  data: "price"},
 	           { title: "入住信息",  data: "customerIdCard"},
 	           { title: "入住时间",  data: "checkInTime"},
 	           { title: "离店时间",  data: "checkOutTime"},{ title: "查看评价"},
@@ -601,6 +606,7 @@ var Personal = function () {
                { title: "订单编号",   data: "predetermineId" },
 	           { title: "下单时间",  data: "presetTime"},
 	           { title: "房型及数量",  data: "roomType"},
+	           { title: "订单总价",  data: "price"},
 	           { title: "入住信息",  data: "customerIdCard"},
 	           { title: "入住时间",  data: "checkInTime"},
 	           { title: "离店时间",  data: "checkOutTime"},

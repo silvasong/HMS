@@ -59,6 +59,7 @@ var PredetemineOrder = function () {
 { title: "订单编号",   data: "predetermineId" },
 { title: "下单时间",  data: "presetTime"},
 { title: "房型及数量",  data: "roomType"},
+{ title: "订单总价",  data: "price"},
 { title: "入住信息",  data: "customerIdCard"},
 { title: "入住时间",  data: "checkInTime"},
 { title: "离店时间",  data: "checkOutTime"},

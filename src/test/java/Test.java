@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.UUID;
 
 import com.hms.common.PredetemineTools;
@@ -14,7 +15,8 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new PredetemineTools().getRoomTypeStatic(0, 0);
+		//new PredetemineTools().getRoomTypeStatic(0, 0);
+		System.out.println();
 	}
 
 }

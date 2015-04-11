@@ -1,5 +1,7 @@
 package com.hms.service;
 
+import java.util.List;
+
 import com.hms.dto.Predetemine;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
@@ -20,5 +22,7 @@ public interface AdminPredetemineOrderService {
 	Predetemine getPredetemineOrderById(String id);
 	
 	void updatePredetemineOrder(Predetemine predetemine);
+	
+	List<Predetemine> loadPredetemineOrderToday(long today);
 
 }

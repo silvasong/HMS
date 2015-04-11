@@ -75,9 +75,11 @@ public class FrontendPredetemineOrderController extends BaseController{
 			Date start = sdf.parse(dates[0]);
 			Date end = sdf.parse(dates[1]);
 			Customer customer = (Customer) request.getSession().getAttribute(SystemConstant.CUSTOMER_LOGIN);
-			p.setPredetermineId(UUIDTools.getUUIDString().substring(0, 10));
+			p.setPredetermineId(System.currentTimeMillis()+""+(int)(Math.random()*1000));
 			p.setIdCard(customer.getIdCard());
+			
 			p.setPresetTime(System.currentTimeMillis());
+			p.setPrice(predetemineModel.getPrice());
 			p.setRoomType(predetemineModel.getRoomTypeId());
 			p.setNumber(predetemineModel.getNumber());
 			p.setCustomerIdCard(predetemineModel.getIdCard());
@@ -125,6 +127,7 @@ public class FrontendPredetemineOrderController extends BaseController{
 				predetemine = (Predetemine) o;
 				predetemineOrderModel.setPredetermineId(predetemine.getPredetermineId());
 				predetemineOrderModel.setRoomType(roomTypeMap.get(predetemine.getRoomType())+"*"+predetemine.getNumber());
+				predetemineOrderModel.setPrice(predetemine.getPrice());
 				predetemineOrderModel.setCustomerIdCard(predetemine.getCustomerName()+"("+predetemine.getCustomerIdCard()+")");
 				predetemineOrderModel.setPresetTime(sdftime.format(new Date(predetemine.getPresetTime())));
 				predetemineOrderModel.setCheckInTime(sdf.format(new Date(predetemine.getCheckInTime())));

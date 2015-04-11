@@ -1,5 +1,7 @@
 package com.hms.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +47,11 @@ public class AdminRoomServiceImpl implements AdminRoomService{
 	public void deleteRoom(Integer[] id) {
 		// TODO Auto-generated method stub
 		adminRoomDao.deletAll(id);
+	}
+
+	public List<Room> loadRoomByRoomType(int type) {
+		// TODO Auto-generated method stub
+		return adminRoomDao.findBy("roomType.id", type);
 	}
 
 }

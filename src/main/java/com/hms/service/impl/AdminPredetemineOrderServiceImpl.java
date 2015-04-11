@@ -1,5 +1,7 @@
 package com.hms.service.impl;
 
+import java.util.List;
+
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +62,11 @@ public class AdminPredetemineOrderServiceImpl implements AdminPredetemineOrderSe
 	public void updatePredetemineOrder(Predetemine predetemine) {
 		// TODO Auto-generated method stub
 		adminPredetemineOrderDao.update(predetemine);
+	}
+
+	public List<Predetemine> loadPredetemineOrderToday(long today) {
+		// TODO Auto-generated method stub
+		return adminPredetemineOrderDao.findBy("checkInTime", today);
 	}
 
 }

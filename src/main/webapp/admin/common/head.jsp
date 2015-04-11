@@ -94,6 +94,21 @@
 							</li>
 					   </ul>
 					</li>
+					<li class="menu-dropdown classic-menu-dropdown ">
+						<a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
+						入住管理 <i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu pull-left">
+							<li class="">
+								<a href="<c:url value="/"/>admin/checkmanagement/check">
+								办理入住 </a>
+							</li>
+							<li class="">
+								<a href="<c:url value="/"/>admin/predetemine/predetemineOrderCommend">
+								办理退房 </a>
+							</li>
+					   </ul>
+					</li>
 	
 				</ul>
 			</div>

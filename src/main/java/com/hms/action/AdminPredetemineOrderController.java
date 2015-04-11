@@ -79,6 +79,7 @@ public class AdminPredetemineOrderController {
 				predetemineOrderModel.setPredetermineId(predetemine.getPredetermineId());
 				predetemineOrderModel.setIdCard(predetemine.getIdCard());
 				predetemineOrderModel.setRoomType(roomTypeMap.get(predetemine.getRoomType())+"*"+predetemine.getNumber());
+				predetemineOrderModel.setPrice(predetemine.getPrice());
 				predetemineOrderModel.setCustomerIdCard(predetemine.getCustomerName()+"("+predetemine.getCustomerIdCard()+")");
 				predetemineOrderModel.setPresetTime(sdftime.format(new Date(predetemine.getPresetTime())));
 				predetemineOrderModel.setCheckInTime(sdf.format(new Date(predetemine.getCheckInTime())));

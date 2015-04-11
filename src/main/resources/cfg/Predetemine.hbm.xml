@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="com.hms.dto.Predetemine" table="predetemine" catalog="hms">
         <id name="predetermineId" type="string">
-            <column name="predetermine_id" length="30" />
+            <column name="predetermine_id" length="100" />
             <generator class="assigned" />
         </id>
         <property name="idCard" type="string">
@@ -19,6 +19,9 @@
         </property>
         <property name="number" type="int">
             <column name="number" not-null="true" />
+        </property>
+         <property name="price" type="int">
+            <column name="price" not-null="true" />
         </property>
         <property name="customerIdCard" type="string">
             <column name="customer_id_card" length="18" not-null="true" />

@@ -11,6 +11,7 @@ public class Predetemine implements java.io.Serializable {
 	private long presetTime;
 	private int roomType;
 	private int number;
+	private int price;
 	private String customerIdCard;
 	private String customerName;
 	private String phone;
@@ -22,6 +23,18 @@ public class Predetemine implements java.io.Serializable {
 	}
 
 	
+
+	public int getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
 
 	public String getPredetermineId() {
 		return this.predetermineId;

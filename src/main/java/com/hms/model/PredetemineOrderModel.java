@@ -16,6 +16,8 @@ public class PredetemineOrderModel {
 	
 	private String roomType;
 	
+	private int price;
+	
 	private String customerIdCard;
 	
 	private String checkInTime;
@@ -55,6 +57,14 @@ public class PredetemineOrderModel {
 
 	public void setRoomType(String roomType) {
 		this.roomType = roomType;
+	}
+    	
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public String getCustomerIdCard() {
