@@ -1,4 +1,9 @@
 package com.hms.service;
+
+import com.hms.dto.Registration;
+import com.hms.model.DataTableParamer;
+import com.hms.model.PagingData;
+
 /**
  * <p>Title: AdminRegistrationService.java</p>
  * <p>Description: </p>
@@ -7,5 +12,13 @@ package com.hms.service;
  * @version 1.0
  */
 public interface AdminRegistrationService {
+	
+	public void createRegistration(Registration registration);
+	
+	public PagingData loadRegistrationPagingData(DataTableParamer dtp);
+	
+	public Registration getRegistrationById(String id);
+	
+	public void updateRegistrationById(Registration registration);
 
 }

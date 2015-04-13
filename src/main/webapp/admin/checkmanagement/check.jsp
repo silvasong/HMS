@@ -96,6 +96,10 @@
 				<!-- END PAGE BREADCRUMB -->
 				<!-- BEGIN PAGE CONTENT INNER -->
 				<div class="row">
+					<div id="alert">
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet light">
 							<div class="portlet-title">
@@ -110,7 +114,7 @@
 								</div>
 							</div>
 							<div class="portlet-body">
-								<form id="searchForm" name="searchForm" action="adminuserlist1"
+								<form  name="checkForm" id="check_form"
 									class="form-horizontal" method="post">
 
 									<div class="row">
@@ -135,7 +139,7 @@
 											<div class="form-group">
 												<label class="col-md-4 control-label">选择订单</label>
 												<div class="col-md-8">
-													<select class="form-control input-large">
+													<select class="form-control input-large" name="predetemineId">
 														<option value="">选择订单</option>
 														<c:forEach var="p" items="${predetemineOrder}">
 															<option value="${p.key}">${p.value}</option>
@@ -169,7 +173,7 @@
 												<label class="col-md-4 control-label">房间类型</label>
 												<div class="col-md-8">
 													<select class="form-control input-medium" name="roomType">
-													    <option value="-1">选择订单</option>
+													    <option value="-1">选择房间类型</option>
 														<c:forEach var="r" items="${roomType}">
 															<option value="${r.key}">${r.value}</option>
 														</c:forEach>
@@ -182,7 +186,7 @@
 											<div class="form-group">
 												<label class="col-md-3 control-label">房间号</label>
 												<div class="col-md-9">
-													<select class="form-control input-small" name="room">
+													<select class="form-control input-small" name="roomId">
 														 <option value="-1">选择房号</option> 
 
 													</select>
@@ -196,15 +200,7 @@
 											<div class="form-group">
 												<label class="col-md-4 control-label">入住日期</label>
 												<div class="col-md-8">
-													<div class="input-group input-medium date date-picker"
-														data-date-format="yyyy-mm-dd" data-date-start-date="+0d">
-														<input type="text" class="form-control" readonly>
-														<span class="input-group-btn">
-															<button class="btn default" type="button">
-																<i class="fa fa-calendar"></i>
-															</button>
-														</span>
-													</div>
+													<input type="text" class="form-control input-medium" readonly value="${today}" name="startTime"/>
 												</div>
 											</div>
 										</div>
@@ -214,7 +210,7 @@
 												<div class="col-md-9">
 													<div class="input-group input-medium date date-picker"
 														data-date-format="yyyy-mm-dd" data-date-start-date="+1d">
-														<input type="text" class="form-control" readonly>
+														<input type="text" class="form-control" readonly name="endTime">
 														<span class="input-group-btn">
 															<button class="btn default" type="button">
 																<i class="fa fa-calendar"></i>
@@ -231,7 +227,7 @@
 											<div class="form-group">
 												<label class="col-md-4 control-label">客人姓名</label>
 												<div class="col-md-8">
-													<input type="text" class="form-control" />
+													<input type="text" class="form-control" name="customerName1"/>
 												</div>
 											</div>
 										</div>
@@ -239,7 +235,7 @@
 											<div class="form-group">
 												<label class="col-md-3 control-label">客人身份证</label>
 												<div class="col-md-9">
-													<input type="text" class="form-control" />
+													<input type="text" class="form-control" name="customerIdcard1"/>
 												</div>
 											</div>
 										</div>
@@ -250,7 +246,7 @@
 											<div class="form-group">
 												<label class="col-md-4 control-label">客人姓名</label>
 												<div class="col-md-8">
-													<input type="text" class="form-control" />
+													<input type="text" class="form-control" name="customerName2"/>
 												</div>
 											</div>
 										</div>
@@ -258,7 +254,7 @@
 											<div class="form-group">
 												<label class="col-md-3 control-label">客人身份证</label>
 												<div class="col-md-9">
-													<input type="text" class="form-control" />
+													<input type="text" class="form-control" name="customerIdcard2"/>
 												</div>
 											</div>
 										</div>
@@ -267,17 +263,17 @@
 
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="col-md-4 control-label">房间费用</label>
+												<label class="col-md-4 control-label">房间总费用</label>
 												<div class="col-md-8">
-													<input type="text" class="form-control input-small" />
+													<input type="text" class="form-control input-small" name="cost"/>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="col-md-3 control-label">缴费</label>
+												<label class="col-md-3 control-label">客人缴费</label>
 												<div class="col-md-9">
-													<input type="text" class="form-control input-small" />
+													<input type="text" class="form-control input-small" name="margin"/>
 												</div>
 											</div>
 										</div>
@@ -336,7 +332,9 @@
 		type="text/javascript"></script>
 	<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js"
 		type="text/javascript"></script>
-
+    <script
+		src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"
+		type="text/javascript"></script>
 	<script type="text/javascript"
 		src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	<script type="text/javascript"

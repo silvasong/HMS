@@ -19,10 +19,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.hms.common.SystemConstant;
+import com.hms.dto.Admin;
 import com.hms.dto.Predetemine;
+import com.hms.dto.Registration;
 import com.hms.dto.Room;
 import com.hms.dto.RoomType;
+import com.hms.model.CheckInModel;
 import com.hms.service.AdminPredetemineOrderService;
+import com.hms.service.AdminRegistrationService;
 import com.hms.service.AdminRoomService;
 import com.hms.service.AdminRoomTypeService;
 
@@ -45,6 +50,9 @@ public class AdminCheckController {
 	
 	@Autowired
 	private AdminRoomService adminRoomService;
+	
+	@Autowired
+	private AdminRegistrationService adminRegistrationService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView check(HttpServletRequest request){
@@ -69,9 +77,10 @@ public class AdminCheckController {
 				predetemineOrder.put(predetemine.getPredetermineId(), predetemine.getCustomerName()+"-"
 			                         +predetemine.getCustomerIdCard()+"-"
 						             +roomType.get(predetemine.getRoomType())+"*"+
-			                         predetemine.getNumber());
+			                         predetemine.getNumber()+"~"+sf.format(new Date(predetemine.getCheckOutTime())));
 			}
 		}
+		mav.addObject("today", sf.format(new Date()));
 		mav.addObject("roomType", roomType);
 		mav.addObject("predetemineOrder", predetemineOrder);
 		mav.setViewName("admin/checkmanagement/check");
@@ -99,5 +108,49 @@ public class AdminCheckController {
 		}
 		return JSON.toJSONString(resp);
 	}
-
+    
+	@RequestMapping(value="checkIn",method=RequestMethod.POST)
+	@ResponseBody
+	public String checkIn(HttpServletRequest request,CheckInModel checkInModel ){
+		JSONObject resp = new JSONObject();
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Registration registration = new Registration();
+			registration.setId(System.currentTimeMillis()+"");
+			registration.setRoomId(checkInModel.getRoomId());
+			registration.setRoomType(checkInModel.getRoomType());
+			registration.setCheckInTime(sf.parse(checkInModel.getStartTime()).getTime());
+			registration.setCheckOutTime(sf.parse(checkInModel.getEndTime()).getTime());
+			if(checkInModel.getOrdertpye()==1){
+				registration.setPredetermineId(checkInModel.getPredetemineId());
+			}else{
+				registration.setPredetermineId("0000000000000000");
+			}
+			registration.setCustomerName(checkInModel.getCustomerName1()+"#"+checkInModel.getCustomerName2());
+			registration.setCustomerIdCard(checkInModel.getCustomerIdcard1()+"#"+checkInModel.getCustomerIdcard2());
+			registration.setCost(checkInModel.getCost());
+			registration.setMargin(checkInModel.getMargin());
+			registration.setDay((int)(sf.parse(checkInModel.getStartTime()).getTime()-sf.parse(checkInModel.getEndTime()).getTime())/86400000);
+			Admin admin = (Admin)request.getSession().getAttribute(SystemConstant.ADMIN_LOGIN);
+			registration.setCheckInAdmin(admin.getAdminId());
+			registration.setCheckOutAdmin(1);
+			registration.setStatus(1);
+			
+			adminRegistrationService.createRegistration(registration);
+			Room room = adminRoomService.getRoomById(checkInModel.getRoomId());
+			room.setStatus(1);
+			adminRoomService.updateRoom(room);
+			if(checkInModel.getOrdertpye()==1 && checkInModel.getFlag()==1){
+				Predetemine predetemine = adminPredetemineOrderService.getPredetemineOrderById(checkInModel.getPredetemineId());
+				predetemine.setStatus(3);
+				adminPredetemineOrderService.updatePredetemineOrder(predetemine);
+			}
+			resp.put("status", true);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			resp.put("status", false);
+		}
+		return JSON.toJSONString(resp);
+	}
 }

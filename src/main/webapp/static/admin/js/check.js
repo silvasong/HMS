@@ -47,7 +47,7 @@ var Check = function () {
 		});
 		
 		$('select[name=roomType]').on('change',function(){
-			$('select[name=room]').empty();
+			$('select[name=roomId]').empty();
 			var roomIds = [];
 			
 			if(parseInt($(this).val())!=-1){
@@ -64,7 +64,7 @@ var Check = function () {
 			        			 $.each(roomIds, function(i,val){      
 			        			      html += '<option value="'+val+'">'+val+'</option>'
 			        			  });
-			        			 $('select[name=room]').append(html);
+			        			 $('select[name=roomId]').append(html);
 							 }
 							 
 						}             	 
@@ -74,29 +74,28 @@ var Check = function () {
 			         }
 			       });	
 			}else{
-				 $('select[name=room]').append('<option value="-1">选择房号</option>');
+				 $('select[name=roomId]').append('<option value="-1">选择房号</option>');
 			}
 			
 			
 		});
 		
 	}
-	//添加操作
-	var addRoom=function(){		
+	//办理入住
+	var checkOrder=function(){		
 		$.ajax( {
          "dataType": 'json', 
          "type":'POST', 
-         "url": rootURI+"admin/room/room/room_add?random="+Math.random(), 
-         "data": $('#add_from').serialize(),
+         "url": rootURI+"admin/checkmanagement/check/checkIn?random="+Math.random(), 
+         "data": $('#check_form').serialize(),
          "success": function(resp,status){
         	 if(status == "success"){  
         		 if(resp.status){						 
-	            	 oTable.api().draw();
-	            	 selected=[];
-	            	 handleAlerts("Added the data successfully.","success","");		            	 
+	            	 alert("办理成功");
+	            	 window.location.href=rootURI+"admin/checkmanagement/check";
 				 }
 				 else{
-					 handleAlerts(resp.info,"danger","");						 
+					 handleAlerts("办理失败.","danger","#alert");						 
 				 }
 			}             	 
          },
@@ -104,12 +103,12 @@ var Check = function () {
         	 alert(errorThrown);
          }
        });	
-		$('#add_modal').hide();
+		
     };
    
     //处理表单验证方法
-    var addFormValidation = function() {
-            var form = $('#add_from');
+    var formValidation = function() {
+            var form = $('#check_form');
             var errorDiv = $('.alert-danger', form);            
             form.validate({
                 errorElement: 'span', //default input error message container
@@ -117,10 +116,21 @@ var Check = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 ignore: "",  // validate all fields including form hidden input                
                 rules: {
-                	roomId: {
-                        required: true,
-                        digits:true
-                    }                  
+                	customerName1: {
+                        required: true
+                     },
+                     customerIdcard1: {
+                         required: true
+                      }, 
+                      
+                        cost: {
+                            required: true,
+                            digits:true
+                         }, 
+                         margin: {
+                             required: true,
+                             digits:true
+                          }, 
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit                	
@@ -146,7 +156,7 @@ var Check = function () {
 
                 submitHandler: function (form) {                	
                     errorDiv.hide();
-                    addRoom();                  
+                    checkOrder();                  
                 }
             });
     };
@@ -176,6 +186,7 @@ var Check = function () {
         	rootURI=rootPath;
         	handleDatePickers();
         	handlePredetemine();
+        	formValidation();
         }
 
     };

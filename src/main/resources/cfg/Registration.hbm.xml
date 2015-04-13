@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="com.hms.dto.Registration" table="registration" catalog="hms">
         <id name="id" type="string">
-            <column name="id" length="11" />
+            <column name="id" length="30" />
             <generator class="assigned" />
         </id>
         <property name="roomId" type="int">
@@ -27,7 +27,7 @@
             <column name="customer_name" length="40" not-null="true" />
         </property>
         <property name="predetermineId" type="string">
-            <column name="predetermine_id" length="11" not-null="true" />
+            <column name="predetermine_id" length="30" not-null="true" />
         </property>
         <property name="day" type="int">
             <column name="day" not-null="true" />

@@ -104,7 +104,7 @@
 								办理入住 </a>
 							</li>
 							<li class="">
-								<a href="<c:url value="/"/>admin/predetemine/predetemineOrderCommend">
+								<a href="<c:url value="/"/>admin/checkmanagement/checkOut">
 								办理退房 </a>
 							</li>
 					   </ul>
