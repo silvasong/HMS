@@ -35,5 +35,7 @@
     
     <bean id="adminPredetemineOrderCommendReplyService" class="com.hms.service.impl.AdminPredetemineOrderCommendReplyServiceImpl" autowire="byName"/>
     
+    <bean id="adminNewTypeService" class="com.hms.service.impl.AdminNewTypeServiceImpl" autowire="byName"/>
+    
 
 </beans>

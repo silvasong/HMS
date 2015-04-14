@@ -8,15 +8,15 @@ public class NewType implements java.io.Serializable {
 
 	private int id;
 	private String name;
-	private String describe;
+	private String descr;
 
 	public NewType() {
 	}
 
-	public NewType(int id, String name, String describe) {
+	public NewType(int id, String name, String descr) {
 		this.id = id;
 		this.name = name;
-		this.describe = describe;
+		this.descr = descr;
 	}
 
 	public int getId() {
@@ -35,12 +35,12 @@ public class NewType implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public String getDescribe() {
-		return this.describe;
+	public String getDescr() {
+		return this.descr;
 	}
 
-	public void setDescribe(String describe) {
-		this.describe = describe;
+	public void setDescr(String descr) {
+		this.descr = descr;
 	}
 
 }

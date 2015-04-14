@@ -40,7 +40,7 @@ import com.hms.service.AdminRoomTypeService;
  */
 @Controller
 @RequestMapping(value="admin/checkmanagement/check")
-public class AdminCheckController {
+public class AdminCheckController extends BaseController{
 	
 	@Autowired
 	private AdminPredetemineOrderService adminPredetemineOrderService;

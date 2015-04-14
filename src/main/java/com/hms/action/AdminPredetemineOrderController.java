@@ -37,7 +37,7 @@ import com.hms.service.AdminRoomTypeService;
  */
 @Controller
 @RequestMapping(value="admin/predetemine/predetemineOrder")
-public class AdminPredetemineOrderController {
+public class AdminPredetemineOrderController extends BaseController{
 	
 	@Autowired
 	private AdminPredetemineOrderService adminPredetemineOrderService;

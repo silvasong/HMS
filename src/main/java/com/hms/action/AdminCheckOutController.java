@@ -35,7 +35,7 @@ import com.hms.service.AdminRegistrationService;
  */
 @Controller
 @RequestMapping(value="admin/checkmanagement/checkOut")
-public class AdminCheckOutController {
+public class AdminCheckOutController extends BaseController{
 	
 	@Autowired
 	private AdminRegistrationService adminRegistrationService;

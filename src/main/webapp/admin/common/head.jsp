@@ -109,6 +109,21 @@
 							</li>
 					   </ul>
 					</li>
+					<li class="menu-dropdown classic-menu-dropdown ">
+						<a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
+						新闻管理 <i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu pull-left">
+							<li class="">
+								<a href="<c:url value="/"/>admin/new/newType">
+								新闻栏目 </a>
+							</li>
+							<li class="">
+								<a href="<c:url value="/"/>admin/new/newType">
+								酒店新闻 </a>
+							</li>
+					   </ul>
+					</li>
 	
 				</ul>
 			</div>
