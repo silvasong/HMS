@@ -1,5 +1,7 @@
 package com.hms.service;
 
+import java.util.List;
+
 import com.hms.dto.NewType;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
@@ -22,5 +24,7 @@ public interface AdminNewTypeService {
 	public NewType getNewTypeById(int id);
 	
 	public void deleteNewTypeById(Integer []id);
+	
+	public List<NewType> loadNewTypes();
 
 }

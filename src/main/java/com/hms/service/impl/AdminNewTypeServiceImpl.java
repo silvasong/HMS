@@ -1,5 +1,7 @@
 package com.hms.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +48,11 @@ public class AdminNewTypeServiceImpl implements AdminNewTypeService{
 	public void deleteNewTypeById(Integer[] id) {
 		// TODO Auto-generated method stub
 		adminNewTypeDao.deletAll(id);
+	}
+
+	public List<NewType> loadNewTypes() {
+		// TODO Auto-generated method stub
+		return adminNewTypeDao.loadAll();
 	}
 
 }

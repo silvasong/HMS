@@ -13,7 +13,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8" />
-<title>HMS | 新闻栏目</title>
+<title>HMS | 新闻列表</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -69,7 +69,7 @@
 				<!-- BEGIN PAGE TITLE -->
 				<div class="page-title">
 					<h1>
-						新闻管理<small>新闻栏目</small>
+						新闻管理<small>新闻列表</small>
 					</h1>
 				</div>
 				<!-- END PAGE TITLE -->
@@ -97,14 +97,14 @@
 							<div class="portlet-title">
 								<div class="caption">
 									<i class="fa fa-cogs font-green-sharp"></i> <span
-										class="caption-subject font-green-sharp bold uppercase">栏目</span>
+										class="caption-subject font-green-sharp bold uppercase">列表</span>
 								</div>
 								<div class="actions btn-set">
 									<a class="btn green-haze btn-circle" data-toggle="modal"
 										href="#add_modal">添加 </a> <a class="btn green-haze btn-circle"
 										data-toggle="modal" href="#edit_modal" id="edit_btn">编辑 </a> <a
 										class="btn green-haze btn-circle" data-toggle="modal"
-										id="delete_btn">删除 </a> 
+										id="delete_btn">删除 </a>
 									<div class="btn-group">
 
 										<a class="btn green-haze btn-circle" href="javascript:;"
@@ -117,10 +117,16 @@
 											<li><label><input type="checkbox" checked
 													data-column="1">ID</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="2">栏目</label></li>
+													data-column="2">类型</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="3">描述</label></li>
-											
+													data-column="3">原价</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="4">优惠价</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="5">入住人数</label></li>
+											<li><label><input type="checkbox" checked
+													data-column="6">早餐</label></li>
+
 										</ul>
 									</div>
 
@@ -143,7 +149,7 @@
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
 												aria-hidden="true"></button>
-											<h4 class="modal-title">添加栏目</h4>
+											<h4 class="modal-title">添加新闻</h4>
 										</div>
 										<div class="modal-body">
 											<div class="portlet light">
@@ -152,16 +158,33 @@
 													<form class="form-horizontal" role="form" id="add_from">
 														<div class="form-body">
 															<div class="form-group">
-																<label class="col-md-3 control-label">栏目</label>
+																<label class="col-md-2 control-label">标题</label>
 																<div class="col-md-5">
-																	<input type="text" class="form-control"
-																		placeholder="类型" name="name">
+																	<input type="text" class="form-control" name="newTitle">
 																</div>
 															</div>
-																<div class="form-group">
-																<label class="col-md-3 control-label">描述</label>
+															<div class="form-group">
+																<label class="col-md-2 control-label">来源</label>
 																<div class="col-md-5">
-																	<textarea class="form-control" rows="3" name="descr"></textarea>
+																	<input type="text" class="form-control" name="newAuthor">
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-md-2 control-label">栏目</label>
+																<div class="col-md-5">
+																	<select class="form-control input-large"
+																		name="newType">
+																		<c:forEach var="n" items="${newType}">
+																			<option value="${n.key}">${n.value}</option>
+																		</c:forEach>
+
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-md-2 control-label">内容</label>
+																<div class="col-md-10">
+																	<textarea class="form-control" rows="10" name="newContent"></textarea>
 																</div>
 															</div>
 														</div>
@@ -188,7 +211,7 @@
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
 												aria-hidden="true"></button>
-											<h4 class="modal-title">删除栏目</h4>
+											<h4 class="modal-title">删除新闻</h4>
 										</div>
 										<div class="modal-body">确认删除选中？</div>
 										<div class="modal-footer">
@@ -209,7 +232,7 @@
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
 												aria-hidden="true"></button>
-											<h4 class="modal-title">编辑栏目</h4>
+											<h4 class="modal-title">编辑新闻</h4>
 										</div>
 										<div class="modal-body">
 											<div class="portlet light">
@@ -219,19 +242,36 @@
 														<div class="form-body">
 														    <div class="form-group">
 																<input type="text" class="form-control hidden"
-																	placeholder="" name="id">
+																	placeholder="" name="newId">
 															</div>
 															<div class="form-group">
-																<label class="col-md-3 control-label">栏目</label>
+																<label class="col-md-2 control-label">标题</label>
 																<div class="col-md-5">
-																	<input type="text" class="form-control"
-																		 name="name">
+																	<input type="text" class="form-control" name="newTitle">
 																</div>
 															</div>
-																<div class="form-group">
-																<label class="col-md-3 control-label">描述</label>
+															<div class="form-group">
+																<label class="col-md-2 control-label">来源</label>
 																<div class="col-md-5">
-																	<textarea class="form-control" rows="3" name="descr"></textarea>
+																	<input type="text" class="form-control" name="newAuthor">
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-md-2 control-label">栏目</label>
+																<div class="col-md-5">
+																	<select class="form-control input-large"
+																		name="newType">
+																		<c:forEach var="n" items="${newType}">
+																			<option value="${n.key}">${n.value}</option>
+																		</c:forEach>
+
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-md-2 control-label">内容</label>
+																<div class="col-md-10">
+																	<textarea class="form-control" rows="10" name="newContent"></textarea>
 																</div>
 															</div>
 														</div>
@@ -251,7 +291,7 @@
 								<!-- /.modal-dialog -->
 							</div>
 
-							
+
 
 						</div>
 					</div>
@@ -317,13 +357,13 @@
 		type="text/javascript"></script>
 	<script src="../../assets/admin/layout/scripts/demo.js"
 		type="text/javascript"></script>
-	<script src="../../static/admin/js/new_type.js" type="text/javascript"></script>
+	<script src="../../static/admin/js/new.js" type="text/javascript"></script>
 	<script>
 		jQuery(document).ready(function() {
 			Metronic.init(); // init metronic core components
 			Layout.init(); // init current layout
 			Demo.init(); // init demo features
-			NewType.init("<c:url value="/"/>");
+			New.init("<c:url value="/"/>");
 		});
 	</script>
 	<!-- END JAVASCRIPTS -->

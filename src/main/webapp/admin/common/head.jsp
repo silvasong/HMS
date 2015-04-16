@@ -119,7 +119,7 @@
 								新闻栏目 </a>
 							</li>
 							<li class="">
-								<a href="<c:url value="/"/>admin/new/newType">
+								<a href="<c:url value="/"/>admin/new/new">
 								酒店新闻 </a>
 							</li>
 					   </ul>

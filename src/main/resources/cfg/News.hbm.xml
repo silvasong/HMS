@@ -6,7 +6,7 @@
     <class name="com.hms.dto.News" table="news" catalog="hms">
         <id name="newId" type="int">
             <column name="new_id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="newTitle" type="string">
             <column name="new_title" length="50" not-null="true" />
@@ -17,8 +17,8 @@
         <property name="newAuthor" type="string">
             <column name="new_author" length="20" not-null="true" />
         </property>
-        <property name="newTime" type="string">
-            <column name="new_time" length="16777215" not-null="true" />
+        <property name="newTime" type="java.lang.Long">
+            <column name="new_time"  not-null="true" />
         </property>
         <property name="newType" type="int">
             <column name="new_type" not-null="true" />

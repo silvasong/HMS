@@ -10,14 +10,14 @@ public class News implements java.io.Serializable {
 	private String newTitle;
 	private String newContent;
 	private String newAuthor;
-	private String newTime;
+	private long newTime;
 	private int newType;
 
 	public News() {
 	}
 
 	public News(int newId, String newTitle, String newContent,
-			String newAuthor, String newTime, int newType) {
+			String newAuthor, long newTime, int newType) {
 		this.newId = newId;
 		this.newTitle = newTitle;
 		this.newContent = newContent;
@@ -58,11 +58,11 @@ public class News implements java.io.Serializable {
 		this.newAuthor = newAuthor;
 	}
 
-	public String getNewTime() {
+	public long getNewTime() {
 		return this.newTime;
 	}
 
-	public void setNewTime(String newTime) {
+	public void setNewTime(long newTime) {
 		this.newTime = newTime;
 	}
 
