@@ -110,6 +110,12 @@ var New = function () {
             }
         });
          
+        $("#add_btn").on("click",function(event){
+			$('input[type=reset]').trigger("click");
+			UE.getEditor('add_editor').setContent('', false);
+			
+		});
+        
        //打开删除对话框前判断是否已选择要删除的行
 		$("#delete_btn").on("click",function(event){
 			if(selected.length==0){
@@ -160,9 +166,9 @@ var New = function () {
 	            $("#edit_from input[name='newId']").val(id);
 	            $("#edit_from input[name='newTitle']").val(newTitle);
 	            $("#edit_from input[name='newAuthor']").val(newAuthor);
-	            $("#edit_from textarea[name='newContent']").val(newContent);
+	           // $("#edit_from textarea[name='newContent']").val(newContent);
 	            $("#edit_from select[name='newType']").children('option:contains('+newType+')').attr("selected","true");
-	           
+	            UE.getEditor('edit_editor').setContent(newContent, false);
 	            
 			   $('#edit_modal').show();
 			}
@@ -186,7 +192,7 @@ var New = function () {
 	
 	
 	//添加操作
-	var addNewType=function(){		
+	var addNewType=function(){	
 		$.ajax( {
          "dataType": 'json', 
          "type":'POST', 

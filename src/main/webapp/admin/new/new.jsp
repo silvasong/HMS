@@ -101,7 +101,7 @@
 								</div>
 								<div class="actions btn-set">
 									<a class="btn green-haze btn-circle" data-toggle="modal"
-										href="#add_modal">添加 </a> <a class="btn green-haze btn-circle"
+										href="#add_modal" id="add_btn">添加 </a> <a class="btn green-haze btn-circle"
 										data-toggle="modal" href="#edit_modal" id="edit_btn">编辑 </a> <a
 										class="btn green-haze btn-circle" data-toggle="modal"
 										id="delete_btn">删除 </a>
@@ -142,9 +142,9 @@
 								</table>
 							</div>
 
-							<div class="modal fade" id="add_modal" tabindex="-1" role="basic"
+							<div class="modal fade bs-modal-lg" id="add_modal" tabindex="-1" role="basic"
 								aria-hidden="true">
-								<div class="modal-dialog">
+								<div class="modal-dialog modal-lg">
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
@@ -184,7 +184,8 @@
 															<div class="form-group">
 																<label class="col-md-2 control-label">内容</label>
 																<div class="col-md-10">
-																	<textarea class="form-control" rows="10" name="newContent"></textarea>
+																	<!-- <textarea class="form-control" rows="10" name="newContent"></textarea> -->
+																	<script id="add_editor" type="text/plain" style="width:680px;height:300px;" name="newContent"></script>
 																</div>
 															</div>
 														</div>
@@ -192,6 +193,7 @@
 															<button type="button" class="btn default"
 																data-dismiss="modal">取消</button>
 															<button type="submit" class="btn green">提交</button>
+															<input type="reset" class="hide" /> 
 														</div>
 													</form>
 												</div>
@@ -206,7 +208,7 @@
 
 							<div class="modal fade" id="delete_modal" tabindex="-1"
 								role="basic" aria-hidden="true">
-								<div class="modal-dialog">
+								<div class="modal-dialog ">
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
@@ -225,9 +227,9 @@
 								<!-- /.modal-dialog -->
 							</div>
 
-							<div class="modal fade" id="edit_modal" tabindex="-1"
+							<div class="modal fade bs-modal-lg" id="edit_modal" tabindex="-1"
 								role="basic" aria-hidden="true">
-								<div class="modal-dialog">
+								<div class="modal-dialog modal-lg">
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
@@ -271,7 +273,8 @@
 															<div class="form-group">
 																<label class="col-md-2 control-label">内容</label>
 																<div class="col-md-10">
-																	<textarea class="form-control" rows="10" name="newContent"></textarea>
+																	<!-- <textarea class="form-control" rows="10" name="newContent"></textarea> -->
+																	<script id="edit_editor" type="text/plain" style="width:680px;height:300px;" name="newContent"></script>
 																</div>
 															</div>
 														</div>
@@ -357,6 +360,11 @@
 		type="text/javascript"></script>
 	<script src="../../assets/admin/layout/scripts/demo.js"
 		type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8" src="../../assets/global/plugins/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../assets/global/plugins/ueditor/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="../../assets/global/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="../../static/admin/js/new.js" type="text/javascript"></script>
 	<script>
 		jQuery(document).ready(function() {
@@ -364,6 +372,8 @@
 			Layout.init(); // init current layout
 			Demo.init(); // init demo features
 			New.init("<c:url value="/"/>");
+			var uea = UE.getEditor('add_editor');
+			var uee = UE.getEditor('edit_editor');
 		});
 	</script>
 	<!-- END JAVASCRIPTS -->
