@@ -61,6 +61,12 @@
                           个人中心
               </a>
             </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="<c:url value="/"/>frontend/news">
+                 
+                          酒店新闻
+              </a>
+            </li>
             </ul>
         </div>
         <!-- END NAVIGATION -->
