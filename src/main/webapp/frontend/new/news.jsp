@@ -39,6 +39,9 @@
 <link
 	href="../assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css"
 	rel="stylesheet">
+<link
+	href="../assets/global/plugins/jquery-pagination/jquery.pagination.css"
+	rel="stylesheet">
 <!-- Page level plugin styles END -->
 
 <!-- Theme styles START -->
@@ -63,7 +66,7 @@
 <!-- Head END -->
 
 <!-- Body BEGIN -->
-<body class="corporate page-content">
+<body class="corporate">
 
 	<c:import url="/frontend/common/head" />
 	<!-- Header END -->
@@ -71,51 +74,64 @@
 
 
 	<div class="main ">
-		<div class="container portlet light">
+		<div class="container portlet light ">
 			<div class="row">
-				<div class="col-md-7">
-					 <div class="page-slider margin-top-10">
-						<div class="fullwidthbanner-container revolution-slider">
-							<div class="fullwidthabnner">
-								<ul id="revolutionul">
-									<!-- THE NEW SLIDE -->
+				<div class="col-md-1"></div>
+				<div class="col-md-10 ">
+					<div class="row">
 
-									<%-- <c:forEach var="i" items="${img}">
-										<li data-transition="fade" data-slotamount="8"
-											data-masterspeed="700" data-delay="9400">
-											<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img src="${i}"
-											alt="">
-										</li>
-									</c:forEach> --%>
-									<li data-transition="fade" data-slotamount="8"
-											data-masterspeed="700" data-delay="9400">
-											<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img src="http://localhost:8080/HMS/upload/admin/setting/index_bg/88f9f4cd11.jpg"
-											alt="">
-									</li>
-									<li data-transition="fade" data-slotamount="8"
-											data-masterspeed="700" data-delay="9400">
-											<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img src="http://localhost:8080/HMS/upload/admin/setting/index_bg/88f9f4cd11.jpg"
-											alt="">
-									</li>
-                                </ul>
-								<div class="tp-bannertimer tp-bottom"></div>
+						<div class="col-md-7">
+							<!-- BEGIN SLIDER -->
+							<div class="page-slider margin-bottom-40">
+								<div class="fullwidthbanner-container revolution-slider">
+									<div class="fullwidthabnner">
+										<ul id="revolutionul">
+											<!-- THE NEW SLIDE -->
+
+											 <c:forEach var="i" items="${img}">
+												<li data-transition="fade" data-slotamount="8"
+													data-masterspeed="700" data-delay="9400">
+													<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img src="${i}"
+													alt="">
+												</li>
+											</c:forEach> 
+											
+										</ul>
+										<div class="tp-bannertimer tp-bottom"></div>
+									</div>
+								</div>
+							</div>
+							<!-- END SLIDER -->
+
+						</div>
+
+						<div class="col-md-5">
+							<h2 class="no-top-space">新闻栏目</h2>
+							<ul class="nav sidebar-categories margin-bottom-40">
+								<c:forEach var="map" items="${newTypeMap}">
+									<li><a href="news/news_type?id=${map.key}">${map.value}</a></li>
+								</c:forEach>
+
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div id="page_data"></div>
+
+
+
+
+							<div class="row margin-top-10">
+								<div id="page" class="m-pagination"></div>
 							</div>
 						</div>
-					</div> 
-					
-				</div>
-				
-				<div class="col-md-3">
-					<h2 class="no-top-space">Categories</h2>
-                  <ul class="nav sidebar-categories margin-bottom-40">
-                    <li><a href="#">London (18)</a></li>
-                    <li><a href="#">Moscow (5)</a></li>
-                    <li ><a href="#">Paris (12)</a></li>
-                    <li><a href="#">Berlin (7)</a></li>
-                    <li><a href="#">Istanbul (3)</a></li>
-                  </ul>
+					</div>
+
 				</div>
 			</div>
+
+
 		</div>
 
 	</div>
@@ -162,15 +178,18 @@
 	<script src="../assets/frontend/pages/scripts/revo-slider-init.js"
 		type="text/javascript"></script>
 	<!-- END RevolutionSlider -->
-
+	<script
+		src="../assets/global/plugins/jquery-pagination/jquery.pagination-1.2.1.js"
+		type="text/javascript"></script>
 	<script src="../assets/frontend/layout/scripts/layout.js"
 		type="text/javascript"></script>
+	<script src="../static/frontend/js/news.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 			Layout.init();
 			Layout.initOWL();
 			RevosliderInit.initRevoSlider();
-
+			News.init("<c:url value="/"/>");
 		});
 	</script>
 	<!-- END PAGE LEVEL JAVASCRIPTS -->

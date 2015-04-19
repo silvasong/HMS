@@ -39,5 +39,7 @@
     
     <bean id="adminNewService" class="com.hms.service.impl.AdminNewServiceImpl" autowire="byName"/>
     
+     <bean id="frontendNewService" class="com.hms.service.impl.FrontendNewServiceImpl" autowire="byName"/>
+    
 
 </beans>

@@ -19,6 +19,6 @@ public interface AdminNewService {
 	
 	public void updateNews(News news);
 	
-	public void deleteNews(Integer [] ids);;
+	public void deleteNews(Integer [] ids);
 
 }
