@@ -1,6 +1,9 @@
 package com.hms.service;
 
 import com.hms.dto.Admin;
+import com.hms.model.DataPageParamer;
+import com.hms.model.DataTableParamer;
+import com.hms.model.PagingData;
 
 /**
  * <p>Title: AdminService.java</p>
@@ -14,5 +17,13 @@ public interface AdminService {
 	public Admin getByName(String name);
 	
 	public Admin getById(int id);
+	
+	public PagingData loadAdminPagingData(int flag, DataTableParamer dtp);
+	
+	public void createAdmin(Admin admin);
+	
+	public void updateAdmin(Admin admin);
+	
+	public void deleteAdmin(Integer [] id);
 
 }

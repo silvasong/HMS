@@ -73,7 +73,7 @@
 			<button type="submit" class="btn btn-success uppercase">登 录</button>
 			<label class="rememberme check">
 			<input type="checkbox" name="remember" value="1"/>记 住 </label>
-			<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+			<a href="javascript:;" id="forget-password" class="forget-password hide">Forgot Password?</a>
 		</div>
 		<div class="login-options">
 			

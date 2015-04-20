@@ -21,16 +21,12 @@
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown dropdown-user dropdown-dark">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<img alt="" class="img-circle" src="../../assets/admin/layout/img/avatar9.jpg">
-						<span class="username username-hide-mobile">Nick</span>
+						
+						<span class="username username-hide-mobile">${admin.adminName}</span>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
 							<li>
-								<a href="extra_profile.html">
-								<i class="icon-user"></i> 个人信息 </a>
-							</li>
-							<li>
-								<a href="login.html">
+								<a href="<c:url value="/"/>admin/login/loginout">
 								<i class="icon-key"></i> 退出 </a>
 							</li>
 						</ul>
@@ -121,6 +117,24 @@
 							<li class="">
 								<a href="<c:url value="/"/>admin/new/new">
 								酒店新闻 </a>
+							</li>
+					   </ul>
+					</li>
+					<li class="menu-dropdown classic-menu-dropdown ">
+						<a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
+						用户管理 <i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu pull-left">
+						    <c:if test="${admin.roleId != 2}">
+						    	<li class="">
+								<a href="<c:url value="/"/>admin/user/manager">
+								店员管理</a>
+							</li>
+						    </c:if>
+							
+							<li class="">
+								<a href="<c:url value="/"/>admin/user/customer">
+								会员管理 </a>
 							</li>
 					   </ul>
 					</li>

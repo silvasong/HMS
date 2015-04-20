@@ -67,6 +67,12 @@
                           酒店新闻
               </a>
             </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="<c:url value="/"/>frontend/about">
+                 
+                         关于我们
+              </a>
+            </li>
             </ul>
         </div>
         <!-- END NAVIGATION -->

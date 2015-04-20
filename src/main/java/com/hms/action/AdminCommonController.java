@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hms.common.SystemConstant;
+import com.hms.dto.Admin;
 import com.hms.dto.Setting;
 import com.hms.service.SettingService;
 
@@ -28,6 +29,8 @@ public class AdminCommonController extends BaseController{
 	@RequestMapping(value="head",method=RequestMethod.GET)
 	public ModelAndView head(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
+		Admin admin = (Admin)request.getSession().getAttribute(SystemConstant.ADMIN_LOGIN);
+		mav.addObject("admin", admin);
 		mav.setViewName("admin/common/head");
 		return mav;
 	}

@@ -1,6 +1,7 @@
 package com.hms.action;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.transform.impl.AddDelegateTransformer;
@@ -56,6 +57,14 @@ public class AdminLoginController extends BaseController {
 		mav.setViewName("redirect:"+toUrl);
 		return mav;
 		
+	}
+	
+	@RequestMapping(value="loginout",method=RequestMethod.GET)
+	public ModelAndView loginOut(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		removeAdminSession(session);
+		mav.setViewName("redirect:/admin/login");
+		return mav;
 	}
 
 }

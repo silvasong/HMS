@@ -88,29 +88,7 @@
 				</div>
 			</div>
 			<!-- END SERVICE BOX -->
-			<!-- BEGIN CLIENTS -->
-			<div class="row margin-bottom-40 our-clients">
-				<div class="col-md-3">
-					<h2>
-						<a href="#">Our Clients</a>
-					</h2>
-					<p>Lorem dipsum folor margade sitede lametep eiusmod psumquis
-						dolore.</p>
-				</div>
-				<div class="col-md-9">
-					<div class="owl-carousel owl-carousel6-brands">
-						<div class="client-item">
-							<a href="#"> <img
-								src="assets/frontend/pages/img/clients/client_1_gray.png"
-								class="img-responsive" alt=""> <img
-								src="assets/frontend/pages/img/clients/client_1.png"
-								class="color-img img-responsive" alt="">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- END CLIENTS -->
+			
 		</div>
 	</div>
 	<!-- BEGIN FOOTER -->
