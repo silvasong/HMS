@@ -119,30 +119,40 @@ var Customer = function () {
             }
         });
          
-      
-		
-		$("#edit_btn").on("click",function(event){
-			if(selected.length != 1){
+      //打开删除对话框前判断是否已选择要删除的行
+		$("#re_btn").on("click",function(event){
+			if(selected.length!=1){
 				handleAlerts("请选择一行.","warning","");				
 				return false;
 			}else{
-				var data = oTable.api().row($("tr input:checked").parents('tr')).data();
-				var adminId =  data.adminId;
-				var adminName =  data.adminName;
-				var password = data.password;
-	            var roleId = data.roleId;
-	            
-	            $("#edit_from option").removeAttr("selected");
-	            $("#edit_from input[name='adminId']").val(adminId);
-	            $("#edit_from input[name='adminName']").val(adminName);
-	           // $("#edit_from input[name='password']").val(password);
-	           $("#edit_from select[name='roleId']").children("option[value='"+roleId+"']").attr("selected","true");
-	           
-			   $('#edit_modal').show();
+			   $('#re_modal').modal('show');
 			}
 		});
 		
-		
+		$('#re_com').on('click', function (e) {
+			$.ajax( {
+             "dataType": 'json', 
+             "type": "POST",
+             "url": rootURI+"admin/user/customer/customer_reset/"+selected.join(), 
+             "success": function(data,status){
+            	 if(status == "success"){					
+					 if(data.status){
+						 selected=[];						 
+		            	 oTable.api().draw();
+		            	 oTable.$('th span').removeClass();
+		            	 handleAlerts("重置成功. " ,"success","");
+					 }
+					 else{
+						 handleAlerts("重置失败. " ,"danger","");
+					 }
+				}             	 
+             },
+             "error":function(XMLHttpRequest, textStatus, errorThrown){
+            	 alert(errorThrown);
+             }
+           });
+			$('#re_modal').modal('hide');
+        });
 		
 		
 		
@@ -161,71 +171,7 @@ var Customer = function () {
 	
   
     
-	var editRoomType=function(){		
-		$.ajax( {
-         "dataType": 'json', 
-         "type":'POST', 
-         "url": rootURI+"admin/user/manager/manager_edit?random="+Math.random(), 
-         "data": $('#edit_from').serialize(),
-         "success": function(resp,status){
-        	 if(status == "success"){  
-        		 if(resp.status){						 
-	            	 oTable.api().draw();
-	            	 selected=[];
-	            	 handleAlerts("编辑成功.","success","");		            	 
-				 }
-				 else{
-					 handleAlerts("编辑失败.","danger","");						 
-				 }
-			}             	 
-         },
-         "error":function(XMLHttpRequest, textStatus, errorThrown){
-        	 alert(errorThrown);
-         }
-       });	
-		$('#edit_modal').hide();
-    };
-   
-    //处理表单验证方法
-    var editFormValidation = function() {
-            var form = $('#edit_from');
-            var errorDiv = $('.alert-danger', form);            
-            form.validate({
-                errorElement: 'span', //default input error message container
-                errorClass: 'help-block help-block-error', // default input error message class
-                focusInvalid: false, // do not focus the last invalid input
-                ignore: "",  // validate all fields including form hidden input                
-                rules: {
-                	                  
-                },
-
-                invalidHandler: function (event, validator) { //display error alert on form submit                	
-                    errorDiv.show();                    
-                },
-
-                highlight: function (element) { // hightlight error inputs
-                    $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
-                },
-
-                unhighlight: function (element) { // revert the change done by hightlight
-                    $(element)
-                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
-                },
-                onfocusout: function (element) { // hightlight error inputs
-                    $(element).valid();
-                },
-                success: function (label) {
-                    label
-                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
-                },
-
-                submitHandler: function (form) {                	
-                    errorDiv.hide();
-                    editRoomType();                  
-                }
-            });
-    };
+	
     
     
 	//提示信息处理方法（是在页面中指定位置显示提示信息的方式）
@@ -248,8 +194,7 @@ var Customer = function () {
         init: function (rootPath) {
         	rootURI=rootPath;
         	handleTable();
-        	addFormValidation();
-        	editFormValidation();
+        	
         }
 
     };

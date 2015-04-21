@@ -1,5 +1,6 @@
 package com.hms.service;
 
+import com.hms.dto.Customer;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
 
@@ -13,5 +14,9 @@ import com.hms.model.PagingData;
 public interface AdminCustomerService {
 	
 	public PagingData loadpaPagingData(DataTableParamer dtp);
+	
+	public Customer getCustomerById(String id);
+	
+	public void updateCustomer(Customer c);
 
 }

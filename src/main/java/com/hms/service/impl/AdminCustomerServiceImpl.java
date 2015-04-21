@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hms.dao.AdminCustomerDao;
+import com.hms.dto.Customer;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
 import com.hms.service.AdminCustomerService;
@@ -24,6 +25,16 @@ public class AdminCustomerServiceImpl implements AdminCustomerService{
 	public PagingData loadpaPagingData(DataTableParamer dtp) {
 		// TODO Auto-generated method stub
 		return adminCustomerDao.findPage(dtp.getiDisplayStart(), dtp.getiDisplayLength());
+	}
+
+	public Customer getCustomerById(String id) {
+		// TODO Auto-generated method stub
+		return adminCustomerDao.get(id);
+	}
+
+	public void updateCustomer(Customer c) {
+		// TODO Auto-generated method stub
+		adminCustomerDao.update(c);
 	}
 
 }

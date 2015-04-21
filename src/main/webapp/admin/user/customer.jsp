@@ -99,12 +99,10 @@
 									<i class="fa fa-cogs font-green-sharp"></i> <span
 										class="caption-subject font-green-sharp bold uppercase">酒店会员</span>
 								</div>
-								<div class="actions btn-set hide">
-									<a class="btn green-haze btn-circle" data-toggle="modal"
-										href="#add_modal">添加 </a> <a class="btn green-haze btn-circle"
-										data-toggle="modal" href="#edit_modal" id="edit_btn">编辑 </a> <a
+								<div class="actions btn-set ">
+									 <a
 										class="btn green-haze btn-circle" data-toggle="modal"
-										id="delete_btn">删除 </a>
+										id="re_btn">重置密码</a>
 									<div class="btn-group">
 
 										
@@ -121,146 +119,26 @@
 
 								</table>
 							</div>
-
-							<%-- <div class="modal fade" id="add_modal" tabindex="-1" role="basic"
-								aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal"
-												aria-hidden="true"></button>
-											<h4 class="modal-title">添加用户</h4>
-										</div>
-										<div class="modal-body">
-											<div class="portlet light">
-												<div class="portlet-body form">
-													<div id="info"></div>
-													<form class="form-horizontal" role="form" id="add_from">
-														<div class="form-body">
-															<div class="form-group">
-																<label class="col-md-3 control-label">用户名</label>
-																<div class="col-md-5">
-																	<input type="text" class="form-control" placeholder="0"
-																		name="adminName">
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="col-md-3 control-label">密码</label>
-																<div class="col-md-5">
-																	<input type="password" class="form-control" placeholder="0"
-																		name="password">
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="col-md-3 control-label">角色</label>
-																<div class="col-md-5">
-																	<select class="form-control" name="roleId">
-																		<c:forEach var="map" items="${roleMap}">
-																			<option value="${map.key}">${map.value }</option>
-																		</c:forEach>
-																	</select>
-																</div>
-															</div>
-															
-														</div>
-														<div class="form-actions right1">
-															<button type="button" class="btn default"
-																data-dismiss="modal">取消</button>
-															<button type="submit" class="btn green">提交</button>
-														</div>
-													</form>
-												</div>
-											</div>
-										</div>
-
-									</div>
-									<!-- /.modal-content -->
-								</div>
-								<!-- /.modal-dialog -->
-							</div> --%>
-
-							<!-- <div class="modal fade" id="delete_modal" tabindex="-1"
+                        <div class="modal fade" id="re_modal" tabindex="-1"
 								role="basic" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal"
 												aria-hidden="true"></button>
-											<h4 class="modal-title">删除用户</h4>
+											<h4 class="modal-title">重置密码</h4>
 										</div>
-										<div class="modal-body">确认删除选中？</div>
+										<div class="modal-body">确认重置选中用户密码为手机号码后六位？</div>
 										<div class="modal-footer">
 											<button type="button" class="btn default"
 												data-dismiss="modal">取消</button>
-											<button type="button" class="btn blue" id="delete_com">确认</button>
+											<button type="button" class="btn blue" id="re_com">确认</button>
 										</div>
 									</div>
-									/.modal-content
+									
 								</div>
-								/.modal-dialog
-							</div> -->
-
-							<div class="modal fade" id="edit_modal" tabindex="-1"
-								role="basic" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal"
-												aria-hidden="true"></button>
-											<h4 class="modal-title">编辑会员</h4>
-										</div>
-										<div class="modal-body">
-											<div class="portlet light">
-												<div class="portlet-body form">
-													<div id="info"></div>
-													<form class="form-horizontal" role="form" id="edit_from">
-													    <input type="text" class="form-control hide" 
-																		name="adminId">
-														<div class="form-body">
-															<div class="form-group">
-																<label class="col-md-3 control-label">用户名</label>
-																<div class="col-md-5">
-																	<input type="text" class="form-control" placeholder="0"
-																		name="adminName" readonly>
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="col-md-3 control-label">新密码</label>
-																<div class="col-md-5">
-																	<input type="password" class="form-control" placeholder=""
-																		name="password"><span>不修改则不填写</span>
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="col-md-3 control-label">角色</label>
-																<div class="col-md-5">
-																	<select class="form-control" name="roleId">
-																		<c:forEach var="map" items="${roleMap}">
-																			<option value="${map.key}">${map.value }</option>
-																		</c:forEach>
-																	</select>
-																</div>
-															</div>
-															
-														</div>
-														<div class="form-actions right1">
-															<button type="button" class="btn default"
-																data-dismiss="modal">取消</button>
-															<button type="submit" class="btn green">提交</button>
-														</div>
-													</form>
-												</div>
-											</div>
-										</div>
-
-									</div>
-									<!-- /.modal-content -->
-								</div>
-								<!-- /.modal-dialog -->
+								
 							</div>
-
-
-
 						</div>
 					</div>
 				</div>

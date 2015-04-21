@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hms.common.SystemConstant;
+import com.hms.dto.Admin;
+
 /**
  * <p>Title: Interceptor.java</p>
  * <p>Description: </p>
@@ -31,7 +34,14 @@ public class PermissionInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 			Object arg2) throws Exception {
 		// TODO Auto-generated method stub
-		
+		String url = arg0.getRequestURI();
+		if(url.contains("admin")){
+			Admin admin = (Admin)arg0.getSession().getAttribute(SystemConstant.ADMIN_LOGIN);
+			if(admin == null){
+				arg1.sendRedirect(arg0.getContextPath()+"/admin/login");
+				return false;
+			}
+		}
 		return true;
 	}
 
