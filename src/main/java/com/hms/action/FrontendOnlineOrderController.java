@@ -22,6 +22,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.hms.common.SystemConstant;
 import com.hms.dto.Customer;
 import com.hms.dto.RoomType;
+import com.hms.dto.RoomTypeImage;
 import com.hms.model.PredetemineModel;
 import com.hms.service.FrontendRoomPredetermineService;
 
@@ -53,6 +54,7 @@ public class FrontendOnlineOrderController extends BaseController{
 		}
 		ModelAndView mav = new ModelAndView();
 		Map <Integer,List<String>> roomTypeMap = new LinkedHashMap<Integer, List<String>>();
+		Map <Integer,List<String>> roomTypeImage = new LinkedHashMap<Integer, List<String>>();
 		List <String> roomList = null;
 		List <RoomType> roomTypes = frontendRoomPredetermineService.loadAllRoomTypes();
 		Map<Integer, Integer> roomTypeStatic = frontendRoomPredetermineService.getRoomTypeStatic(0, 0);
@@ -69,9 +71,16 @@ public class FrontendOnlineOrderController extends BaseController{
 				roomList.add(roomType.getNetwork());
 				roomList.add(roomTypeStatic.get(roomType.getId())+"");
 				roomTypeMap.put(roomType.getId(), roomList);
+				roomList = new ArrayList<String>();
+				for(RoomTypeImage image : roomType.getRoomTypeImages()){
+					
+					roomList.add("../upload/admin/room_type_image/"+image.getImage_url());
+				}
+				roomTypeImage.put(roomType.getId(), roomList);
 			}
 		}
 		mav.addObject("roomTypeMap", roomTypeMap);
+		mav.addObject("roomTypeImage", roomTypeImage);
 		mav.addObject("start",todayString);
 		mav.addObject("end", tomorrowString);
 		if(customer == null){

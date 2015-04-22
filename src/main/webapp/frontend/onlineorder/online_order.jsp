@@ -28,7 +28,8 @@
 <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <!-- Global styles END -->
-
+<link href="../assets/frontend/pages/css/style-revolution-slider.css"
+	rel="stylesheet">
 <!-- Page level plugin styles START -->
 <link
 	href="../assets/global/plugins/fancybox/source/jquery.fancybox.css"
@@ -55,6 +56,9 @@
 <link href="../assets/frontend/layout/css/style.css" rel="stylesheet">
 <link href="../assets/frontend/pages/css/style-revolution-slider.css"
 	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="../assets/global/plugins/jquery-foxibox/css/jquery-foxibox-0.2.css" />
+
 <!-- metronic revo slider styles -->
 <link href="../assets/frontend/layout/css/style-responsive.css"
 	rel="stylesheet">
@@ -75,9 +79,9 @@
 
 	<div class="main">
 		<div class="container">
-		    <div class="row">
-		    	<div id="alert"></div>	
-		    </div>
+			<div class="row">
+				<div id="alert"></div>
+			</div>
 			<div class="note note-success">
 				<h4 class="block">在线预定</h4>
 				<div class="row">
@@ -122,8 +126,32 @@
 
 							<c:forEach var="roomType" items="${roomTypeMap }">
 								<tr>
-									<td class="fit" rowspan="2"><img
-										src="../static/frontend/image/room.jpg"></td>
+									<!-- <td class="fit" rowspan="2"><img
+										src="../static/frontend/image/room.jpg"></td>  -->
+									<c:set var="key" value="${roomType.key}"></c:set>
+									<td class="fit" rowspan="2" style="width: 100px;">
+										<!-- BEGIN SLIDER -->
+										<div class="page-slider margin-top-10">
+											<div class="fullwidthbanner-container revolution-slider">
+												<div class="fullwidthabnner">
+													<ul id="revolutionul">
+														<!-- THE NEW SLIDE -->
+                                                          
+														<c:forEach var="i" items="${roomTypeImage[key]}">
+															<li data-transition="fade" data-slotamount="8"
+																data-masterspeed="700" data-delay="9400">
+																<!-- THE MAIN IMAGE IN THE FIRST SLIDE --> <img
+																src="${i}" alt="">
+															</li>
+														</c:forEach>
+
+													</ul>
+													<div class="tp-bannertimer tp-bottom"></div>
+												</div>
+											</div>
+										</div>
+									</td>
+
 									<td>${roomType.value[0]}</td>
 									<td>${roomType.value[1]}</td>
 									<td>${roomType.value[2]}</td>
@@ -170,14 +198,16 @@
 									<div class="row">
 										<div class="col-md-12 col-sm-12">
 											<form class="form-horizontal" role="form" id="register_form"
-												method="post" >
+												method="post">
 												<fieldset>
-												    <input type="text" value="" class="hidden" name="roomTypeId"/>
+													<input type="text" value="" class="hidden"
+														name="roomTypeId" />
 													<legend></legend>
 													<div class="form-group">
 														<label class="col-lg-4 control-label">房间数量 </label>
 														<div class="col-lg-8">
-															<select class="form-control input-xsmall" name="number" id="count">
+															<select class="form-control input-xsmall" name="number"
+																id="count">
 																<option value="1">1间</option>
 																<option value="2">2间</option>
 																<option value="3">3间</option>
@@ -194,15 +224,16 @@
 													<div class="form-group">
 														<label class="col-lg-4 control-label">入住时间 </label>
 														<div class="col-lg-8">
-															<label class="control-label" id="time"></label>
-															<input type="text" class="hidden" name="time" value=""/>
+															<label class="control-label" id="time"></label> <input
+																type="text" class="hidden" name="time" value="" />
 														</div>
 													</div>
 													<div class="form-group">
 														<label class="col-lg-4 control-label">房间费用 </label>
 														<div class="col-lg-8">
-															<label class="control-label font-red-flamingo font-lg" id="price">  <span class="font-sm font-grey-mint">(预订免费，入住后酒店前台付款，注：如需发票，请从酒店前台索取)</span></label>
-															<input type="text" class="hidden" name="price" value=""/>
+															<label class="control-label font-red-flamingo font-lg"
+																id="price"> <span class="font-sm font-grey-mint">(预订免费，入住后酒店前台付款，注：如需发票，请从酒店前台索取)</span></label>
+															<input type="text" class="hidden" name="price" value="" />
 														</div>
 													</div>
 
@@ -217,7 +248,8 @@
 															class="require">*</span>
 														</label>
 														<div class="col-lg-4">
-															<input type="text" class="form-control" name="name" id="pass">
+															<input type="text" class="form-control" name="name"
+																id="pass">
 														</div>
 													</div>
 													<div class="form-group">
@@ -225,7 +257,8 @@
 															class="require">*</span>
 														</label>
 														<div class="col-lg-6">
-															<input type="text" class="form-control" name="idCard" id="pass">
+															<input type="text" class="form-control" name="idCard"
+																id="pass">
 														</div>
 													</div>
 													<div class="form-group">
@@ -233,7 +266,8 @@
 															class="require">*</span>
 														</label>
 														<div class="col-lg-6">
-															<input type="text" class="form-control" name="phone" id="pass">
+															<input type="text" class="form-control" name="phone"
+																id="pass">
 														</div>
 													</div>
 
@@ -320,6 +354,17 @@
 		type="text/javascript"></script>
 	<script src="../assets/frontend/pages/scripts/revo-slider-init.js"
 		type="text/javascript"></script>
+	<script
+		src="../assets/global/plugins/jquery-foxibox/js/jquery-foxibox-0.2.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"
+		type="text/javascript"></script>
+	<script src="../assets/frontend/pages/scripts/revo-slider-init.js"
+		type="text/javascript"></script>
 	<!-- END RevolutionSlider -->
 	<script src="../assets/global/scripts/metronic.js"
 		type="text/javascript"></script>
@@ -327,14 +372,15 @@
 		type="text/javascript"></script>
 	<script src="../static/frontend/js/online_order.js"
 		type="text/javascript"></script>
-	<script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+	<script
+		src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"
+		type="text/javascript"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 			Metronic.init();
 			Layout.init();
 			Layout.initOWL();
 			RevosliderInit.initRevoSlider();
-
 			OnlineOrder.init("<c:url value="/"/>");
 		});
 	</script>

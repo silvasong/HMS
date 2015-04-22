@@ -42,11 +42,12 @@ var OnlineOrder = function () {
 	var predetemine = function(){
 		var day;
 		var price;
-		$('#predetemine').on('click','tbody tr',function(){
+		$('#predetemine').on('click','tbody tr button',function(){
 			var count = 1;
-			var roomTypeName = $(this).find('td:eq(1)').text();
-			 price = $(this).find('td:eq(4)').text();
-			var roomTypeId = $(this).find('input').val();
+			var btn = $(this).parent().parent();
+			var roomTypeName = btn.find('td:eq(1)').text();
+			 price = btn.find('td:eq(4)').text();
+			var roomTypeId = btn.find('input').val();
 			var start= $('input[name=start]').val();
 			var end= $('input[name=end]').val();
 			 day = DateDiff(start,end);
