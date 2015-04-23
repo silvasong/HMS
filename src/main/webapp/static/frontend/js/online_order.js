@@ -154,6 +154,38 @@ var OnlineOrder = function () {
 	       });	
 			$('#predetemine_modal').modal('hide');
 	    };
+	    
+	 var search = function(){
+		 $('#search').on('click',function(){
+			 $.ajax( {
+		         "dataType": 'json', 
+		         "type":'POST', 
+		         "url": rootURI+"frontend/online_order/search?random="+Math.random(), 
+		         "data": {"start":$('input[name=start]').val(),"end":$('input[name=end]').val()},
+		         "success": function(resp,status){
+		        	 if(status == "success"){  
+		        		 if(resp.status){						 
+		        			 $.each(resp.data,function(i,value){
+		        				 $('#'+value.id).addClass("disabled");
+		        				 if(value.status == 1){
+		        					 $('#'+value.id).removeClass("disabled");
+		        				 }
+		        				
+		        			 });
+			                 	            	 
+						 }
+						 
+					}             	 
+		         },
+		         "error":function(XMLHttpRequest, textStatus, errorThrown){
+		        	 alert(errorThrown);
+		         }
+		       });
+		 });
+		 	
+			
+	    }
+	 
 	//提示信息处理方法（是在页面中指定位置显示提示信息的方式）
 	var handleAlerts = function(msg,msgType,position) {         
         Metronic.alert({
@@ -176,6 +208,7 @@ var OnlineOrder = function () {
         	handleDatePickers();
         	predetemine();
         	PredetemineFormValidation();
+        	search();
         }
 
     };

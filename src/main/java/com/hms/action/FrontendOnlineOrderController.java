@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hms.common.SystemConstant;
 import com.hms.dto.Customer;
@@ -45,8 +46,12 @@ public class FrontendOnlineOrderController extends BaseController{
 		Customer customer = (Customer) request.getSession().getAttribute(SystemConstant.CUSTOMER_LOGIN);
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 		String todayString = sf.format(new Date());
+		long today = 0;
+		long tomorrow=0;
 		String tomorrowString="";
 		try {
+			 today = sf.parse(sf.format(new Date())).getTime();
+			 tomorrow = today+86400000;
 			 tomorrowString = sf.format(new Date(sf.parse(sf.format(new Date())).getTime()+86400000));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -57,7 +62,7 @@ public class FrontendOnlineOrderController extends BaseController{
 		Map <Integer,List<String>> roomTypeImage = new LinkedHashMap<Integer, List<String>>();
 		List <String> roomList = null;
 		List <RoomType> roomTypes = frontendRoomPredetermineService.loadAllRoomTypes();
-		Map<Integer, Integer> roomTypeStatic = frontendRoomPredetermineService.getRoomTypeStatic(0, 0);
+		Map<Integer, Integer> roomTypeStatic = frontendRoomPredetermineService.getRoomTypeStatic(today, tomorrow);
 		if(roomTypes != null){
 			for(RoomType roomType : roomTypes){
 				roomList = new ArrayList<String>();
@@ -90,7 +95,37 @@ public class FrontendOnlineOrderController extends BaseController{
 		return mav;
 	}
 	
-	
+	@RequestMapping(value="search",method=RequestMethod.POST)
+	@ResponseBody
+	public String search(HttpServletRequest request,String start,String end){
+		
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		JSONObject resp = new JSONObject();
+		JSONObject object = null;
+		JSONArray jsonArray = new JSONArray();
+		try {
+			long s = sf.parse(start).getTime();
+			long e = sf.parse(end).getTime();
+			Map<Integer, Integer> roomTypeStatic = frontendRoomPredetermineService.getRoomTypeStatic(s, e);
+			for(Integer id :roomTypeStatic.keySet()){
+				object = new JSONObject();
+				object.put("id", id);
+				object.put("status", roomTypeStatic.get(id));
+				jsonArray.add(object);
+			}
+			resp.put("data", jsonArray);
+			resp.put("status", true);
+		} catch (Exception e) {
+			// TODO: handle exception
+			resp.put("status", false);
+		}
+		
+		
+		
+		
+		
+		return JSON.toJSONString(resp);
+	}
 	
 
 }

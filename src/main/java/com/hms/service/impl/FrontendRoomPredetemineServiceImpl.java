@@ -68,13 +68,14 @@ public class FrontendRoomPredetemineServiceImpl implements FrontendRoomPredeterm
 		
 		
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-		String inString = "2015-04-01";
-		String outString = "2015-04-05";
+		//String inString = "2015-04-01";
+		//String outString = "2015-04-05";
 		try {
 			long today = sf.parse(sf.format(new Date())).getTime();
-			long in = sf.parse(inString).getTime();
-			long out = sf.parse(outString).getTime();
-			
+		//	long in = sf.parse(inString).getTime();
+		//	long out = sf.parse(outString).getTime();
+			long in = checkInTime;
+			long out = checkOutTime;
 		    int day = (int) ((out-in)/86400000);
 		    for(int i=0;i<day;i++){
 		    	long time = in + i*86400000;

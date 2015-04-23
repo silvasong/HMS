@@ -12,6 +12,7 @@ import java.util.Map;
 
 
 
+
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -30,8 +31,9 @@ public class AdminRegistrationDao extends BaseDao<Registration>{
 	
 	public Map<Integer, Integer> getTimeRegistrationStatic(long time) {
 		Map<Integer, Integer> roomTypeStatic = new LinkedHashMap<Integer, Integer>();
-		String hql = "from Registration as reg where "+time+">= reg.checkInTime and reg.checkOutTime <="+time+
+		String hql = "from Registration as reg where "+time+">= reg.checkInTime and reg.checkOutTime >"+time+
 				" and reg.status=1";
+		
 		Query query = this.currentSession().createQuery(hql);
 		List list = query.list();
 	    Iterator iterator=list.iterator();

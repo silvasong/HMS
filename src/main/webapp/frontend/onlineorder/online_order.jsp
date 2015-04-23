@@ -102,7 +102,7 @@
 						</div>
 					</div>
 					<div class="col-md-1">
-						<button type="button" class="btn btn-primary">搜索</button>
+						<button type="button" class="btn btn-primary" id="search">搜索</button>
 					</div>
 
 				</div>
@@ -129,9 +129,9 @@
 									<!-- <td class="fit" rowspan="2"><img
 										src="../static/frontend/image/room.jpg"></td>  -->
 									<c:set var="key" value="${roomType.key}"></c:set>
-									<td class="fit" rowspan="2" style="width: 100px;">
+									<td class="fit" rowspan="2">
 										<!-- BEGIN SLIDER -->
-										<div class="page-slider margin-top-10">
+										<div class="page-slider margin-top-10" style="width: 200px;height:100px">
 											<div class="fullwidthbanner-container revolution-slider">
 												<div class="fullwidthabnner">
 													<ul id="revolutionul">
@@ -158,7 +158,13 @@
 									<td>${roomType.value[3]}</td>
 
 									<td><c:if test="${empty login}">
-											<button type="button" class="btn btn-primary">预定</button>
+									        <c:if test="${roomType.value[8] ==0}">
+									             <button type="button" class="btn btn-primary disabled" id="${key}">预定</button>
+									        </c:if>
+									         <c:if test="${roomType.value[8] ==1}">
+									             <button type="button" class="btn btn-primary" id="${key}">预定</button>
+									        </c:if>
+											
 										</c:if> <c:if test="${not empty login}">
 											<a href="<c:url value="/"/>frontend/login">请先登录</a>
 										</c:if> <input type="text" value="${roomType.key}" class="hidden" />
@@ -167,7 +173,7 @@
 								<tr>
 									<td colspan="5">床型： ${roomType.value[4]} 最多入住人数：
 										${roomType.value[5]} 楼层： ${roomType.value[6]} 上网方式：
-										${roomType.value[7]}${roomType.value[8]}</td>
+										${roomType.value[7]}</td>
 								</tr>
 							</c:forEach>
 
