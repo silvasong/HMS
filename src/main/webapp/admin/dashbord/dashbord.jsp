@@ -75,11 +75,68 @@
 			</ul>
 			<!-- END PAGE BREADCRUMB -->
 			<!-- BEGIN PAGE CONTENT INNER -->
-			<div class="row">
-				<div class="col-md-12">
-					 Page content goes here
-				</div>
-			</div>
+			<!-- BEGIN ROW -->
+					<div class="row">
+						<div class="col-md-6">
+							<!-- BEGIN CHART PORTLET-->
+							<div class="portlet light">
+								<div class="portlet-title">
+									<div class="caption">
+									<span
+										class="caption-subject font-green-sharp bold uppercase">酒店环境</span>
+								    </div>
+									
+								</div>
+								<div class="portlet-body">
+									<div id="chart_1" class="chart">
+									</div>
+								</div>
+							</div>
+							<!-- END CHART PORTLET-->
+						</div>
+						<div class="col-md-6">
+							<!-- BEGIN CHART PORTLET-->
+							<div class="portlet light">
+								<div class="portlet-title">
+									<div class="caption">
+									<span
+										class="caption-subject font-green-sharp bold uppercase">酒店舒适度</span>
+								    </div>
+									
+								</div>
+								<div class="portlet-body">
+									<div id="chart_2" class="chart">
+									</div>
+								</div>
+							</div>
+							<!-- END CHART PORTLET-->
+						</div>
+						
+					</div>
+					<!-- END ROW -->
+					<!-- BEGIN ROW -->
+					<div class="row">
+						<div class="col-md-6">
+							<!-- BEGIN CHART PORTLET-->
+							<div class="portlet light">
+								<div class="portlet-title">
+									<div class="caption">
+									<span
+										class="caption-subject font-green-sharp bold uppercase">酒店服务</span>
+								    </div>
+									
+								</div>
+								<div class="portlet-body">
+									<div id="chart_3" class="chart">
+									</div>
+								</div>
+							</div>
+							<!-- END CHART PORTLET-->
+						</div>
+						
+						
+					</div>
+					<!-- END ROW -->
 			<!-- END PAGE CONTENT INNER -->
 		</div>
 	</div>
@@ -107,14 +164,26 @@
 <script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
+<script src="../../assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
 <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="../../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="../../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="../../static/admin/js/dashbord.js" type="text/javascript"></script>
 <script>
       jQuery(document).ready(function() {    
       Metronic.init(); // init metronic core components
       Layout.init(); // init current layout
       Demo.init(); // init demo features
+      Dashbord.init("<c:url value="/"/>");
       });
    </script>
 <!-- END JAVASCRIPTS -->

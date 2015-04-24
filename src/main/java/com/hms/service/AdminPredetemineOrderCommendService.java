@@ -1,5 +1,8 @@
 package com.hms.service;
 
+import java.util.List;
+
+import com.hms.dto.PredetermineCommend;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
 
@@ -13,6 +16,8 @@ import com.hms.model.PagingData;
 public interface AdminPredetemineOrderCommendService {
 	
 	PagingData loadPagingData(DataTableParamer dtp);
+	
+	List<PredetermineCommend> loadAllCommends();
 	
 	
 
