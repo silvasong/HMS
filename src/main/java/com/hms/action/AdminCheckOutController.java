@@ -20,11 +20,13 @@ import com.hms.common.SystemConstant;
 import com.hms.dto.Admin;
 import com.hms.dto.Predetemine;
 import com.hms.dto.Registration;
+import com.hms.dto.Room;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
 import com.hms.model.RegistrationModel;
 import com.hms.service.AdminPredetemineOrderService;
 import com.hms.service.AdminRegistrationService;
+import com.hms.service.AdminRoomService;
 
 /**
  * <p>Title: AdminCheckOutController.java</p>
@@ -39,6 +41,9 @@ public class AdminCheckOutController extends BaseController{
 	
 	@Autowired
 	private AdminRegistrationService adminRegistrationService;
+	
+	@Autowired 
+	private AdminRoomService adminRoomService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView checkOut(HttpServletRequest request){
@@ -92,7 +97,11 @@ public class AdminCheckOutController extends BaseController{
 				registration.setStatus(0);
 				Admin admin = (Admin)request.getSession().getAttribute(SystemConstant.ADMIN_LOGIN);
 				registration.setCheckOutAdmin(admin.getAdminId());
+				Room room = adminRoomService.getRoomById(registration.getRoomId());
+				room.setStatus(0);
+				adminRoomService.updateRoom(room);
 				adminRegistrationService.updateRegistrationById(registration);
+				
 			}
 			resp.put("status", true);
 		} catch (Exception e) {

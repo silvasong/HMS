@@ -1,5 +1,8 @@
 package com.hms.service.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.criterion.Criterion;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hms.dao.AdminPredetemineOrderDao;
+import com.hms.dto.News;
 import com.hms.dto.Predetemine;
 import com.hms.model.DataTableParamer;
 import com.hms.model.PagingData;
@@ -67,6 +71,26 @@ public class AdminPredetemineOrderServiceImpl implements AdminPredetemineOrderSe
 	public List<Predetemine> loadPredetemineOrderToday(long today) {
 		// TODO Auto-generated method stub
 		return adminPredetemineOrderDao.findBy("checkInTime", today);
+	}
+
+	public void cancelLimit() {
+		// TODO Auto-generated method stub
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+     	
+		try {
+			System.out.println(sdf.parse(sdf.format(new Date())).getTime());
+			List <Predetemine> pList = adminPredetemineOrderDao.findBy("checkInTime", sdf.parse(sdf.format(new Date())).getTime());
+			for(Predetemine p : pList){
+				if(p.getStatus()==2){
+					p.setStatus(1);
+				}
+				adminPredetemineOrderDao.update(p);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

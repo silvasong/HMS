@@ -24,5 +24,7 @@ public interface AdminPredetemineOrderService {
 	void updatePredetemineOrder(Predetemine predetemine);
 	
 	List<Predetemine> loadPredetemineOrderToday(long today);
+	
+	void cancelLimit();
 
 }
