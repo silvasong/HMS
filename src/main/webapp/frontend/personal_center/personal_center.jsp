@@ -78,176 +78,211 @@
 					<!--BEGIN TABS-->
 
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tab_1_1" data-toggle="tab">
+						<li class="active"><a href="#tab_0_1" data-toggle="tab">
 								订单管理 </a></li>
-						<li class=""><a href="#tab_1_3" data-toggle="tab"> 个人资料 </a></li>
+						<li class=""><a href="#tab_0_2" data-toggle="tab"> 个人资料 </a></li>
 
 					</ul>
 					<div class="tab-content">
-						<div class="tab-pane active" id="tab_1_1">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="portlet light">
-										<div class="portlet-title">
-											<div class="caption">
-												<i class="fa fa-cogs font-green-sharp"></i> <span
-													class="caption-subject font-green-sharp bold uppercase">待确认</span>
-											</div>
-											<div class="actions btn-set">
-												<a class="btn green-haze btn-circle" data-toggle="modal"
-													id="qx_btn1">取消 </a>
-												<div class="btn-group"></div>
+						<div class="tab-pane active" id="tab_0_1">
 
+							<div class="row profile-account">
+								<%-- <div class="col-md-3">
+									<ul class="ver-inline-menu tabbable margin-bottom-10">
+									    
+										<li class="active"><a data-toggle="tab" href="#tab_1-1"
+											aria-expanded="false" > <i class="fa fa-cog"></i> 待确认订单
+										</a> <span class="after"> </span></li>
+										<li ><a data-toggle="tab" href="#tab_1-2"
+											aria-expanded="false" > <i class="fa fa-cog"></i> 待入住订单
+										</a></li>
+										<li ><a data-toggle="tab" href="#tab_1-3"
+											aria-expanded="false"> <i class="fa fa-cog"></i> 已入住订单
+										</a></li>
+										<li ><a data-toggle="tab" href="#tab_1-4"
+											aria-expanded="false"> <i class="fa fa-cog"></i> 待评价订单
+										</a></li>
+										<li ><a data-toggle="tab" href="#tab_1-5"
+											aria-expanded="false"> <i class="fa fa-cog"></i> 完成订单
+										</a></li>
+										<li ><a data-toggle="tab" href="#tab_1-6"
+											aria-expanded="false"> <i class="fa fa-cog"></i> 作废订单
+										</a></li>
+									</ul>
+								</div> --%>
+								<div class="col-md-12">
+									<div class="tab-content">
+										<div id="tab_1-1" class="tab-pane active">
+											<div class="portlet light">
+												<div class="portlet-title">
+													<div class="caption">
+														<i class="fa fa-cogs font-green-sharp"></i> <span
+															class="caption-subject font-green-sharp bold uppercase">待确认</span>
+													</div>
+													<div class="actions btn-set">
+														<a class="btn green-haze btn-circle" data-toggle="modal"
+															id="qx_btn1">取消 </a>
+														<div class="btn-group"></div>
+
+													</div>
+												</div>
+												<div class="portlet-body">
+													<table
+														class="table table-striped table-bordered table-hover"
+														id="table1">
+														<thead>
+
+														</thead>
+
+													</table>
+												</div>
 											</div>
 										</div>
-										<div class="portlet-body">
-											<table class="table table-striped table-bordered table-hover"
-												id="table1">
-												<thead>
+										<div id="tab_1-2" class="tab-pane active">
+											<div class="portlet light">
+												<div class="portlet-title">
+													<div class="caption">
+														<i class="fa fa-cogs font-green-sharp"></i> <span
+															class="caption-subject font-green-sharp bold uppercase">待入住</span>
+													</div>
+													<div class="actions btn-set">
+														<a class="btn green-haze btn-circle" data-toggle="modal"
+															id="qx_btn2">取消 </a>
+														<div class="btn-group"></div>
 
-												</thead>
+													</div>
+												</div>
+												<div class="portlet-body">
+													<table
+														class="table table-striped table-bordered table-hover"
+														id="table2">
+														<thead>
+														    
+														    
+															
+														</thead>
 
-											</table>
+													</table>
+												</div>
+											</div>
 										</div>
+										<div id="tab_1-3" class="tab-pane  active">
+											<div class="portlet light">
+												<div class="portlet-title">
+													<div class="caption">
+														<i class="fa fa-cogs font-green-sharp"></i> <span
+															class="caption-subject font-green-sharp bold uppercase">已入住订单</span>
+													</div>
+													<div class="actions btn-set">
+
+														<div class="btn-group"></div>
+
+													</div>
+												</div>
+												<div class="portlet-body">
+													<table
+														class="table table-striped table-bordered table-hover"
+														id="table3">
+														<thead>
+
+														</thead>
+
+													</table>
+												</div>
+											</div>
+										</div>
+										<div id="tab_1-4" class="tab-pane  active">
+											<div class="portlet light">
+												<div class="portlet-title">
+													<div class="caption">
+														<i class="fa fa-cogs font-green-sharp"></i> <span
+															class="caption-subject font-green-sharp bold uppercase">待评价</span>
+													</div>
+													<div class="actions btn-set">
+
+														<div class="btn-group"></div>
+
+													</div>
+												</div>
+												<div class="portlet-body">
+													<table
+														class="table table-striped table-bordered table-hover"
+														id="table4">
+														<thead>
+
+														</thead>
+
+													</table>
+												</div>
+											</div>
+										</div>
+										<div id="tab_1-5" class="tab-pane  active">
+											<div class="portlet light">
+												<div class="portlet-title">
+													<div class="caption">
+														<i class="fa fa-cogs font-green-sharp"></i> <span
+															class="caption-subject font-green-sharp bold uppercase">完成订单</span>
+													</div>
+													<div class="actions btn-set">
+
+														<div class="btn-group"></div>
+
+													</div>
+												</div>
+												<div class="portlet-body">
+													<table
+														class="table table-striped table-bordered table-hover"
+														id="table5">
+														<thead>
+
+														</thead>
+
+													</table>
+												</div>
+											</div>
+										</div>
+										<div id="tab_1-6" class="tab-pane  active">
+											<div class="portlet light">
+												<div class="portlet-title">
+													<div class="caption">
+														<i class="fa fa-cogs font-green-sharp"></i> <span
+															class="caption-subject font-green-sharp bold uppercase">作废订单</span>
+													</div>
+													<div class="actions btn-set">
+
+														<div class="btn-group"></div>
+
+													</div>
+												</div>
+												<div class="portlet-body">
+													<table
+														class="table table-striped table-bordered table-hover"
+														id="table6">
+														<thead>
+
+														</thead>
+
+													</table>
+												</div>
+											</div>
+										</div>
+
+
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="portlet light">
-										<div class="portlet-title">
-											<div class="caption">
-												<i class="fa fa-cogs font-green-sharp"></i> <span
-													class="caption-subject font-green-sharp bold uppercase">待入住</span>
-											</div>
-											<div class="actions btn-set">
-												<a class="btn green-haze btn-circle" data-toggle="modal"
-													id="qx_btn2">取消 </a>
-												<div class="btn-group"></div>
-
-											</div>
-										</div>
-										<div class="portlet-body">
-											<table class="table table-striped table-bordered table-hover"
-												id="table2">
-												<thead>
-
-												</thead>
-
-											</table>
-										</div>
-									</div>
-								</div>
+								<!--end col-md-9-->
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="portlet light">
-										<div class="portlet-title">
-											<div class="caption">
-												<i class="fa fa-cogs font-green-sharp"></i> <span
-													class="caption-subject font-green-sharp bold uppercase">已入住订单</span>
-											</div>
-											<div class="actions btn-set">
 
-												<div class="btn-group"></div>
-
-											</div>
-										</div>
-										<div class="portlet-body">
-											<table class="table table-striped table-bordered table-hover"
-												id="table3">
-												<thead>
-
-												</thead>
-
-											</table>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="portlet light">
-										<div class="portlet-title">
-											<div class="caption">
-												<i class="fa fa-cogs font-green-sharp"></i> <span
-													class="caption-subject font-green-sharp bold uppercase">待评价</span>
-											</div>
-											<div class="actions btn-set">
-
-												<div class="btn-group"></div>
-
-											</div>
-										</div>
-										<div class="portlet-body">
-											<table class="table table-striped table-bordered table-hover"
-												id="table4">
-												<thead>
-
-												</thead>
-
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="portlet light">
-										<div class="portlet-title">
-											<div class="caption">
-												<i class="fa fa-cogs font-green-sharp"></i> <span
-													class="caption-subject font-green-sharp bold uppercase">完成订单</span>
-											</div>
-											<div class="actions btn-set">
-
-												<div class="btn-group"></div>
-
-											</div>
-										</div>
-										<div class="portlet-body">
-											<table class="table table-striped table-bordered table-hover"
-												id="table5">
-												<thead>
-
-												</thead>
-
-											</table>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="portlet light">
-										<div class="portlet-title">
-											<div class="caption">
-												<i class="fa fa-cogs font-green-sharp"></i> <span
-													class="caption-subject font-green-sharp bold uppercase">作废订单</span>
-											</div>
-											<div class="actions btn-set">
-
-												<div class="btn-group"></div>
-
-											</div>
-										</div>
-										<div class="portlet-body">
-											<table class="table table-striped table-bordered table-hover"
-												id="table6">
-												<thead>
-
-												</thead>
-
-											</table>
-										</div>
-									</div>
-								</div>
-
-							</div>
 						</div>
 						<!--tab_1_2-->
-						<div class="tab-pane" id="tab_1_3">
+						<div class="tab-pane" id="tab_0_2">
 							<div class="row profile-account">
 								<div class="col-md-3">
 									<ul class="ver-inline-menu tabbable margin-bottom-10">
-										<li class="active"><a data-toggle="tab" href="#tab_1-1"
+										<li class="active"><a data-toggle="tab" href="#tab_2-1"
 											aria-expanded="false"> <i class="fa fa-cog"></i> 个人信息
 										</a> <span class="after"> </span></li>
-										<li class=""><a data-toggle="tab" href="#tab_3-3"
+										<li class=""><a data-toggle="tab" href="#tab_2-2"
 											aria-expanded="false"> <i class="fa fa-lock"></i> 修改密码
 										</a></li>
 
@@ -255,7 +290,7 @@
 								</div>
 								<div class="col-md-9">
 									<div class="tab-content">
-										<div id="tab_1-1" class="tab-pane active">
+										<div id="tab_2-1" class="tab-pane active">
 											<form:form role="form" method="post" commandName="customer"
 												id="edit_form">
 												<div class="form-group">
@@ -297,7 +332,7 @@
 											</form:form>
 										</div>
 
-										<div id="tab_3-3" class="tab-pane">
+										<div id="tab_2-2" class="tab-pane">
 											<form method="post" id="edit_password_form">
 												<div class="form-group">
 													<label class="control-label">当前密码</label> <input
@@ -492,13 +527,11 @@
 										<div class="form-body">
 											<div class="well">
 												<h4>评价：</h4>
-												<div id="ckpj_pj">
-												</div>
+												<div id="ckpj_pj"></div>
 											</div>
 											<div class="well">
 												<h4>管理员回复：</h4>
-												<div id="ckpj_rpy">
-												</div>
+												<div id="ckpj_rpy"></div>
 											</div>
 
 

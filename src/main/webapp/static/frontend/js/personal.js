@@ -862,6 +862,7 @@ var Personal = function () {
         	handleTable4();
         	handleTable5();
         	handleTable6();
+        	
         }
 
     };
