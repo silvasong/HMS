@@ -211,7 +211,7 @@ var Room = function () {
         	 alert(errorThrown);
          }
        });	
-		$('#add_modal').hide();
+		$('#add_modal').modal('hide');
     };
    
     //处理表单验证方法

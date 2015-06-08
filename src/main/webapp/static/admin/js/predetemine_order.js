@@ -118,7 +118,7 @@ var PredetemineOrder = function () {
 			$.ajax( {
              "dataType": 'json', 
              "type": "POST", 
-             "url": rootURI+"admin/predetemine/predetemineOrder/manager/"+selected.join()+"/?flag=1", 
+             "url": rootURI+"admin/predetemine/predetemineOrder/manager/"+selected.join()+"/?flag=0", 
              "success": function(data,status){
             	 if(status == "success"){					
 					 if(data.status){

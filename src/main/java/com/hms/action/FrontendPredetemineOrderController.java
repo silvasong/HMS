@@ -106,12 +106,13 @@ public class FrontendPredetemineOrderController extends BaseController{
 	public String predetemineOrderList(HttpServletRequest request ,DataTableParamer dtp){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat sdftime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Customer customer = (Customer) request.getSession().getAttribute(SystemConstant.CUSTOMER_LOGIN);
 		List<RoomType> roomTypes = adminRoomTypeService.loadAll();
 		Map<Integer, String> roomTypeMap = new LinkedHashMap<Integer, String>();
 		for(RoomType roomType : roomTypes){
 			roomTypeMap.put(roomType.getId(), roomType.getType());
 		}
-		PagingData pagingData = frontendRoomPredetemineOrderService.predetemineOrderList(dtp);
+		PagingData pagingData = frontendRoomPredetemineOrderService.predetemineOrderList(dtp,customer.getIdCard());
 		Object []obj = null;
 		PredetemineOrderModel predetemineOrderModel = null;
 		Predetemine predetemine = null;

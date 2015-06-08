@@ -99,20 +99,7 @@
 						style="font-size: 18px; margin: 0px 0px 0.75em; color: rgb(51, 51, 51); font-family: SimHei, Arial; line-height: 20px; white-space: normal; background-color: rgb(255, 255, 255);">
 						<span id="_ctl0__ctl0_phMainContent_phMainContent_phMapTitle"></span>
 					</h2>
-					<p>
-						<br
-							style="color: rgb(102, 102, 102); font-family: SimHei, Arial; font-size: 14px; line-height: 20px; white-space: normal; background-color: rgb(255, 255, 255);" />
-						<br
-							style="color: rgb(102, 102, 102); font-family: SimHei, Arial; font-size: 14px; line-height: 20px; white-space: normal; background-color: rgb(255, 255, 255);" />
-						<span id="_ctl0__ctl0_phMainContent_phMainContent_phMapImage"
-							style="color: rgb(102, 102, 102); font-family: SimHei, Arial; font-size: 14px; line-height: 20px; background-color: rgb(255, 255, 255);"><a
-							id="_ctl0__ctl0_phMainContent_phMainContent_phMapImage_PresentationModeControlsContainer_PresentationHyperLink"
-							target="_top" style="color: rgb(193, 165, 110);"><img
-								id="_ctl0__ctl0_phMainContent_phMainContent_phMapImage_PresentationModeControlsContainer_PresentationImage"
-								src="../../upload/admin/news/image/20150420/1429511158785066218.jpg"
-								border="0" style="border: 0px;" /></a></span><br
-							style="color: rgb(102, 102, 102); font-family: SimHei, Arial; font-size: 14px; line-height: 20px; white-space: normal; background-color: rgb(255, 255, 255);" />
-					</p>
+					
 					<hr width="535" size="1"
 						style="height: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: solid; border-top-color: rgb(223, 211, 186); margin: 20px 0px; padding: 0px; color: rgb(102, 102, 102); font-family: SimHei, Arial; font-size: 14px; line-height: 20px; white-space: normal; background-color: rgb(255, 255, 255);" />
 

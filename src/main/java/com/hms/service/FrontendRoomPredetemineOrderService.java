@@ -15,7 +15,7 @@ public interface FrontendRoomPredetemineOrderService {
 	
 	public void createPredetemineOrder(Predetemine p);
 	
-	public PagingData predetemineOrderList(DataTableParamer dtp);
+	public PagingData predetemineOrderList(DataTableParamer dtp,String id_card);
 	
 	public Predetemine getPredetemineById(String id);
 	

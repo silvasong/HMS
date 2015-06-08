@@ -108,6 +108,7 @@ var SignUp = function () {
 			}             	 
          },
          "error":function(XMLHttpRequest, textStatus, errorThrown){
+        	 alert('ddd');
         	 alert(errorThrown);
          }
        });	

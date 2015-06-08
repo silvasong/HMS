@@ -80,7 +80,7 @@
  <filter-mapping>
 	<filter-name>URLSessionFilter</filter-name>	    
 	<url-pattern>/*</url-pattern>
- </filter-mapping>
+ </filter-mapping> 
   
   
   <display-name>Archetype Created Web Application</display-name>

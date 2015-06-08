@@ -29,9 +29,9 @@ public class FrontendRoomPredetemineOrderServiceImpl implements FrontendRoomPred
 		frontendRoomPredetemineOrderDao.sava(p);
 	}
 
-	public PagingData predetemineOrderList(DataTableParamer dtp) {
+	public PagingData predetemineOrderList(DataTableParamer dtp,String id_card) {
 		// TODO Auto-generated method stub
-		return frontendRoomPredetemineOrderDao.findPage(Restrictions.eq("status", dtp.getIstatic()), dtp.getiDisplayStart(), dtp.getiDisplayLength());
+		return frontendRoomPredetemineOrderDao.findPage(new Criterion[]{Restrictions.eq("status", dtp.getIstatic()),Restrictions.eq("idCard", id_card)}, dtp.getiDisplayStart(), dtp.getiDisplayLength());
 	}
 
 	public Predetemine getPredetemineById(String id) {

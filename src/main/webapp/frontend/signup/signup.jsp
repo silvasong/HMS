@@ -102,9 +102,9 @@
 											<div class="col-lg-8">
 												<div class="radio-list">
 											<label class="radio-inline">
-											<input type="radio" name="sex" value="true" checked/>男</label>
+											<input type="radio" name="sex" value="1" checked/>男</label>
 											<label class="radio-inline">
-											<input type="radio" name="sex" value="false"/>女 </label>
+											<input type="radio" name="sex" value="0"/>女 </label>
 										</div>
 
 

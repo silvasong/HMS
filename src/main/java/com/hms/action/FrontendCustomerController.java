@@ -45,6 +45,7 @@ public class FrontendCustomerController extends BaseController{
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 			resp.put("status", false);
 			resp.put("info","注册失败.");
 		}
