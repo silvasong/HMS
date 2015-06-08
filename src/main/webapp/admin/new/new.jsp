@@ -117,15 +117,14 @@
 											<li><label><input type="checkbox" checked
 													data-column="1">ID</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="2">类型</label></li>
+													data-column="2">标题</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="3">原价</label></li>
+													data-column="3">来源</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="4">优惠价</label></li>
+													data-column="4">栏目</label></li>
 											<li><label><input type="checkbox" checked
-													data-column="5">入住人数</label></li>
-											<li><label><input type="checkbox" checked
-													data-column="6">早餐</label></li>
+													data-column="5">时间</label></li>
+											
 
 										</ul>
 									</div>
