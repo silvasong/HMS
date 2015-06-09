@@ -130,7 +130,7 @@ public class AdminCheckController extends BaseController{
 			registration.setCustomerIdCard(checkInModel.getCustomerIdcard1()+"#"+checkInModel.getCustomerIdcard2());
 			registration.setCost(checkInModel.getCost());
 			registration.setMargin(checkInModel.getMargin());
-			registration.setDay((int)(sf.parse(checkInModel.getStartTime()).getTime()-sf.parse(checkInModel.getEndTime()).getTime())/86400000);
+			registration.setDay((int)(sf.parse(checkInModel.getEndTime()).getTime()-sf.parse(checkInModel.getStartTime()).getTime())/86400000);
 			Admin admin = (Admin)request.getSession().getAttribute(SystemConstant.ADMIN_LOGIN);
 			registration.setCheckInAdmin(admin.getAdminId());
 			registration.setCheckOutAdmin(1);

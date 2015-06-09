@@ -201,7 +201,7 @@ var NewType = function () {
         	 alert(errorThrown);
          }
        });	
-		$('#add_modal').hide();
+		$('#add_modal').modal('hide');
     };
    
   //处理表单验证方法
@@ -275,7 +275,7 @@ var NewType = function () {
         	 alert(errorThrown);
          }
        });	
-		$('#edit_modal').hide();
+		$('#edit_modal').modal('hide');
     };
    
   //处理表单验证方法

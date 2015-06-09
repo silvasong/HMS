@@ -45,6 +45,9 @@ public class AdminCheckOutController extends BaseController{
 	@Autowired 
 	private AdminRoomService adminRoomService;
 	
+	@Autowired
+	private AdminPredetemineOrderService adminPredetemineOrderService;
+	
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView checkOut(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
@@ -101,7 +104,12 @@ public class AdminCheckOutController extends BaseController{
 				room.setStatus(0);
 				adminRoomService.updateRoom(room);
 				adminRegistrationService.updateRegistrationById(registration);
-				
+				String predetemine_id = registration.getPredetermineId();
+				if(!"0000000000000000".equals(predetemine_id)){
+					Predetemine p = adminPredetemineOrderService.getPredetemineOrderById(predetemine_id);
+					p.setStatus(4);
+					adminPredetemineOrderService.updatePredetemineOrder(p);
+				}
 			}
 			resp.put("status", true);
 		} catch (Exception e) {
